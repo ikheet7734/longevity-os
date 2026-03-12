@@ -3,16 +3,17 @@
 </p>
 
 <h1 align="center">Longevity OS 太医院</h1>
-<p align="center"><b>Agentic Longevity OS</b></p>
+<p align="center"><b>Agentic Longevity OS · Works with Claude Code & OpenClaw</b></p>
 
 <p align="center">
 Your personal team of AI physicians that tracks your health,<br/>
 finds hidden patterns across your data, searches the scientific literature,<br/>
-and proposes rigorous self-experiments — then analyzes the results.
+and proposes rigorous self-experiments — then analyzes the results.<br/>
+<b>10 markdown agent prompts + MCP tools = runs on Claude Code, OpenClaw, or any MCP-compatible agent.</b>
 </p>
 
 <p align="center">
-  <a href="#why-this-exists">Why</a> · <a href="#how-it-works">How It Works</a> · <a href="#conversation-examples">Examples</a> · <a href="#dashboard">Dashboard</a> · <a href="#quick-start">Quick Start</a> · <a href="README.zh.md">中文文档</a>
+  <a href="#why-this-exists">Why</a> · <a href="#how-it-works">How It Works</a> · <a href="#conversation-examples">Examples</a> · <a href="#openclaw-compatibility">OpenClaw</a> · <a href="#dashboard">Dashboard</a> · <a href="#quick-start">Quick Start</a> · <a href="README.zh.md">中文文档</a>
 </p>
 
 <p align="center">
@@ -58,7 +59,7 @@ Longevity OS is different. It's an **agentic system** — a team of 10 specializ
 
 ## How It Works
 
-Longevity OS is built as a **Claude Code multi-agent skill**. You interact through natural language — voice or text. Behind the scenes, an orchestrator dispatches work to specialized agents, each with domain expertise and specific tools.
+Longevity OS is built as a **multi-agent skill** — 10 markdown agent prompts + MCP tools. Designed for Claude Code, fully compatible with OpenClaw and any agent runtime that supports MCP. You interact through natural language — voice or text. Behind the scenes, an orchestrator dispatches work to specialized agents, each with domain expertise and specific tools.
 
 <p align="center">
   <img src="docs/architecture.svg" alt="System Architecture" width="100%" />
@@ -365,7 +366,47 @@ Full demo outputs available in [`docs/demo-output/`](docs/demo-output/).
 
 ---
 
+## OpenClaw Compatibility
+
+Longevity OS is **natively compatible with OpenClaw**. The entire system is markdown agent prompts + MCP tools — the same primitives OpenClaw uses.
+
+### Why it works out of the box
+
+| Component | Format | OpenClaw equivalent |
+|-----------|--------|-------------------|
+| `SKILL.md` | Markdown prompt | `skill.md` orchestrator |
+| `agents/*.md` | 9 markdown agent prompts | Per-agent `skill.md` files |
+| PubMed, bioRxiv | MCP tools | MCP skill servers on ClawHub |
+| Multi-agent dispatch | Orchestrator → sub-agents | OpenClaw multi-agent routing |
+| SQLite + Python scripts | Bash tool calls | OpenClaw tool execution |
+
+### Setup on OpenClaw
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/albert-ying/longevity-os.git
+
+# 2. Initialize the database
+cd longevity-os && python scripts/setup.py
+
+# 3. Copy agent prompts to your OpenClaw workspace
+cp SKILL.md ~/.openclaw/skills/longevity/skill.md
+cp agents/*.md ~/.openclaw/skills/longevity/agents/
+
+# 4. Enable MCP tools (PubMed, bioRxiv) via ClawHub or local config
+```
+
+Each of the 10 agents works as an independent OpenClaw skill — you can use the full system or pick individual modules (e.g., just the diet tracker or just the N-of-1 trial engine).
+
+### Multi-Agent on OpenClaw
+
+The orchestrator (御医) pattern maps directly to OpenClaw's [multi-agent routing](https://docs.openclaw.ai/concepts/multi-agent): a persistent orchestrator agent handles user chat and spawns sub-agents for parallel tasks (diet logging + exercise logging from one message, trial design + safety review as sequential agents).
+
+---
+
 ## Quick Start
+
+### Claude Code
 
 ```bash
 # 1. Initialize the database
@@ -384,6 +425,16 @@ The primary interface is natural language through Claude Code:
 /longevity Weekly report
 /longevity How's my sleep trending?
 /longevity Propose a trial for my protein-sleep pattern
+```
+
+### OpenClaw
+
+After copying skills to your OpenClaw workspace (see [OpenClaw setup](#setup-on-openclaw) above), interact via any connected platform — WhatsApp, Telegram, Slack, Discord, or iMessage:
+
+```
+@longevity Had salmon and rice for lunch
+@longevity Weekly report
+@longevity How's my sleep trending?
 ```
 
 ---
@@ -440,8 +491,8 @@ All health data stays in a local SQLite database with owner-only permissions (`0
 
 ## Tech Stack
 
-- **AI**: Claude Code multi-agent skill (10 agents with specialized prompts)
-- **Literature**: PubMed + bioRxiv via MCP tools (search, fetch, analyze)
+- **AI**: 10 markdown agent prompts — works on Claude Code, OpenClaw, or any MCP-compatible runtime
+- **Tools**: MCP protocol (PubMed, bioRxiv, USDA nutrition API)
 - **Database**: SQLite with WAL journal mode
 - **Modeling**: scipy, statsmodels, numpy, pandas + custom Bayesian STS
 - **Dashboard**: Single HTML, Chart.js 4.x, EN/CN i18n

@@ -3,16 +3,17 @@
 </p>
 
 <h1 align="center">太医院</h1>
-<p align="center"><b>个人长寿优化系统 · Agentic Longevity OS</b></p>
+<p align="center"><b>个人长寿优化系统 · 兼容 Claude Code 与 OpenClaw</b></p>
 
 <p align="center">
 十位 AI 御医各司其职——追踪健康数据、发现跨模块隐藏规律、<br/>
 检索科学文献佐证洞察、设计严谨的 N-of-1 自我实验，<br/>
-并以贝叶斯因果推断分析结果。全部数据本地存储，绝不上云。
+并以贝叶斯因果推断分析结果。全部数据本地存储，绝不上云。<br/>
+<b>10 个 Markdown 智能体 + MCP 工具 = Claude Code、OpenClaw 或任何 MCP 兼容平台均可运行。</b>
 </p>
 
 <p align="center">
-  <a href="#为什么要做这个">为什么</a> · <a href="#工作原理">原理</a> · <a href="#对话示例">示例</a> · <a href="#仪表板">仪表板</a> · <a href="#快速开始">快速开始</a> · <a href="README.md">English</a>
+  <a href="#为什么要做这个">为什么</a> · <a href="#工作原理">原理</a> · <a href="#对话示例">示例</a> · <a href="#openclaw-兼容">OpenClaw</a> · <a href="#仪表板">仪表板</a> · <a href="#快速开始">快速开始</a> · <a href="README.md">English</a>
 </p>
 
 <p align="center">
@@ -58,7 +59,7 @@
 
 ## 工作原理
 
-太医院是一个 **Claude Code 多智能体技能**。你通过自然语言（语音或文字）交互。后台的御医（总调度）会将请求分派至专职智能体，各有独立的领域知识和工具。
+太医院是一个**多智能体技能系统**——10 个 Markdown 智能体提示 + MCP 工具。专为 Claude Code 设计，完全兼容 OpenClaw 及所有支持 MCP 的智能体平台。你通过自然语言（语音或文字）交互。后台的御医（总调度）会将请求分派至专职智能体，各有独立的领域知识和工具。
 
 <p align="center">
   <img src="docs/architecture.svg" alt="系统架构" width="100%" />
@@ -357,7 +358,47 @@
 
 ---
 
+## OpenClaw 兼容
+
+太医院**原生兼容 OpenClaw**。整个系统就是 Markdown 智能体提示 + MCP 工具——与 OpenClaw 使用完全相同的基础组件。
+
+### 为什么开箱即用
+
+| 组件 | 格式 | OpenClaw 对应 |
+|------|------|--------------|
+| `SKILL.md` | Markdown 提示 | `skill.md` 编排器 |
+| `agents/*.md` | 9 个 Markdown 智能体提示 | 各智能体 `skill.md` |
+| PubMed、bioRxiv | MCP 工具 | ClawHub MCP 技能服务器 |
+| 多智能体调度 | 编排器 → 子智能体 | OpenClaw 多智能体路由 |
+| SQLite + Python 脚本 | Bash 工具调用 | OpenClaw 工具执行 |
+
+### 在 OpenClaw 上部署
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/albert-ying/longevity-os.git
+
+# 2. 初始化数据库
+cd longevity-os && python scripts/setup.py
+
+# 3. 复制智能体提示到 OpenClaw 工作区
+cp SKILL.md ~/.openclaw/skills/longevity/skill.md
+cp agents/*.md ~/.openclaw/skills/longevity/agents/
+
+# 4. 通过 ClawHub 或本地配置启用 MCP 工具（PubMed、bioRxiv）
+```
+
+10 个智能体各自可作为独立的 OpenClaw 技能使用——你可以部署完整系统，也可以只选单个模块（如只用膳食追踪或 N-of-1 试验引擎）。
+
+### OpenClaw 上的多智能体模式
+
+御医（编排器）模式直接映射到 OpenClaw 的[多智能体路由](https://docs.openclaw.ai/concepts/multi-agent)：一个常驻编排智能体处理用户对话，按需派生子智能体并行执行任务。通过 WhatsApp、Telegram、Slack、Discord 或 iMessage 均可交互。
+
+---
+
 ## 快速开始
+
+### Claude Code
 
 ```bash
 # 1. 初始化数据库
@@ -376,6 +417,16 @@ python dashboard/server.py
 /longevity 出周报
 /longevity 最近睡眠怎么样？
 /longevity 帮我设计一个蛋白质-睡眠试验
+```
+
+### OpenClaw
+
+将技能复制到 OpenClaw 工作区后（见[上方部署说明](#在-openclaw-上部署)），即可通过任意连接平台交互：
+
+```
+@longevity 午饭吃了烤三文鱼配糙米和西兰花
+@longevity 出周报
+@longevity 最近睡眠怎么样？
 ```
 
 ---
@@ -432,8 +483,8 @@ longevity-os/
 
 ## 技术栈
 
-- **AI**：Claude Code 多智能体技能系统（10 位智能体）
-- **文献检索**：PubMed + bioRxiv（MCP 工具：搜索、获取、分析）
+- **AI**：10 个 Markdown 智能体提示——Claude Code、OpenClaw 或任何 MCP 兼容平台均可运行
+- **工具**：MCP 协议（PubMed、bioRxiv、USDA 营养 API）
 - **数据库**：SQLite，WAL 日志模式
 - **建模**：scipy, statsmodels, numpy, pandas + 自定义贝叶斯 STS
 - **仪表板**：单 HTML 文件，Chart.js 4.x，中英双语 i18n
