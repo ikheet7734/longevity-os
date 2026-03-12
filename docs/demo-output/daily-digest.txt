@@ -1,0 +1,95 @@
+{
+  "date": "2026-03-10",
+  "diet": {
+    "meals": 5,
+    "total_calories": 2390.0,
+    "macros": {
+      "protein_g": 160.2,
+      "carbs_g": 267.3,
+      "fat_g": 77.9,
+      "fiber_g": 14.2
+    },
+    "by_meal": {
+      "breakfast": 522.5,
+      "dinner": 746.5,
+      "lunch": 843.6,
+      "snack": 276.9
+    }
+  },
+  "exercise": {
+    "sessions": 1,
+    "total_minutes": 63.0,
+    "activities": [
+      "weightlifting"
+    ],
+    "avg_rpe": 8.0
+  },
+  "metrics": {
+    "entries": [
+      {
+        "metric": "sleep_duration",
+        "value": 7.2,
+        "unit": "hours",
+        "context": "night sleep"
+      },
+      {
+        "metric": "sleep_quality",
+        "value": 7.7,
+        "unit": "score",
+        "context": "subjective rating"
+      },
+      {
+        "metric": "weight",
+        "value": 73.6,
+        "unit": "kg",
+        "context": "morning fasted"
+      },
+      {
+        "metric": "resting_hr",
+        "value": 63.0,
+        "unit": "bpm",
+        "context": "morning waking"
+      },
+      {
+        "metric": "hrv",
+        "value": 51.0,
+        "unit": "ms",
+        "context": "morning waking"
+      },
+      {
+        "metric": "blood_pressure_sys",
+        "value": 119.0,
+        "unit": "mmHg",
+        "context": "morning seated"
+      },
+      {
+        "metric": "blood_pressure_dia",
+        "value": 79.0,
+        "unit": "mmHg",
+        "context": "morning seated"
+      }
+    ],
+    "alerts": []
+  },
+  "supplements": {
+    "active": 5,
+    "compounds": [
+      "Multivitamin",
+      "Creatine Monohydrate",
+      "Vitamin D3",
+      "Omega-3 (EPA/DHA)",
+      "Magnesium Glycinate"
+    ]
+  },
+  "trials": {
+    "active": [
+      {
+        "id": 2,
+        "name": "Creatine-Cognition Trial",
+        "intervention": "5g creatine monohydrate daily vs no supplementation",
+        "status": "active"
+      }
+    ]
+  },
+  "insights": []
+}

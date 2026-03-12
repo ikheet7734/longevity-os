@@ -1,0 +1,32 @@
+{
+  "7": {
+    "mean": 72.1114,
+    "std": 0.318,
+    "min": 71.59,
+    "max": 72.5,
+    "n": 7,
+    "trend_slope": -0.017143,
+    "last_value": 71.59,
+    "pct_change_vs_mean": -0.72
+  },
+  "30": {
+    "mean": 72.8607,
+    "std": 0.6752,
+    "min": 71.59,
+    "max": 74.08,
+    "n": 30,
+    "trend_slope": -0.069353,
+    "last_value": 71.59,
+    "pct_change_vs_mean": -1.74
+  },
+  "90": {
+    "mean": 74.1228,
+    "std": 1.1226,
+    "min": 71.59,
+    "max": 75.85,
+    "n": 90,
+    "trend_slope": -0.039475,
+    "last_value": 71.59,
+    "pct_change_vs_mean": -3.42
+  }
+}

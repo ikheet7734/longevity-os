@@ -1,0 +1,15 @@
+{
+  "metric": "sleep_quality",
+  "baseline_mean": 6.9133,
+  "baseline_sd": 1.2129,
+  "within_person_sd": 0.7714,
+  "n_baseline_observations": 60,
+  "mde_cohens_d": 0.3617,
+  "mde_absolute": 0.279,
+  "mde_pct_change": 4.04,
+  "recommended_phase_duration": 32,
+  "sufficient_baseline": true,
+  "alpha": 0.05,
+  "power": 0.8,
+  "message": "With 60 baseline observations (within-person SD=0.771), the minimum detectable effect is 0.36 SD (0.279 absolute, 4.0%). Baseline is sufficient (>= 30 days). To detect a medium effect (d=0.5), 32 observations per phase are recommended."
+}

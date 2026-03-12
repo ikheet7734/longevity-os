@@ -3,25 +3,27 @@
 </p>
 
 <h1 align="center">Longevity OS 太医院</h1>
-<p align="center"><b>Agentic Longevity OS — 个人长寿优化系统</b></p>
+<p align="center"><b>Agentic Longevity OS</b></p>
 
 <p align="center">
-A scientifically rigorous health tracking and N-of-1 self-experimentation platform, modeled after the historical Imperial Medical Academy (太医院). Built as a Claude Code multi-agent skill system with 10 specialized AI agents, a statistical modeling engine, and an imperial Chinese–themed dashboard.
+A scientifically rigorous health optimization platform<br/>
+modeled after the historical Imperial Medical Academy.<br/><br/>
+10 specialized AI agents · statistical modeling engine · imperial-themed dashboard
 </p>
 
 <p align="center">
-All data stays local. No cloud. SQLite database, Python server, static HTML dashboard.
+All data stays local. No cloud.
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/dashboard-hero.png" alt="Longevity OS Dashboard — Header and Summary" width="100%" />
+  <img src="docs/screenshots/dashboard-hero.png" alt="Longevity OS Dashboard" width="100%" />
 </p>
 
 ---
 
 ## Architecture
 
-Longevity OS uses a **multi-agent orchestration pattern** inspired by the historical Imperial Medical Academy's departmental structure. The 御医 (Imperial Physician) orchestrator dispatches work to 9 specialized sub-agents, each with domain-specific knowledge and constraints.
+Longevity OS uses a **multi-agent orchestration pattern** inspired by the Imperial Medical Academy's departmental structure. The Imperial Physician orchestrator dispatches work to 9 specialized sub-agents, each with domain-specific knowledge and constraints.
 
 <p align="center">
   <img src="docs/architecture.svg" alt="System Architecture" width="100%" />
@@ -35,22 +37,22 @@ When a user makes a request, the orchestrator classifies intent, dispatches to t
   <img src="docs/agent-flow.svg" alt="Agent Dispatch Flow" width="100%" />
 </p>
 
-### The Imperial Court (十官)
+### The Imperial Court
 
 <table>
 <tr>
-<td align="center" width="20%"><img src="docs/characters/yuyi.svg" alt="御医" width="80"/><br/><b>御医</b><br/>Orchestrator</td>
-<td align="center" width="20%"><img src="docs/characters/shiyi.svg" alt="食医" width="80"/><br/><b>食医科</b><br/>Diet</td>
-<td align="center" width="20%"><img src="docs/characters/daoyin.svg" alt="导引" width="80"/><br/><b>导引科</b><br/>Exercise</td>
-<td align="center" width="20%"><img src="docs/characters/zhenmai.svg" alt="诊脉" width="80"/><br/><b>诊脉科</b><br/>Body Metrics</td>
-<td align="center" width="20%"><img src="docs/characters/yanfang.svg" alt="验方" width="80"/><br/><b>验方科</b><br/>Biomarkers</td>
+<td align="center" width="20%"><img src="docs/characters/yuyi.svg" alt="Imperial Physician" width="80"/><br/><b>Imperial Physician</b><br/>Orchestrator</td>
+<td align="center" width="20%"><img src="docs/characters/shiyi.svg" alt="Diet Physician" width="80"/><br/><b>Diet Physician</b><br/>Nutrition</td>
+<td align="center" width="20%"><img src="docs/characters/daoyin.svg" alt="Movement Master" width="80"/><br/><b>Movement Master</b><br/>Exercise</td>
+<td align="center" width="20%"><img src="docs/characters/zhenmai.svg" alt="Pulse Reader" width="80"/><br/><b>Pulse Reader</b><br/>Body Metrics</td>
+<td align="center" width="20%"><img src="docs/characters/yanfang.svg" alt="Formula Tester" width="80"/><br/><b>Formula Tester</b><br/>Biomarkers</td>
 </tr>
 <tr>
-<td align="center"><img src="docs/characters/bencao.svg" alt="本草" width="80"/><br/><b>本草科</b><br/>Supplements</td>
-<td align="center"><img src="docs/characters/shixiao.svg" alt="试效" width="80"/><br/><b>试效科</b><br/>Trials</td>
-<td align="center"><img src="docs/characters/yuanpan.svg" alt="院判" width="80"/><br/><b>院判</b><br/>Trial Design</td>
-<td align="center"><img src="docs/characters/yizheng.svg" alt="医正" width="80"/><br/><b>医正</b><br/>Safety Review</td>
-<td align="center"><img src="docs/characters/baogao.svg" alt="报告" width="80"/><br/><b>报告科</b><br/>Reports</td>
+<td align="center"><img src="docs/characters/bencao.svg" alt="Herbalist" width="80"/><br/><b>Herbalist</b><br/>Supplements</td>
+<td align="center"><img src="docs/characters/shixiao.svg" alt="Trial Monitor" width="80"/><br/><b>Trial Monitor</b><br/>Experiments</td>
+<td align="center"><img src="docs/characters/yuanpan.svg" alt="Court Magistrate" width="80"/><br/><b>Court Magistrate</b><br/>Trial Design</td>
+<td align="center"><img src="docs/characters/yizheng.svg" alt="Medical Censor" width="80"/><br/><b>Medical Censor</b><br/>Safety Review</td>
+<td align="center"><img src="docs/characters/baogao.svg" alt="Court Scribe" width="80"/><br/><b>Court Scribe</b><br/>Reports</td>
 </tr>
 </table>
 
@@ -60,7 +62,7 @@ When a user makes a request, the orchestrator classifies intent, dispatches to t
 
 The dashboard is a zero-dependency local HTML file served by a Python stdlib HTTP server. Imperial Chinese aesthetic with dark wood panels, gold accents, and teal data visualizations.
 
-### Today's Summary — 今日总览
+### Today's Summary
 
 Four summary cards showing calories, protein, exercise minutes, and sleep hours with 7-day averages and sparklines.
 
@@ -68,7 +70,7 @@ Four summary cards showing calories, protein, exercise minutes, and sleep hours 
   <img src="docs/screenshots/dashboard-summary.png" alt="Today's Summary Cards" width="100%" />
 </p>
 
-### Nutrition — 营养 (食医科)
+### Nutrition
 
 Stacked bar chart of daily macronutrient breakdown (protein, carbs, fat) with interactive meal log.
 
@@ -76,7 +78,7 @@ Stacked bar chart of daily macronutrient breakdown (protein, carbs, fat) with in
   <img src="docs/screenshots/dashboard-nutrition.png" alt="Nutrition Chart" width="100%" />
 </p>
 
-### Body Metrics — 体征 (诊脉科)
+### Body Metrics
 
 Time series charts for weight, heart rate, HRV, sleep, and blood pressure with 7-day moving averages and anomaly detection.
 
@@ -84,7 +86,7 @@ Time series charts for weight, heart rate, HRV, sleep, and blood pressure with 7
   <img src="docs/screenshots/dashboard-metrics.png" alt="Body Metrics Chart" width="100%" />
 </p>
 
-### Exercise — 导引 (导引科)
+### Exercise
 
 Activity heatmap (GitHub-style) and recent workout log with duration, distance, heart rate, and RPE.
 
@@ -92,7 +94,7 @@ Activity heatmap (GitHub-style) and recent workout log with duration, distance, 
   <img src="docs/screenshots/dashboard-exercise.png" alt="Exercise Heatmap" width="100%" />
 </p>
 
-### Supplement Stack — 本草 (本草科)
+### Supplement Stack
 
 Current supplement stack with dosage, frequency, timing, and days active.
 
@@ -100,7 +102,7 @@ Current supplement stack with dosage, frequency, timing, and days active.
   <img src="docs/screenshots/dashboard-supplements.png" alt="Supplement Stack" width="100%" />
 </p>
 
-### Biomarker Trends — 验方 (验方科)
+### Biomarker Trends
 
 Lab result time series with reference ranges for HbA1c, LDL, HDL, CRP, glucose, triglycerides, TSH, and Vitamin D.
 
@@ -108,15 +110,15 @@ Lab result time series with reference ranges for HbA1c, LDL, HDL, CRP, glucose, 
   <img src="docs/screenshots/dashboard-biomarkers.png" alt="Biomarker Trends" width="100%" />
 </p>
 
-### Active Trials — 试效 (试效科)
+### Active Trials
 
-N-of-1 trial progress tracking with phase indicators (baseline → intervention → washout) and completion percentage.
+N-of-1 trial progress tracking with phase indicators (baseline, intervention, washout) and completion percentage.
 
 <p align="center">
   <img src="docs/screenshots/dashboard-trials.png" alt="Active Trials" width="100%" />
 </p>
 
-### Modeling Engine — 洞察
+### Modeling Engine Insights
 
 AI-generated insights with confidence levels, effect sizes, and color-coded severity (anomaly, correlation, trend, recommendation, routine).
 
@@ -164,17 +166,17 @@ The primary interface is voice/text through Claude Code using the `/longevity` o
 
 ## Modules
 
-| Module | Department | Chinese | Role |
-|--------|------------|---------|------|
-| Diet | 食医科 | 食医 | Meal logging, USDA nutrition lookup, recipe library |
-| Exercise | 导引科 | 导引 | Workout logging, volume tracking, activity heatmaps |
-| Body Metrics | 诊脉科 | 诊脉 | Weight, BP, sleep, HRV, custom metrics |
-| Biomarkers | 验方科 | 验方 | Lab results with clinical and optimal reference ranges |
-| Supplements | 本草科 | 本草 | Supplement stack, interaction checking, compliance |
-| Trials | 试效科 | 试效 | N-of-1 trial monitoring and analysis |
-| Trial Design | 院判 | 院判 | Evidence-based trial protocol design |
-| Safety Review | 医正 | 医正 | Independent adversarial review of trial proposals |
-| Reports | 报告科 | 报告 | Daily digests, weekly reports, trend summaries |
+| Module | Role |
+|--------|------|
+| Diet | Meal logging, USDA nutrition lookup, recipe library |
+| Exercise | Workout logging, volume tracking, activity heatmaps |
+| Body Metrics | Weight, blood pressure, sleep, HRV, custom metrics |
+| Biomarkers | Lab results with clinical and optimal reference ranges |
+| Supplements | Supplement stack, interaction checking, compliance |
+| Trials | N-of-1 trial monitoring and analysis |
+| Trial Design | Evidence-based trial protocol design |
+| Safety Review | Independent adversarial review of trial proposals |
+| Reports | Daily digests, weekly reports, trend summaries |
 
 ### Modeling Engine
 
@@ -193,17 +195,17 @@ The statistical modeling engine runs behind all modules:
 
 ```
 longevity-os/
-├── SKILL.md                          # 御医 orchestrator (main entry point)
+├── SKILL.md                          # Orchestrator (main entry point)
 ├── agents/                           # Department agent system prompts
-│   ├── shiyi.md                      # 食医科 (Diet)
-│   ├── daoyin.md                     # 导引科 (Exercise)
-│   ├── zhenmai.md                    # 诊脉科 (Body Metrics)
-│   ├── yanfang.md                    # 验方科 (Biomarkers)
-│   ├── bencao.md                     # 本草科 (Supplements)
-│   ├── shixiao.md                    # 试效科 (Trial Monitoring)
-│   ├── yuanpan.md                    # 院判 (Trial Design)
-│   ├── yizheng.md                    # 医正 (Safety Review)
-│   └── baogao.md                     # 报告科 (Reports)
+│   ├── shiyi.md                      # Diet
+│   ├── daoyin.md                     # Exercise
+│   ├── zhenmai.md                    # Body Metrics
+│   ├── yanfang.md                    # Biomarkers
+│   ├── bencao.md                     # Supplements
+│   ├── shixiao.md                    # Trial Monitoring
+│   ├── yuanpan.md                    # Trial Design
+│   ├── yizheng.md                    # Safety Review
+│   └── baogao.md                     # Reports
 ├── dashboard/
 │   ├── dashboard.html                # Imperial-themed single-file dashboard
 │   └── server.py                     # Python stdlib HTTP server (8 API endpoints)
@@ -247,3 +249,9 @@ All health data is stored in a local SQLite database (`taiyiyuan.db`) with file 
 - **Dashboard**: Single HTML file, Chart.js 4.x
 - **Modeling**: Python (scipy, statsmodels, numpy, pandas)
 - **Nutrition API**: USDA FoodData Central + Open Food Facts
+
+---
+
+<p align="center">
+  📖 <a href="README.zh.md">中文文档 / Chinese Documentation</a>
+</p>

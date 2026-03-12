@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>太医院 — Longevity OS</title>
+<meta name="color-scheme" content="light only">
+<title>Longevity OS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -12,34 +13,35 @@
         onerror="document.getElementById('cdn-warning').style.display='block'"></script>
 <style>
 /* ==========================================================================
-   Imperial Chinese Medical Academy — 太医院 Design System
+   Imperial Chinese Medical Academy — Light Rice-Paper Theme
    ========================================================================== */
 
 :root {
-  --bg-base: #1a1410;
-  --bg-warm: #1e1814;
-  --card-bg: #2a1f1a;
-  --card-bg-hover: #332720;
-  --card-border: #3d2e22;
+  --bg-base: #FAFAF8;
+  --bg-warm: #F5F3EF;
+  --card-bg: #FFFFFF;
+  --card-bg-hover: #FEFEFE;
+  --card-border: #E8E0D4;
 
   --imperial-red: #C41E3A;
-  --imperial-red-dim: #8B1525;
+  --imperial-red-dim: #D4546A;
   --cinnabar: #E34234;
   --gold: #DAA520;
-  --gold-bright: #FFD700;
-  --gold-dim: #8B7355;
+  --gold-bright: #B8860B;
+  --gold-dim: #C4A35A;
   --jade: #2E8B8B;
   --jade-green: #00A86B;
   --jade-light: #3BA89F;
   --amber: #DAA520;
 
-  --text-cream: #F5E6CC;
-  --text-body: #D4C4A8;
-  --text-dim: #8B7E6A;
-  --text-gold: #DAA520;
+  --text-primary: #2a2a2a;
+  --text-body: #4a4a4a;
+  --text-dim: #8B8070;
+  --text-gold: #9A7B2C;
+  --text-cream: #2a2a2a;
 
   --success: #00A86B;
-  --warning: #DAA520;
+  --warning: #C49000;
   --danger: #E34234;
 
   --font-header: "Noto Serif SC", "Songti SC", serif;
@@ -47,8 +49,8 @@
   --font-mono: "SF Mono", "Fira Code", "Consolas", monospace;
 
   --radius: 8px;
-  --shadow: 0 4px 32px rgba(0,0,0,0.5);
-  --shadow-lift: 0 8px 40px rgba(0,0,0,0.6);
+  --shadow: 0 2px 12px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lift: 0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05);
 }
 
 /* Reset */
@@ -58,9 +60,9 @@
 body {
   background: var(--bg-base);
   background-image:
-    radial-gradient(ellipse at 20% 50%, rgba(42,31,26,0.6) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(42,31,26,0.4) 0%, transparent 50%),
-    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    radial-gradient(ellipse at 20% 50%, rgba(218,165,32,0.02) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(196,30,58,0.01) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E");
   color: var(--text-body);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -74,7 +76,7 @@ body {
 ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 
 /* Selection */
-::selection { background: rgba(218,165,32,0.3); color: var(--text-cream); }
+::selection { background: rgba(218,165,32,0.2); color: var(--text-primary); }
 
 /* ==========================================================================
    Cloud Pattern Border (top decorative band)
@@ -111,7 +113,7 @@ body {
     var(--imperial-red) 50%,
     var(--gold) 70%, var(--gold-dim) 90%, transparent 100%
   );
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 /* ==========================================================================
@@ -130,7 +132,7 @@ body {
    Header
    ========================================================================== */
 .header {
-  background: linear-gradient(180deg, #2a1f1a 0%, var(--bg-base) 100%);
+  background: linear-gradient(180deg, #F5F0E8 0%, var(--bg-base) 100%);
   padding: 24px 40px;
   display: flex;
   align-items: center;
@@ -148,6 +150,7 @@ body {
   right: 5%;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold-dim), var(--gold), var(--gold-dim), transparent);
+  opacity: 0.5;
 }
 
 .header-left {
@@ -157,12 +160,10 @@ body {
 }
 
 .header-logo {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: 2px solid var(--gold-dim);
-  box-shadow: 0 0 12px rgba(255,215,0,0.2);
-  object-fit: cover;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
 }
 
 .header-title {
@@ -174,17 +175,12 @@ body {
   font-family: var(--font-header);
   font-size: 42px;
   font-weight: 900;
-  color: var(--gold-bright);
   letter-spacing: 8px;
   line-height: 1.1;
-  text-shadow:
-    0 0 20px rgba(255,215,0,0.3),
-    0 0 40px rgba(255,215,0,0.1),
-    0 2px 4px rgba(0,0,0,0.5);
   position: relative;
 }
 
-/* Gold shimmer animation on header */
+/* Gold shimmer animation on header — dark gold on light bg */
 @keyframes shimmer {
   0% { background-position: -200% center; }
   100% { background-position: 200% center; }
@@ -194,9 +190,9 @@ body {
   background: linear-gradient(
     90deg,
     var(--gold-bright) 0%,
-    #FFF8DC 25%,
+    #DAA520 25%,
     var(--gold-bright) 50%,
-    #FFF8DC 75%,
+    #DAA520 75%,
     var(--gold-bright) 100%
   );
   background-size: 200% auto;
@@ -204,6 +200,7 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 6s ease-in-out infinite;
+  text-shadow: none;
 }
 
 .header-subtitle {
@@ -229,9 +226,9 @@ body {
 }
 
 .header-controls input[type="date"] {
-  background: rgba(42,31,26,0.8);
-  border: 1px solid var(--gold-dim);
-  color: var(--text-cream);
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
   padding: 8px 14px;
   border-radius: 6px;
   font-family: var(--font-body);
@@ -245,14 +242,10 @@ body {
   outline: none;
 }
 
-.header-controls input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(0.6) sepia(1) saturate(3) hue-rotate(10deg);
-}
-
 /* Jade seal stamp button */
 .btn-seal {
   background: linear-gradient(135deg, #2E6B5E, var(--jade));
-  color: var(--text-cream);
+  color: #FFFFFF;
   border: 2px solid var(--jade-light);
   padding: 10px 24px;
   border-radius: 6px;
@@ -262,19 +255,51 @@ body {
   font-weight: 600;
   letter-spacing: 2px;
   transition: all 0.2s;
-  box-shadow: 0 2px 12px rgba(46,139,139,0.3);
+  box-shadow: 0 2px 12px rgba(46,139,139,0.2);
   position: relative;
   overflow: hidden;
 }
 
 .btn-seal:hover {
   background: linear-gradient(135deg, var(--jade), var(--jade-light));
-  box-shadow: 0 4px 20px rgba(46,139,139,0.5);
+  box-shadow: 0 4px 20px rgba(46,139,139,0.35);
   transform: translateY(-1px);
 }
 
 .btn-seal:active {
   transform: translateY(0);
+}
+
+/* Language toggle */
+.lang-toggle {
+  display: flex;
+  gap: 2px;
+  margin-left: 8px;
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-dim);
+  transition: all 0.2s;
+  font-family: var(--font-body);
+}
+
+.lang-btn:hover {
+  color: var(--text-primary);
+  background: rgba(218,165,32,0.06);
+}
+
+.lang-btn.active {
+  background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+  color: #FFFFFF;
 }
 
 .refresh-indicator {
@@ -296,6 +321,8 @@ body {
   align-items: center;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  background: var(--bg-warm);
+  border-bottom: 1px solid var(--card-border);
 }
 
 .agent-bar::-webkit-scrollbar { display: none; }
@@ -336,16 +363,16 @@ body {
 }
 
 .agent-avatar.active {
-  border-color: var(--gold-bright);
+  border-color: var(--gold);
   box-shadow:
-    0 0 12px rgba(255,215,0,0.4),
-    0 0 24px rgba(255,215,0,0.15);
+    0 0 8px rgba(218,165,32,0.3),
+    0 0 20px rgba(218,165,32,0.1);
 }
 
 /* Golden pulse animation for active agents */
 @keyframes golden-pulse {
-  0%, 100% { box-shadow: 0 0 12px rgba(255,215,0,0.4), 0 0 24px rgba(255,215,0,0.15); }
-  50% { box-shadow: 0 0 20px rgba(255,215,0,0.6), 0 0 36px rgba(255,215,0,0.25); }
+  0%, 100% { box-shadow: 0 0 8px rgba(218,165,32,0.3), 0 0 20px rgba(218,165,32,0.1); }
+  50% { box-shadow: 0 0 14px rgba(218,165,32,0.4), 0 0 28px rgba(218,165,32,0.15); }
 }
 
 .agent-avatar.active {
@@ -357,17 +384,18 @@ body {
   bottom: -36px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--card-bg);
-  border: 1px solid var(--gold-dim);
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
   border-radius: 4px;
   padding: 3px 10px;
   font-size: 11px;
-  color: var(--text-cream);
+  color: var(--text-primary);
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s;
   z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .agent-avatar:hover .agent-tooltip {
@@ -383,7 +411,7 @@ body {
   gap: 14px;
   margin-bottom: 20px;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(139,115,85,0.3);
+  border-bottom: 1px solid rgba(218,165,32,0.15);
   position: relative;
 }
 
@@ -401,7 +429,7 @@ body {
   font-family: var(--font-header);
   font-size: 26px;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--imperial-red);
   letter-spacing: 4px;
 }
 
@@ -419,6 +447,7 @@ body {
   color: var(--imperial-red);
   margin-left: auto;
   letter-spacing: 2px;
+  opacity: 0.7;
 }
 
 /* ==========================================================================
@@ -468,7 +497,7 @@ body {
 }
 
 /* ==========================================================================
-   Cards — Dark wood panel style
+   Cards — Elegant paper style
    ========================================================================== */
 .card {
   background: var(--card-bg);
@@ -481,7 +510,7 @@ body {
   overflow: hidden;
 }
 
-/* Subtle wood grain texture */
+/* Subtle texture */
 .card::before {
   content: '';
   position: absolute;
@@ -494,8 +523,8 @@ body {
       0deg,
       transparent,
       transparent 20px,
-      rgba(139,115,85,0.02) 20px,
-      rgba(139,115,85,0.02) 21px
+      rgba(218,165,32,0.01) 20px,
+      rgba(218,165,32,0.01) 21px
     );
   pointer-events: none;
 }
@@ -519,18 +548,18 @@ body {
   right: 6px;
   bottom: 6px;
   border: 1px solid transparent;
-  border-top-color: rgba(218,165,32,0.15);
-  border-left-color: rgba(218,165,32,0.15);
+  border-top-color: rgba(218,165,32,0.1);
+  border-left-color: rgba(218,165,32,0.1);
   border-radius: 2px;
   pointer-events: none;
 }
 
 /* ==========================================================================
-   Summary Cards — Jade tablet style
+   Summary Cards — Jade tablet style on light
    ========================================================================== */
 .summary-card {
-  background: linear-gradient(135deg, var(--card-bg) 0%, #2d2219 100%);
-  border: 1px solid var(--gold-dim);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F6F0 100%);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius);
   padding: 20px 24px;
   box-shadow: var(--shadow);
@@ -552,7 +581,7 @@ body {
 
 .summary-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(46,139,139,0.15);
+  box-shadow: 0 8px 28px rgba(46,139,139,0.1);
   border-color: var(--jade-light);
 }
 
@@ -573,7 +602,7 @@ body {
 .summary-card .card-value {
   font-size: 36px;
   font-weight: 700;
-  color: var(--text-cream);
+  color: var(--text-primary);
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
 }
@@ -619,7 +648,7 @@ body {
 
 .target-ring .ring-bg {
   fill: none;
-  stroke: rgba(139,115,85,0.2);
+  stroke: rgba(218,165,32,0.12);
   stroke-width: 4;
 }
 
@@ -682,7 +711,7 @@ body {
 
 .data-table td {
   padding: 12px 14px;
-  border-bottom: 1px solid rgba(61,46,34,0.5);
+  border-bottom: 1px solid rgba(218,165,32,0.08);
   color: var(--text-body);
 }
 
@@ -717,13 +746,13 @@ body {
 
 .metric-btn:hover {
   border-color: var(--gold-dim);
-  color: var(--text-cream);
-  background: rgba(218,165,32,0.08);
+  color: var(--text-primary);
+  background: rgba(218,165,32,0.06);
 }
 
 .metric-btn.active {
   background: linear-gradient(135deg, var(--gold-dim), var(--gold));
-  color: var(--bg-base);
+  color: #FFFFFF;
   border-color: var(--gold);
   font-weight: 600;
 }
@@ -738,8 +767,8 @@ body {
 }
 
 .supplement-card {
-  background: linear-gradient(145deg, #2d2219, #352a1f);
-  border: 1px solid var(--gold-dim);
+  background: linear-gradient(145deg, #FFFFFF, #FAF8F3);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius);
   padding: 16px;
   position: relative;
@@ -759,19 +788,20 @@ body {
 .supplement-card:hover {
   border-color: var(--gold);
   transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
 }
 
 .supplement-name {
   font-family: var(--font-header);
   font-size: 16px;
   font-weight: 600;
-  color: var(--text-cream);
+  color: var(--text-primary);
   margin-bottom: 6px;
 }
 
 .supplement-dosage {
   font-size: 14px;
-  color: var(--gold);
+  color: var(--gold-bright);
   font-weight: 600;
   margin-bottom: 4px;
 }
@@ -808,6 +838,7 @@ body {
 
 .trial-card:hover {
   border-color: var(--gold-dim);
+  box-shadow: var(--shadow);
 }
 
 .trial-header {
@@ -821,7 +852,7 @@ body {
   font-family: var(--font-header);
   font-size: 16px;
   font-weight: 600;
-  color: var(--text-cream);
+  color: var(--text-primary);
 }
 
 /* Phase timeline visualization */
@@ -842,7 +873,7 @@ body {
 
 .phase-baseline { background: #4A6FA5; }
 .phase-intervention { background: var(--jade-green); }
-.phase-washout { background: #6B6B6B; }
+.phase-washout { background: #A0A0A0; }
 
 @keyframes phase-pulse {
   0%, 100% { opacity: 1; }
@@ -855,7 +886,7 @@ body {
 
 /* Progress bar */
 .progress-bar {
-  background: rgba(139,115,85,0.15);
+  background: rgba(218,165,32,0.1);
   border-radius: 6px;
   height: 8px;
   overflow: hidden;
@@ -896,19 +927,19 @@ body {
   text-transform: uppercase;
 }
 
-.badge-active { background: rgba(0,168,107,0.12); color: var(--success); border: 1px solid rgba(0,168,107,0.3); }
-.badge-completed { background: rgba(139,115,85,0.12); color: var(--text-dim); border: 1px solid rgba(139,115,85,0.3); }
-.badge-proposed { background: rgba(218,165,32,0.12); color: var(--warning); border: 1px solid rgba(218,165,32,0.3); }
+.badge-active { background: rgba(0,168,107,0.1); color: var(--success); border: 1px solid rgba(0,168,107,0.25); }
+.badge-completed { background: rgba(139,115,85,0.08); color: var(--text-dim); border: 1px solid rgba(139,115,85,0.2); }
+.badge-proposed { background: rgba(218,165,32,0.08); color: var(--warning); border: 1px solid rgba(218,165,32,0.2); }
 
 /* ==========================================================================
-   Insights — Imperial scroll style
+   Insights — Imperial scroll style on light
    ========================================================================== */
 .insight-item {
   padding: 16px 20px;
   border-radius: var(--radius);
   margin-bottom: 12px;
   border-left: 4px solid var(--card-border);
-  background: rgba(42,31,26,0.5);
+  background: rgba(245,243,239,0.5);
   transition: all 0.2s;
   cursor: pointer;
   position: relative;
@@ -917,7 +948,7 @@ body {
 .insight-item:last-child { margin-bottom: 0; }
 
 .insight-item:hover {
-  background: rgba(42,31,26,0.8);
+  background: rgba(245,243,239,0.9);
   border-left-width: 6px;
 }
 
@@ -953,13 +984,13 @@ body {
 }
 
 .insight-correlation .insight-type { color: #9B7FD4; }
-.insight-trend .insight-type { color: var(--jade-light); }
+.insight-trend .insight-type { color: var(--jade); }
 .insight-anomaly .insight-type { color: var(--cinnabar); }
 .insight-pattern .insight-type { color: var(--jade-green); }
 
 .insight-text {
   font-size: 14px;
-  color: var(--text-cream);
+  color: var(--text-primary);
   line-height: 1.5;
 }
 
@@ -973,7 +1004,7 @@ body {
   display: none;
   margin-top: 10px;
   padding-top: 10px;
-  border-top: 1px solid rgba(139,115,85,0.2);
+  border-top: 1px solid rgba(218,165,32,0.1);
   font-size: 13px;
   color: var(--text-dim);
 }
@@ -985,7 +1016,7 @@ body {
 .insight-propose-btn {
   background: transparent;
   border: 1px solid var(--gold-dim);
-  color: var(--gold);
+  color: var(--gold-bright);
   padding: 4px 12px;
   border-radius: 4px;
   font-size: 11px;
@@ -996,7 +1027,7 @@ body {
 }
 
 .insight-propose-btn:hover {
-  background: rgba(218,165,32,0.1);
+  background: rgba(218,165,32,0.08);
   border-color: var(--gold);
 }
 
@@ -1020,8 +1051,8 @@ body {
   width: 16px;
   height: 16px;
   border-radius: 3px;
-  background: rgba(139,115,85,0.1);
-  border: 1px solid rgba(139,115,85,0.05);
+  background: rgba(218,165,32,0.06);
+  border: 1px solid rgba(218,165,32,0.04);
   transition: all 0.15s;
   cursor: pointer;
   position: relative;
@@ -1033,16 +1064,16 @@ body {
   z-index: 5;
 }
 
-.heatmap-cell[data-rpe="1"] { background: rgba(46,139,139,0.2); }
-.heatmap-cell[data-rpe="2"] { background: rgba(46,139,139,0.3); }
-.heatmap-cell[data-rpe="3"] { background: rgba(46,139,139,0.4); }
-.heatmap-cell[data-rpe="4"] { background: rgba(46,139,139,0.5); }
+.heatmap-cell[data-rpe="1"] { background: rgba(46,139,139,0.15); }
+.heatmap-cell[data-rpe="2"] { background: rgba(46,139,139,0.25); }
+.heatmap-cell[data-rpe="3"] { background: rgba(46,139,139,0.35); }
+.heatmap-cell[data-rpe="4"] { background: rgba(46,139,139,0.45); }
 .heatmap-cell[data-rpe="5"] { background: rgba(46,139,139,0.55); }
-.heatmap-cell[data-rpe="6"] { background: rgba(0,168,107,0.5); }
-.heatmap-cell[data-rpe="7"] { background: rgba(0,168,107,0.6); }
-.heatmap-cell[data-rpe="8"] { background: rgba(218,165,32,0.6); }
-.heatmap-cell[data-rpe="9"] { background: rgba(227,66,52,0.6); }
-.heatmap-cell[data-rpe="10"] { background: rgba(196,30,58,0.7); }
+.heatmap-cell[data-rpe="6"] { background: rgba(0,168,107,0.45); }
+.heatmap-cell[data-rpe="7"] { background: rgba(0,168,107,0.55); }
+.heatmap-cell[data-rpe="8"] { background: rgba(218,165,32,0.55); }
+.heatmap-cell[data-rpe="9"] { background: rgba(227,66,52,0.55); }
+.heatmap-cell[data-rpe="10"] { background: rgba(196,30,58,0.65); }
 
 .heatmap-legend {
   display: flex;
@@ -1067,7 +1098,7 @@ body {
   margin: 32px 0 0;
   position: relative;
   overflow: hidden;
-  opacity: 0.15;
+  opacity: 0.12;
 }
 
 .wave-divider::before {
@@ -1108,10 +1139,6 @@ body {
 }
 
 /* ==========================================================================
-   Scroll Tooltip (mini scrolls for chart tooltips)
-   ========================================================================== */
-
-/* ==========================================================================
    Responsive
    ========================================================================== */
 @media (max-width: 1100px) {
@@ -1147,18 +1174,22 @@ body {
 <!-- Header -->
 <header class="header">
   <div class="header-left">
-    <img src="/docs/logo.png" alt="太医院" class="header-logo" />
+    <img src="../docs/logo.png" alt="Longevity OS" class="header-logo" />
     <div class="header-title">
-      <div class="header-cn">太医院</div>
-      <div class="header-subtitle">Longevity OS</div>
+      <div class="header-cn" data-i18n="title">Longevity OS</div>
+      <div class="header-subtitle" data-i18n="subtitle">Longevity OS</div>
     </div>
   </div>
   <div class="header-controls">
-    <label>From</label>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')" data-langval="en">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')" data-langval="zh">中文</button>
+    </div>
+    <label data-i18n="from">From</label>
     <input type="date" id="date-start">
-    <label>To</label>
+    <label data-i18n="to">To</label>
     <input type="date" id="date-end">
-    <button class="btn-seal" onclick="refreshAll()">御览</button>
+    <button class="btn-seal" onclick="refreshAll()" data-i18n="refresh">Refresh</button>
   </div>
 </header>
 <div class="cloud-border-bottom"></div>
@@ -1174,13 +1205,13 @@ body {
   <!-- ===== Section 1: Today's Summary ===== -->
   <div class="section">
     <div class="section-header">
-      <span class="section-cn">今日总览</span>
-      <span class="section-en">Today's Summary</span>
+      <span class="section-cn" data-i18n="sec_summary">Today's Summary</span>
+      <span class="section-en" data-i18n="sec_summary_sub">Today's Summary</span>
     </div>
     <div class="grid-4col">
       <div class="summary-card" id="card-calories">
         <div class="card-icon">🍚</div>
-        <div class="card-label">Calories</div>
+        <div class="card-label" data-i18n="calories">Calories</div>
         <div class="card-value" id="val-calories">--</div>
         <div class="target-ring" id="ring-calories">
           <svg viewBox="0 0 52 52">
@@ -1200,7 +1231,7 @@ body {
 
       <div class="summary-card" id="card-protein">
         <div class="card-icon">🥩</div>
-        <div class="card-label">Protein (g)</div>
+        <div class="card-label" data-i18n="protein">Protein (g)</div>
         <div class="card-value" id="val-protein">--</div>
         <div class="target-ring" id="ring-protein">
           <svg viewBox="0 0 52 52">
@@ -1220,7 +1251,7 @@ body {
 
       <div class="summary-card" id="card-exercise">
         <div class="card-icon">🏋️</div>
-        <div class="card-label">Exercise (min)</div>
+        <div class="card-label" data-i18n="exercise_min">Exercise (min)</div>
         <div class="card-value" id="val-exercise">--</div>
         <div class="target-ring" id="ring-exercise">
           <svg viewBox="0 0 52 52">
@@ -1240,7 +1271,7 @@ body {
 
       <div class="summary-card" id="card-sleep">
         <div class="card-icon">😴</div>
-        <div class="card-label">Sleep (hrs)</div>
+        <div class="card-label" data-i18n="sleep_hrs">Sleep (hrs)</div>
         <div class="card-value" id="val-sleep">--</div>
         <div class="target-ring" id="ring-sleep">
           <svg viewBox="0 0 52 52">
@@ -1264,18 +1295,18 @@ body {
   <div class="section">
     <div class="wave-divider"></div>
     <div class="section-header">
-      <span class="section-cn">营养</span>
-      <span class="section-en">Nutrition</span>
-      <span class="section-dept">食医科</span>
+      <span class="section-cn" data-i18n="sec_nutrition">Nutrition</span>
+      <span class="section-en" data-i18n="sec_nutrition_sub">Nutrition</span>
+      <span class="section-dept" data-i18n="dept_nutrition">Diet</span>
     </div>
     <div class="grid-2col">
       <div class="card card-cornered">
         <div class="chart-wrap"><canvas id="chart-nutrition"></canvas></div>
       </div>
       <div class="card card-cornered">
-        <h3 style="font-size:13px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px">Meal Log</h3>
+        <h3 style="font-size:13px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px" data-i18n="meal_log">Meal Log</h3>
         <div id="meal-log-wrap">
-          <div class="empty-state"><div class="empty-icon">🍽️</div>Click a bar to view meals</div>
+          <div class="empty-state"><div class="empty-icon">🍽️</div><span data-i18n="meal_empty">Click a bar to view meals</span></div>
         </div>
       </div>
     </div>
@@ -1285,9 +1316,9 @@ body {
   <div class="section">
     <div class="wave-divider"></div>
     <div class="section-header">
-      <span class="section-cn">体征</span>
-      <span class="section-en">Body Metrics</span>
-      <span class="section-dept">诊脉科</span>
+      <span class="section-cn" data-i18n="sec_metrics">Body Metrics</span>
+      <span class="section-en" data-i18n="sec_metrics_sub">Body Metrics</span>
+      <span class="section-dept" data-i18n="dept_metrics">Pulse</span>
     </div>
     <div class="card card-cornered">
       <div class="metric-selector" id="metric-selector">
@@ -1305,30 +1336,30 @@ body {
   <div class="section">
     <div class="wave-divider"></div>
     <div class="section-header">
-      <span class="section-cn">导引</span>
-      <span class="section-en">Exercise</span>
-      <span class="section-dept">导引科</span>
+      <span class="section-cn" data-i18n="sec_exercise">Exercise</span>
+      <span class="section-en" data-i18n="sec_exercise_sub">Exercise</span>
+      <span class="section-dept" data-i18n="dept_exercise">Exercise</span>
     </div>
     <div class="grid-2col">
       <div class="card card-cornered">
-        <h3 style="font-size:13px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px">Activity Heatmap</h3>
+        <h3 style="font-size:13px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px" data-i18n="activity_heatmap">Activity Heatmap</h3>
         <div class="heatmap-container" id="exercise-heatmap">
-          <div class="empty-state"><div class="empty-icon">🗓️</div>No exercise data</div>
+          <div class="empty-state"><div class="empty-icon">🗓️</div><span data-i18n="no_exercise">No exercise data</span></div>
         </div>
         <div class="heatmap-legend" id="heatmap-legend" style="display:none">
-          <span>Less</span>
+          <span data-i18n="less">Less</span>
           <div class="heatmap-legend-cell" style="background:rgba(46,139,139,0.15)"></div>
           <div class="heatmap-legend-cell" style="background:rgba(46,139,139,0.35)"></div>
           <div class="heatmap-legend-cell" style="background:rgba(0,168,107,0.5)"></div>
           <div class="heatmap-legend-cell" style="background:rgba(218,165,32,0.6)"></div>
           <div class="heatmap-legend-cell" style="background:rgba(196,30,58,0.7)"></div>
-          <span>More</span>
+          <span data-i18n="more">More</span>
         </div>
       </div>
       <div class="card card-cornered">
-        <h3 style="font-size:13px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px">Recent Workouts</h3>
+        <h3 style="font-size:13px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px" data-i18n="recent_workouts">Recent Workouts</h3>
         <div id="exercise-table-wrap">
-          <div class="empty-state"><div class="empty-icon">🏃</div>No workouts logged</div>
+          <div class="empty-state"><div class="empty-icon">🏃</div><span data-i18n="no_workouts">No workouts logged</span></div>
         </div>
       </div>
     </div>
@@ -1338,13 +1369,13 @@ body {
   <div class="section">
     <div class="wave-divider"></div>
     <div class="section-header">
-      <span class="section-cn">本草</span>
-      <span class="section-en">Supplement Stack</span>
-      <span class="section-dept">本草科</span>
+      <span class="section-cn" data-i18n="sec_supplements">Supplements</span>
+      <span class="section-en" data-i18n="sec_supplements_sub">Supplement Stack</span>
+      <span class="section-dept" data-i18n="dept_supplements">Herbs</span>
     </div>
     <div class="card card-cornered">
       <div id="supplement-wrap">
-        <div class="empty-state"><div class="empty-icon">🌿</div>No supplements tracked yet</div>
+        <div class="empty-state"><div class="empty-icon">🌿</div><span data-i18n="no_supplements">No supplements tracked yet</span></div>
       </div>
     </div>
   </div>
@@ -1353,15 +1384,15 @@ body {
   <div class="section">
     <div class="wave-divider"></div>
     <div class="section-header">
-      <span class="section-cn">验方</span>
-      <span class="section-en">Biomarker Trends</span>
-      <span class="section-dept">验方科</span>
+      <span class="section-cn" data-i18n="sec_biomarkers">Biomarkers</span>
+      <span class="section-en" data-i18n="sec_biomarkers_sub">Biomarker Trends</span>
+      <span class="section-dept" data-i18n="dept_biomarkers">Labs</span>
     </div>
     <div class="card card-cornered">
       <div class="biomarker-selector" id="biomarker-selector"></div>
       <div class="chart-wrap"><canvas id="chart-biomarkers"></canvas></div>
       <div id="biomarker-empty" class="empty-state" style="display:none">
-        <div class="empty-icon">🔬</div>No biomarker data yet — log blood work to see trends
+        <div class="empty-icon">🔬</div><span data-i18n="no_biomarkers">No biomarker data yet — log blood work to see trends</span>
       </div>
     </div>
   </div>
@@ -1370,13 +1401,13 @@ body {
   <div class="section">
     <div class="wave-divider"></div>
     <div class="section-header">
-      <span class="section-cn">试效</span>
-      <span class="section-en">Active Trials</span>
-      <span class="section-dept">试效科</span>
+      <span class="section-cn" data-i18n="sec_trials">Trials</span>
+      <span class="section-en" data-i18n="sec_trials_sub">Active Trials</span>
+      <span class="section-dept" data-i18n="dept_trials">Trials</span>
     </div>
     <div class="card card-cornered">
       <div id="trials-wrap">
-        <div class="empty-state"><div class="empty-icon">⚗️</div>No active trials</div>
+        <div class="empty-state"><div class="empty-icon">⚗️</div><span data-i18n="no_trials">No active trials</span></div>
       </div>
     </div>
   </div>
@@ -1385,12 +1416,12 @@ body {
   <div class="section">
     <div class="wave-divider"></div>
     <div class="section-header">
-      <span class="section-cn">洞察</span>
-      <span class="section-en">Modeling Engine</span>
+      <span class="section-cn" data-i18n="sec_insights">Insights</span>
+      <span class="section-en" data-i18n="sec_insights_sub">Modeling Engine</span>
     </div>
     <div class="card card-cornered">
       <div id="insights-wrap">
-        <div class="empty-state"><div class="empty-icon">💡</div>No insights yet — log more data to unlock patterns</div>
+        <div class="empty-state"><div class="empty-icon">💡</div><span data-i18n="no_insights">No insights yet — log more data to unlock patterns</span></div>
       </div>
     </div>
   </div>
@@ -1400,17 +1431,183 @@ body {
 <!-- Bottom decorative border -->
 <div class="cloud-border-bottom" style="margin-top:20px"></div>
 <div style="text-align:center;padding:20px;font-size:11px;color:var(--text-dim);letter-spacing:2px;font-family:var(--font-header)">
-  太医院 · 御览天下
+  <span data-i18n="footer">Longevity OS</span>
 </div>
 
 <script>
+// ============================================================================
+// i18n — Translation System
+// ============================================================================
+const I18N = {
+  en: {
+    page_title: 'Longevity OS',
+    title: 'Longevity OS',
+    subtitle: 'Longevity OS',
+    from: 'From',
+    to: 'To',
+    refresh: 'Refresh',
+    sec_summary: "Today's Summary",
+    sec_summary_sub: "Today's Summary",
+    calories: 'Calories',
+    protein: 'Protein (g)',
+    exercise_min: 'Exercise (min)',
+    sleep_hrs: 'Sleep (hrs)',
+    sec_nutrition: 'Nutrition',
+    sec_nutrition_sub: 'Nutrition',
+    dept_nutrition: 'Diet',
+    meal_log: 'Meal Log',
+    meal_empty: 'Click a bar to view meals',
+    sec_metrics: 'Body Metrics',
+    sec_metrics_sub: 'Body Metrics',
+    dept_metrics: 'Pulse',
+    sec_exercise: 'Exercise',
+    sec_exercise_sub: 'Exercise',
+    dept_exercise: 'Exercise',
+    activity_heatmap: 'Activity Heatmap',
+    no_exercise: 'No exercise data',
+    less: 'Less',
+    more: 'More',
+    recent_workouts: 'Recent Workouts',
+    no_workouts: 'No workouts logged',
+    sec_supplements: 'Supplements',
+    sec_supplements_sub: 'Supplement Stack',
+    dept_supplements: 'Herbs',
+    no_supplements: 'No supplements tracked yet',
+    sec_biomarkers: 'Biomarkers',
+    sec_biomarkers_sub: 'Biomarker Trends',
+    dept_biomarkers: 'Labs',
+    no_biomarkers: 'No biomarker data yet — log blood work to see trends',
+    sec_trials: 'Trials',
+    sec_trials_sub: 'Active Trials',
+    dept_trials: 'Trials',
+    no_trials: 'No active trials',
+    sec_insights: 'Insights',
+    sec_insights_sub: 'Modeling Engine',
+    no_insights: 'No insights yet — log more data to unlock patterns',
+    footer: 'Longevity OS',
+    // Agent names
+    agent_yuyi: 'Imperial Physician',
+    agent_yuanpan: 'Judge',
+    agent_yizheng: 'Inspector',
+    agent_shiyi: 'Diet',
+    agent_zhenmai: 'Pulse',
+    agent_daoyin: 'Exercise',
+    agent_bencao: 'Herbs',
+    agent_yanfang: 'Labs',
+    agent_shixiao: 'Trials',
+    agent_baogao: 'Reports',
+  },
+  zh: {
+    page_title: '太医院 — Longevity OS',
+    title: '太医院',
+    subtitle: 'Longevity OS',
+    from: '自',
+    to: '至',
+    refresh: '御览',
+    sec_summary: '今日总览',
+    sec_summary_sub: '今日总览',
+    calories: '热量',
+    protein: '蛋白质 (g)',
+    exercise_min: '运动 (分钟)',
+    sleep_hrs: '睡眠 (小时)',
+    sec_nutrition: '营养',
+    sec_nutrition_sub: '营养',
+    dept_nutrition: '食医科',
+    meal_log: '膳食记录',
+    meal_empty: '点击柱状图查看膳食',
+    sec_metrics: '体征',
+    sec_metrics_sub: '体征',
+    dept_metrics: '诊脉科',
+    sec_exercise: '导引',
+    sec_exercise_sub: '导引',
+    dept_exercise: '导引科',
+    activity_heatmap: '活动热力图',
+    no_exercise: '暂无运动数据',
+    less: '少',
+    more: '多',
+    recent_workouts: '近期运动',
+    no_workouts: '暂无运动记录',
+    sec_supplements: '本草',
+    sec_supplements_sub: '本草',
+    dept_supplements: '本草科',
+    no_supplements: '暂未记录补剂',
+    sec_biomarkers: '验方',
+    sec_biomarkers_sub: '验方',
+    dept_biomarkers: '验方科',
+    no_biomarkers: '暂无生物标记物数据 — 记录血液检查以查看趋势',
+    sec_trials: '试效',
+    sec_trials_sub: '试效',
+    dept_trials: '试效科',
+    no_trials: '暂无进行中的试验',
+    sec_insights: '洞察',
+    sec_insights_sub: '洞察',
+    no_insights: '暂无洞察 — 记录更多数据以发现规律',
+    footer: '太医院 · 御览天下',
+    // Agent names
+    agent_yuyi: '御医',
+    agent_yuanpan: '院判',
+    agent_yizheng: '医正',
+    agent_shiyi: '食医',
+    agent_zhenmai: '诊脉',
+    agent_daoyin: '导引',
+    agent_bencao: '本草',
+    agent_yanfang: '验方',
+    agent_shixiao: '试效',
+    agent_baogao: '报告',
+  }
+};
+
+function setLang(lang) {
+  const html = document.documentElement;
+  html.setAttribute('data-lang', lang);
+  localStorage.setItem('los-lang', lang);
+
+  // Update page title
+  document.title = I18N[lang].page_title;
+
+  // Update all i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (I18N[lang][key] != null) {
+      el.textContent = I18N[lang][key];
+    }
+  });
+
+  // Update lang toggle buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.langval === lang);
+  });
+
+  // Update agent tooltips
+  AGENTS.forEach(agent => {
+    const el = document.querySelector(`#agent-${agent.id} .agent-tooltip`);
+    if (el) {
+      const name = I18N[lang]['agent_' + agent.id] || agent.cn;
+      if (lang === 'zh') {
+        el.textContent = agent.cn;
+      } else {
+        el.textContent = name;
+      }
+    }
+    // Update agent char for Chinese agents
+    const charEl = document.querySelector(`#agent-${agent.id} .agent-char`);
+    if (charEl) {
+      if (lang === 'zh') {
+        charEl.textContent = agent.cn.charAt(0);
+      } else {
+        charEl.textContent = (I18N[lang]['agent_' + agent.id] || agent.en).charAt(0);
+      }
+    }
+  });
+}
+
 // ============================================================================
 // Configuration
 // ============================================================================
 const API_BASE = window.location.origin;
 const REFRESH_INTERVAL_MS = 60000;
 
-// Imperial theme colors
+// Theme colors for charts — adapted for light background
 const C = {
   jade: '#2E8B8B',
   jadeGreen: '#00A86B',
@@ -1418,13 +1615,14 @@ const C = {
   amber: '#DAA520',
   cinnabar: '#E34234',
   gold: '#DAA520',
-  goldBright: '#FFD700',
-  goldDim: '#8B7355',
+  goldBright: '#B8860B',
+  goldDim: '#C4A35A',
   imperialRed: '#C41E3A',
-  cream: '#F5E6CC',
-  textDim: '#8B7E6A',
-  gridLine: 'rgba(139,115,85,0.12)',
-  gridLineBright: 'rgba(218,165,32,0.15)',
+  textPrimary: '#2a2a2a',
+  textBody: '#4a4a4a',
+  textDim: '#8B8070',
+  gridLine: 'rgba(218,165,32,0.08)',
+  gridLineBright: 'rgba(218,165,32,0.12)',
 };
 
 // Daily targets
@@ -1509,7 +1707,7 @@ async function apiFetch(endpoint, params = {}) {
 }
 
 // ============================================================================
-// Chart.js Global Config
+// Chart.js Global Config — Light theme
 // ============================================================================
 function chartDefaults() {
   if (typeof Chart === 'undefined') return;
@@ -1518,10 +1716,10 @@ function chartDefaults() {
   Chart.defaults.font.family = '"Inter", "Noto Sans SC", system-ui, sans-serif';
   Chart.defaults.font.size = 12;
 
-  // Custom tooltip plugin for imperial styling
-  Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(42,31,26,0.95)';
+  // Custom tooltip plugin — light card style
+  Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(255,255,255,0.96)';
   Chart.defaults.plugins.tooltip.titleColor = C.goldBright;
-  Chart.defaults.plugins.tooltip.bodyColor = C.cream;
+  Chart.defaults.plugins.tooltip.bodyColor = C.textBody;
   Chart.defaults.plugins.tooltip.borderColor = C.goldDim;
   Chart.defaults.plugins.tooltip.borderWidth = 1;
   Chart.defaults.plugins.tooltip.cornerRadius = 6;
@@ -1530,6 +1728,7 @@ function chartDefaults() {
   Chart.defaults.plugins.tooltip.padding = 12;
   Chart.defaults.plugins.tooltip.displayColors = true;
   Chart.defaults.plugins.tooltip.boxPadding = 4;
+  Chart.defaults.plugins.tooltip.boxShadow = '0 4px 16px rgba(0,0,0,0.1)';
 }
 
 // ============================================================================
@@ -1556,6 +1755,7 @@ function getDateRange() {
 // ============================================================================
 function initAgentBar() {
   const bar = document.getElementById('agent-bar');
+  const lang = document.documentElement.getAttribute('data-lang') || 'en';
   AGENTS.forEach(agent => {
     const div = document.createElement('div');
     div.className = 'agent-avatar' + (agent.active ? ' active' : '');
@@ -1564,10 +1764,12 @@ function initAgentBar() {
     if (agent.hasSvg) {
       div.innerHTML = `<img src="/docs/characters/${agent.id}.svg" alt="${agent.cn}" />`;
     } else {
-      div.innerHTML = `<span class="agent-char">${agent.cn.charAt(0)}</span>`;
+      const char = lang === 'zh' ? agent.cn.charAt(0) : (I18N.en['agent_' + agent.id] || agent.en).charAt(0);
+      div.innerHTML = `<span class="agent-char">${char}</span>`;
     }
 
-    div.innerHTML += `<div class="agent-tooltip">${agent.cn} · ${agent.en}</div>`;
+    const tooltipText = lang === 'zh' ? agent.cn : (I18N.en['agent_' + agent.id] || agent.en);
+    div.innerHTML += `<div class="agent-tooltip">${tooltipText}</div>`;
     bar.appendChild(div);
   });
 }
@@ -1738,7 +1940,7 @@ async function loadNutrition() {
           label: 'Carbs',
           data: carbs,
           backgroundColor: C.amber,
-          hoverBackgroundColor: C.goldBright,
+          hoverBackgroundColor: '#DAA520',
           borderRadius: 2,
           borderWidth: 0,
         },
@@ -1768,7 +1970,7 @@ async function loadNutrition() {
           labels: {
             boxWidth: 10,
             padding: 20,
-            color: C.cream,
+            color: C.textBody,
             font: { size: 12 }
           }
         }
@@ -1806,7 +2008,7 @@ async function loadMealLog(date) {
     <thead><tr><th>Meal</th><th>Description</th><th>Cal</th><th>P</th></tr></thead><tbody>`;
   data.meals.forEach(m => {
     html += `<tr>
-      <td style="color:var(--text-cream)">${m.meal_type || '--'}</td>
+      <td style="color:var(--text-primary)">${m.meal_type || '--'}</td>
       <td>${m.description || '--'}</td>
       <td>${m.calories ? Math.round(m.calories) : '--'}</td>
       <td>${m.protein_g ? m.protein_g.toFixed(0) + 'g' : '--'}</td>
@@ -1906,7 +2108,7 @@ async function loadMetrics(metric) {
       plugins: {
         legend: {
           labels: {
-            color: C.cream,
+            color: C.textBody,
             boxWidth: 10,
             padding: 16,
             filter: item => item.text !== 'Anomaly' || true,
@@ -1957,7 +2159,7 @@ async function loadExercises() {
       e.rpe ? `RPE ${e.rpe}` : ''
     ].filter(Boolean).join(' · ') || (e.notes || '--');
     html += `<tr>
-      <td style="color:var(--text-cream);white-space:nowrap">${formatTimestamp(e.timestamp)}</td>
+      <td style="color:var(--text-primary);white-space:nowrap">${formatTimestamp(e.timestamp)}</td>
       <td>${e.activity_type}</td>
       <td>${dur}</td>
       <td style="color:var(--text-dim)">${details}</td>
@@ -2169,7 +2371,7 @@ async function loadBiomarker(marker) {
       plugins: {
         legend: {
           labels: {
-            color: C.cream,
+            color: C.textBody,
             boxWidth: 10,
             padding: 16,
             filter: item => !item.text.startsWith('_')
@@ -2340,6 +2542,10 @@ async function refreshAll() {
 // Init
 // ============================================================================
 document.addEventListener('DOMContentLoaded', () => {
+  // Restore saved language preference, default to 'en'
+  const savedLang = localStorage.getItem('los-lang') || 'en';
+  setLang(savedLang);
+
   chartDefaults();
   initDateRange();
   initAgentBar();

@@ -1,0 +1,11 @@
+{
+  "slope": -0.039475,
+  "intercept": 75.8794,
+  "r_squared": 0.8439,
+  "p_value": 0.0,
+  "direction": "decreasing",
+  "pct_change": -4.63,
+  "n_observations": 90,
+  "period_start": "2026-01-01",
+  "period_end": "2026-03-31"
+}

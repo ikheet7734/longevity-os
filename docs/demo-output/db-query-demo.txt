@@ -1,0 +1,106 @@
+============================================================
+TaiYiYuan Database Query Demo
+============================================================
+
+--- Recent Meals (2026-03-08 to 2026-03-10) ---
+  [2026-03-08T09:19:00-08:00] BREAKFAST: Egg white omelette with spinach
+    Calories: 438.9, Protein: 37.4g, Carbs: 41.5g, Fat: 13.0g
+  [2026-03-08T10:31:00-08:00] SNACK: Banana
+    Calories: 104.9, Protein: 1.3g, Carbs: 26.5g, Fat: 0.4g
+  [2026-03-08T12:49:00-08:00] LUNCH: Beef and broccoli
+    Calories: 764.8, Protein: 70.2g, Carbs: 69.4g, Fat: 23.0g
+  [2026-03-08T19:07:00-08:00] DINNER: 番茄炒蛋 with rice
+    Calories: 889.7, Protein: 28.4g, Carbs: 99.4g, Fat: 41.1g
+  [2026-03-08T21:34:00-08:00] SNACK: Greek yogurt with honey
+    Calories: 121.5, Protein: 15.4g, Carbs: 13.8g, Fat: 0.6g
+  [2026-03-09T08:36:00-08:00] BREAKFAST: Yogurt with granola and berries
+    Calories: 409.6, Protein: 27.2g, Carbs: 53.9g, Fat: 10.1g
+  [2026-03-09T12:18:00-08:00] LUNCH: Wonton soup (馄饨)
+    Calories: 366.1, Protein: 22.0g, Carbs: 37.0g, Fat: 14.4g
+  [2026-03-09T18:25:00-08:00] DINNER: 水煮鱼 (Sichuan boiled fish)
+    Calories: 746.5, Protein: 50.3g, Carbs: 69.1g, Fat: 28.5g
+  [2026-03-09T21:53:00-08:00] SNACK: Cottage cheese with pineapple
+    Calories: 165.6, Protein: 14.6g, Carbs: 16.6g, Fat: 5.3g
+  [2026-03-10T07:21:00-08:00] BREAKFAST: Banana protein smoothie
+    Calories: 522.5, Protein: 47.9g, Carbs: 60.0g, Fat: 12.2g
+  ... (13 meals total in this period)
+
+--- Recent Weight Metrics (2026-03-01 to 2026-03-12) ---
+  [2026-03-01T07:27:00-08:00] 73.75 kg  (context: morning fasted)
+  [2026-03-02T07:28:00-08:00] 73.65 kg  (context: morning fasted)
+  [2026-03-03T07:10:00-08:00] 73.86 kg  (context: morning fasted)
+  [2026-03-04T07:24:00-08:00] 73.83 kg  (context: morning fasted)
+  [2026-03-05T07:13:00-08:00] 73.38 kg  (context: morning fasted)
+  [2026-03-06T07:12:00-08:00] 73.35 kg  (context: morning fasted)
+  [2026-03-07T07:01:00-08:00] 74.08 kg  (context: morning fasted)
+  [2026-03-08T07:30:00-08:00] 73.37 kg  (context: morning fasted)
+  [2026-03-09T07:05:00-08:00] 73.76 kg  (context: morning fasted)
+  [2026-03-10T07:10:00-08:00] 73.6 kg  (context: morning fasted)
+  [2026-03-11T07:10:00-08:00] 73.05 kg  (context: morning fasted)
+  [2026-03-12T07:17:00-08:00] 73.1 kg  (context: morning fasted)
+  (12 measurements)
+
+--- Active Supplements ---
+  Creatine Monohydrate: 5.0 g, daily, timing: morning with water
+    Started: 2026-02-01, Reason: Strength & cognition
+  Magnesium Glycinate: 400.0 mg, daily, timing: before bed
+    Started: 2026-03-01, Reason: Sleep quality & recovery
+  Multivitamin: 1.0 tablet, daily, timing: morning with breakfast
+    Started: 2026-01-01, Reason: General health
+  Omega-3 (EPA/DHA): 2.0 g, daily, timing: morning with breakfast
+    Started: 2026-03-01, Reason: Inflammation reduction & cardiovascular
+  Vitamin D3: 4000.0 IU, daily, timing: morning with breakfast
+    Started: 2026-02-01, Reason: Deficiency correction (baseline 22 ng/mL)
+  (5 active supplements)
+
+--- N-of-1 Trials ---
+  Trial #2: Creatine-Cognition Trial
+    Design: ABA, Status: active
+    Hypothesis: 5g daily creatine monohydrate improves working memory and reaction time within 4 weeks
+    Intervention: 5g creatine monohydrate daily vs no supplementation
+    Primary metric: working_memory_score
+    Period: 2026-03-01 to ongoing
+  (1 active trials)
+
+--- All Trials ---
+  #1: Protein-Sleep Quality Trial (completed)
+  #2: Creatine-Cognition Trial (active)
+
+--- Recent Biomarkers ---
+  Total Cholesterol: 215.0 mg/dL [125.0-200.0] (optimal: 140.0-180.0)  (2026-01-05T08:00:00-08:00)
+  LDL Cholesterol: 135.0 mg/dL  (2026-01-05T08:00:00-08:00)
+  HDL Cholesterol: 52.0 mg/dL [40.0-None] (optimal: 60.0-None)  (2026-01-05T08:00:00-08:00)
+  Triglycerides: 140.0 mg/dL  (2026-01-05T08:00:00-08:00)
+  CRP (hs-CRP): 2.1 mg/L  (2026-01-05T08:00:00-08:00)
+  Homocysteine: 11.2 µmol/L [5.0-15.0] (optimal: 5.0-9.0)  (2026-01-05T08:00:00-08:00)
+  Fasting Glucose: 96.0 mg/dL [65.0-100.0] (optimal: 70.0-90.0)  (2026-01-05T08:00:00-08:00)
+  HbA1c: 5.4 % [4.0-5.7] (optimal: 4.0-5.2)  (2026-01-05T08:00:00-08:00)
+  Fasting Insulin: 8.2 µIU/mL [2.6-24.9] (optimal: 2.6-8.0)  (2026-01-05T08:00:00-08:00)
+  TSH: 2.1 mIU/L [0.4-4.0] (optimal: 0.5-2.5)  (2026-01-05T08:00:00-08:00)
+  Free T4: 1.2 ng/dL [0.8-1.8] (optimal: 1.0-1.6)  (2026-01-05T08:00:00-08:00)
+  Vitamin D (25-OH): 22.0 ng/mL [30.0-100.0] (optimal: 40.0-60.0)  (2026-01-05T08:00:00-08:00)
+  Vitamin B12: 480.0 pg/mL [200.0-900.0] (optimal: 400.0-800.0)  (2026-01-05T08:00:00-08:00)
+  Ferritin: 85.0 ng/mL [12.0-300.0] (optimal: 40.0-150.0)  (2026-01-05T08:00:00-08:00)
+  Folate: 14.0 ng/mL [3.0-20.0] (optimal: 8.0-20.0)  (2026-01-05T08:00:00-08:00)
+  (75 total biomarker readings)
+
+--- Recent Exercise (2026-03-05 to 2026-03-10) ---
+  [2026-03-05T06:17:00-08:00] weightlifting: 57.0min, HR 131.0
+  [2026-03-06T07:09:00-08:00] weightlifting: 56.0min, HR 116.0
+  [2026-03-07T18:19:00-08:00] running: 43.2min, 7.11km, HR 157.0
+  [2026-03-08T07:12:00-08:00] flexibility: 37.0min, HR 85.0
+  [2026-03-09T07:10:00-08:00] weightlifting: 65.0min, HR 116.0
+  [2026-03-10T07:10:00-08:00] weightlifting: 63.0min, HR 119.0
+  (6 sessions)
+
+--- Database Summary ---
+  diet_entries: 349 rows
+  exercise_entries: 65 rows
+  body_metrics: 571 rows
+  biomarkers: 75 rows
+  supplements: 5 rows
+  trials: 2 rows
+  trial_observations: 118 rows
+  insights: 8 rows
+  diet_ingredients: 1126 rows
+  exercise_details: 192 rows

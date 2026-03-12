@@ -1,0 +1,74 @@
+[
+  {
+    "date": "2026-02-16",
+    "value": 74.01,
+    "mean": 74.9797,
+    "std": 0.3925,
+    "z_score": -2.47,
+    "direction": "low"
+  },
+  {
+    "date": "2026-02-17",
+    "value": 73.99,
+    "mean": 74.9327,
+    "std": 0.4237,
+    "z_score": -2.23,
+    "direction": "low"
+  },
+  {
+    "date": "2026-02-19",
+    "value": 73.8,
+    "mean": 74.841,
+    "std": 0.4761,
+    "z_score": -2.19,
+    "direction": "low"
+  },
+  {
+    "date": "2026-02-20",
+    "value": 73.1,
+    "mean": 74.7907,
+    "std": 0.5716,
+    "z_score": -2.96,
+    "direction": "low"
+  },
+  {
+    "date": "2026-02-23",
+    "value": 73.28,
+    "mean": 74.622,
+    "std": 0.6432,
+    "z_score": -2.09,
+    "direction": "low"
+  },
+  {
+    "date": "2026-03-17",
+    "value": 72.54,
+    "mean": 73.5387,
+    "std": 0.4123,
+    "z_score": -2.42,
+    "direction": "low"
+  },
+  {
+    "date": "2026-03-18",
+    "value": 72.35,
+    "mean": 73.4833,
+    "std": 0.4559,
+    "z_score": -2.49,
+    "direction": "low"
+  },
+  {
+    "date": "2026-03-19",
+    "value": 72.18,
+    "mean": 73.423,
+    "std": 0.5038,
+    "z_score": -2.47,
+    "direction": "low"
+  },
+  {
+    "date": "2026-03-25",
+    "value": 71.78,
+    "mean": 73.1653,
+    "std": 0.645,
+    "z_score": -2.15,
+    "direction": "low"
+  }
+]

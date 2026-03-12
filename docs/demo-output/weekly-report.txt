@@ -1,0 +1,222 @@
+{
+  "period": {
+    "start": "2026-03-03",
+    "end": "2026-03-09",
+    "days": 7
+  },
+  "modules": {
+    "diet": {
+      "period_days": 7,
+      "days_with_data": 28,
+      "avg_daily_calories": 2203.0,
+      "avg_macros": {
+        "protein_g": 146.0,
+        "carbs_g": 211.7,
+        "fat_g": 86.2,
+        "fiber_g": 18.3
+      },
+      "nutrient_adequacy_pct_rda": {
+        "vitamin_a_mcg": 53.1,
+        "vitamin_b6_mg": 79.0,
+        "vitamin_b12_mcg": 208.1,
+        "vitamin_c_mg": 90.5,
+        "vitamin_d_mcg": 185.5,
+        "vitamin_e_mg": 35.8,
+        "vitamin_k_mcg": 182.0,
+        "calcium_mg": 54.4,
+        "iron_mg": 87.0,
+        "magnesium_mg": 27.5,
+        "zinc_mg": 44.6,
+        "potassium_mg": 18.5,
+        "sodium_mg": 44.8
+      },
+      "meal_distribution": {
+        "snack": 35,
+        "dinner": 28,
+        "breakfast": 27,
+        "lunch": 27
+      },
+      "total_meals_logged": 117
+    },
+    "exercise": {
+      "period_days": 7,
+      "total_sessions": 28,
+      "total_minutes": 1382.1,
+      "by_type": {
+        "flexibility": {
+          "sessions": 3,
+          "total_minutes": 117.0,
+          "avg_hr": 86.0
+        },
+        "running": {
+          "sessions": 8,
+          "total_minutes": 256.1,
+          "total_distance_km": 47.27,
+          "avg_hr": 151.0
+        },
+        "walking": {
+          "sessions": 1,
+          "total_minutes": 42.0,
+          "total_distance_km": 4.33,
+          "avg_hr": 101.0
+        },
+        "weightlifting": {
+          "sessions": 16,
+          "total_minutes": 967.0,
+          "avg_hr": 122.0
+        }
+      },
+      "total_volume_load": 133651.8,
+      "muscle_group_balance": {
+        "Barbell Curl": 3880.8,
+        "Barbell Row": 11225.6,
+        "Barbell Squat": 11746.4,
+        "Bench Press": 17696.0,
+        "Calf Raises": 10128.0,
+        "Deadlift": 12853.2,
+        "Face Pulls": 3366.0,
+        "Forward Fold": 0.0,
+        "Incline Dumbbell Press": 5415.0,
+        "Lat Pulldown": 7701.0,
+        "Lateral Raises": 3231.0,
+        "Leg Press": 22557.6,
+        "Overhead Press": 8317.2,
+        "Pigeon Pose": 0.0,
+        "Romanian Deadlift": 8226.0,
+        "Running": 0.0,
+        "Sun Salutations": 0.0,
+        "Tricep Pushdowns": 4946.4,
+        "Walking Lunges": 2361.6
+      },
+      "avg_rpe": 6.9,
+      "weekly_trend": {
+        "W10": 5,
+        "W11": 7,
+        "W12": 6,
+        "W13": 8,
+        "W14": 2
+      }
+    },
+    "metrics": {
+      "blood_pressure_dia": {
+        "slope": -0.296914,
+        "intercept": 80.4535,
+        "r_squared": 0.5582,
+        "p_value": 0.002135,
+        "direction": "decreasing",
+        "pct_change": -9.23,
+        "n_observations": 14,
+        "period_start": "2026-03-05",
+        "period_end": "2026-03-30"
+      },
+      "blood_pressure_sys": {
+        "slope": -0.257183,
+        "intercept": 123.5392,
+        "r_squared": 0.1946,
+        "p_value": 0.114315,
+        "direction": "stable",
+        "pct_change": -5.2,
+        "n_observations": 14,
+        "period_start": "2026-03-05",
+        "period_end": "2026-03-30"
+      },
+      "body_fat": {
+        "slope": -0.1,
+        "intercept": 17.61,
+        "r_squared": 0.9744,
+        "p_value": 0.012889,
+        "direction": "decreasing",
+        "pct_change": -11.93,
+        "n_observations": 4,
+        "period_start": "2026-03-09",
+        "period_end": "2026-03-30"
+      },
+      "fasting_glucose": {
+        "slope": -0.200748,
+        "intercept": 90.207,
+        "r_squared": 0.3942,
+        "p_value": 0.182005,
+        "direction": "stable",
+        "pct_change": -4.45,
+        "n_observations": 6,
+        "period_start": "2026-03-05",
+        "period_end": "2026-03-25"
+      },
+      "hrv": {
+        "slope": 0.393773,
+        "intercept": 45.881,
+        "r_squared": 0.4247,
+        "p_value": 0.000231,
+        "direction": "increasing",
+        "pct_change": 22.31,
+        "n_observations": 27,
+        "period_start": "2026-03-05",
+        "period_end": "2026-03-31"
+      },
+      "resting_hr": {
+        "slope": -0.201465,
+        "intercept": 62.5079,
+        "r_squared": 0.274,
+        "p_value": 0.005082,
+        "direction": "decreasing",
+        "pct_change": -8.38,
+        "n_observations": 27,
+        "period_start": "2026-03-05",
+        "period_end": "2026-03-31"
+      },
+      "sleep_duration": {
+        "slope": 0.008101,
+        "intercept": 7.3335,
+        "r_squared": 0.0179,
+        "p_value": 0.497652,
+        "direction": "stable",
+        "pct_change": 2.98,
+        "n_observations": 28,
+        "period_start": "2026-03-05",
+        "period_end": "2026-04-01"
+      },
+      "sleep_quality": {
+        "slope": 0.080049,
+        "intercept": 6.5729,
+        "r_squared": 0.3623,
+        "p_value": 0.000702,
+        "direction": "increasing",
+        "pct_change": 32.88,
+        "n_observations": 28,
+        "period_start": "2026-03-05",
+        "period_end": "2026-04-01"
+      },
+      "weight": {
+        "slope": -0.070012,
+        "intercept": 73.6687,
+        "r_squared": 0.7738,
+        "p_value": 0.0,
+        "direction": "decreasing",
+        "pct_change": -2.47,
+        "n_observations": 27,
+        "period_start": "2026-03-05",
+        "period_end": "2026-03-31"
+      }
+    },
+    "biomarkers": [],
+    "supplements": {
+      "active_count": 5,
+      "compounds": [
+        "Multivitamin",
+        "Creatine Monohydrate",
+        "Vitamin D3",
+        "Omega-3 (EPA/DHA)",
+        "Magnesium Glycinate"
+      ]
+    }
+  },
+  "anomalies": [],
+  "trial_updates": [
+    {
+      "trial_id": 2,
+      "name": "Creatine-Cognition Trial",
+      "status": "active",
+      "observations_this_week": 14
+    }
+  ]
+}

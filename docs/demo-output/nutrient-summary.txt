@@ -1,0 +1,33 @@
+{
+  "period_days": 30,
+  "days_with_data": 51,
+  "avg_daily_calories": 2215.0,
+  "avg_macros": {
+    "protein_g": 146.9,
+    "carbs_g": 213.8,
+    "fat_g": 86.4,
+    "fiber_g": 18.6
+  },
+  "nutrient_adequacy_pct_rda": {
+    "vitamin_a_mcg": 97.9,
+    "vitamin_b6_mg": 84.9,
+    "vitamin_b12_mcg": 210.3,
+    "vitamin_c_mg": 92.5,
+    "vitamin_d_mcg": 146.2,
+    "vitamin_e_mg": 36.7,
+    "vitamin_k_mcg": 191.4,
+    "calcium_mg": 58.3,
+    "iron_mg": 84.4,
+    "magnesium_mg": 26.0,
+    "zinc_mg": 43.5,
+    "potassium_mg": 19.9,
+    "sodium_mg": 39.6
+  },
+  "meal_distribution": {
+    "snack": 61,
+    "dinner": 51,
+    "breakfast": 50,
+    "lunch": 50
+  },
+  "total_meals_logged": 212
+}

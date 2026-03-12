@@ -1,27 +1,46 @@
-%%{init: {'theme': 'dark', 'themeVariables': { 'fontSize': '14px' }}}%%
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'fontSize': '14px',
+    'fontFamily': 'system-ui, -apple-system, sans-serif',
+    'primaryColor': '#FFFFFF',
+    'primaryBorderColor': '#DAA520',
+    'primaryTextColor': '#333333',
+    'lineColor': '#555555',
+    'secondaryColor': '#FFF8E7',
+    'tertiaryColor': '#F5F5F5',
+    'background': '#FFFFFF',
+    'mainBkg': '#FFFFFF',
+    'nodeBorder': '#DAA520',
+    'clusterBkg': '#FAFAFA',
+    'clusterBorder': '#CCCCCC',
+    'titleColor': '#333333',
+    'edgeLabelBackground': '#FFFFFF'
+  }
+}}%%
 flowchart LR
     %% ── Input ──
-    Input["👤 User Input<br/><i>'Propose an experiment<br/>for my sleep'</i>"]
+    Input["<b>User Input</b><br/><i>'Propose an experiment<br/>for my sleep'</i>"]
 
     %% ── Classification ──
-    Classify{"御医 classifies<br/>intent & domain"}
+    Classify{"<b>御医</b> classifies<br/>intent & domain"}
 
     %% ── Dispatch paths ──
-    subgraph DISPATCH["Agent Dispatch"]
+    subgraph DISPATCH["AGENT DISPATCH"]
         direction TB
-        Simple["Single Agent<br/><i>e.g. log meal → 食医科</i>"]
-        Multi["Multi-Agent<br/><i>e.g. report → 报告科<br/>+ all departments</i>"]
-        Trial["Trial Pipeline<br/><i>pattern → trial design</i>"]
+        Simple["<b>Single Agent</b><br/><i>e.g. log meal -> 食医科</i>"]
+        Multi["<b>Multi-Agent</b><br/><i>e.g. report -> 报告科<br/>+ all departments</i>"]
+        Trial["<b>Trial Pipeline</b><br/><i>pattern -> trial design</i>"]
     end
 
     %% ── Trial Pipeline Detail ──
-    subgraph PIPELINE["Trial Design Pipeline"]
+    subgraph PIPELINE["TRIAL DESIGN PIPELINE"]
         direction TB
-        P1["📈 试效科 detects pattern<br/><i>modeling engine</i>"]
-        P2["院判 designs trial<br/><i>literature + stats</i>"]
-        P3{"医正 reviews"}
-        P4["✅ Approved Protocol"]
-        P5["❌ Revise"]
+        P1["<b>试效科</b> detects pattern<br/><i>modeling engine</i>"]
+        P2["<b>院判</b> designs trial<br/><i>literature + stats</i>"]
+        P3{"<b>医正</b> reviews"}
+        P4["Approved Protocol"]
+        P5["Revise"]
         P1 --> P2
         P2 --> P3
         P3 -->|"pass"| P4
@@ -30,10 +49,10 @@ flowchart LR
     end
 
     %% ── Result Collection ──
-    Collect["御医 collects<br/>& synthesizes results"]
+    Collect["<b>御医</b> collects<br/>& synthesizes results"]
 
     %% ── Response ──
-    Response["📋 Formatted Response<br/>to User"]
+    Response["<b>Formatted Response</b><br/>to User"]
 
     %% ── Flow ──
     Input --> Classify
@@ -48,15 +67,14 @@ flowchart LR
     Collect --> Response
 
     %% ── Styles ──
-    classDef userStyle fill:#1a1a2e,stroke:#e94560,stroke-width:2px,color:#eee
-    classDef orchStyle fill:#16213e,stroke:#0f3460,stroke-width:2px,color:#eee
-    classDef deptStyle fill:#1b4332,stroke:#40916c,stroke-width:2px,color:#eee
-    classDef trialStyle fill:#4a2c0a,stroke:#e09f3e,stroke-width:2px,color:#eee
-    classDef pipeStyle fill:#2a1a00,stroke:#e09f3e,stroke-width:2px,color:#eee
-    classDef resultStyle fill:#16213e,stroke:#0f3460,stroke-width:2px,color:#eee
-    classDef approvedStyle fill:#1b4332,stroke:#52b788,stroke-width:2px,color:#eee
-    classDef rejectStyle fill:#4a1a1a,stroke:#e94560,stroke-width:2px,color:#eee
-    classDef decisionStyle fill:#16213e,stroke:#0f3460,stroke-width:3px,color:#eee
+    classDef userStyle fill:#FFFFFF,stroke:#C41E3A,stroke-width:2px,color:#333333,rx:8,ry:8
+    classDef orchStyle fill:#FFF8E7,stroke:#DAA520,stroke-width:3px,color:#333333,rx:8,ry:8
+    classDef deptStyle fill:#FFFFFF,stroke:#2E8B8B,stroke-width:2px,color:#333333,rx:8,ry:8
+    classDef trialStyle fill:#FFFFFF,stroke:#DAA520,stroke-width:2px,color:#333333,rx:8,ry:8
+    classDef resultStyle fill:#FFFFFF,stroke:#8B7355,stroke-width:2px,color:#333333,rx:8,ry:8
+    classDef approvedStyle fill:#F0FFF0,stroke:#2E8B57,stroke-width:2px,color:#333333,rx:8,ry:8
+    classDef rejectStyle fill:#FFF5F5,stroke:#C41E3A,stroke-width:2px,color:#333333,rx:8,ry:8
+    classDef decisionStyle fill:#FFF8E7,stroke:#DAA520,stroke-width:3px,color:#333333,rx:8,ry:8
 
     class Input,Response userStyle
     class Classify decisionStyle
@@ -69,5 +87,5 @@ flowchart LR
     class P5 rejectStyle
     class Collect,Response resultStyle
 
-    style DISPATCH fill:#0a1f12,stroke:#40916c,stroke-width:2px,color:#eee
-    style PIPELINE fill:#2a1a00,stroke:#e09f3e,stroke-width:2px,color:#eee
+    style DISPATCH fill:#F0FAFA,stroke:#2E8B8B,stroke-width:2px,color:#333333
+    style PIPELINE fill:#FFFBF0,stroke:#DAA520,stroke-width:2px,color:#333333

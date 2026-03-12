@@ -1,61 +1,80 @@
-%%{init: {'theme': 'dark', 'themeVariables': { 'fontSize': '14px' }}}%%
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'fontSize': '14px',
+    'fontFamily': 'system-ui, -apple-system, sans-serif',
+    'primaryColor': '#FFFFFF',
+    'primaryBorderColor': '#DAA520',
+    'primaryTextColor': '#333333',
+    'lineColor': '#555555',
+    'secondaryColor': '#FFF8E7',
+    'tertiaryColor': '#F5F5F5',
+    'background': '#FFFFFF',
+    'mainBkg': '#FFFFFF',
+    'nodeBorder': '#DAA520',
+    'clusterBkg': '#FAFAFA',
+    'clusterBorder': '#CCCCCC',
+    'titleColor': '#333333',
+    'edgeLabelBackground': '#FFFFFF'
+  }
+}}%%
 graph TB
     %% ── User ──
-    User["👤 User<br/><i>Voice / Text via Claude Code</i>"]
+    User["<b>User</b><br/><i>Voice / Text via Claude Code</i>"]
 
     %% ── Orchestrator ──
-    subgraph ORCH["🏛 御医 Orchestrator"]
+    subgraph ORCH["ORCHESTRATOR"]
         direction TB
-        Yuyi["御医<br/>Imperial Physician<br/><i>SKILL.md</i>"]
+        Yuyi["<b>御医</b><br/>Imperial Physician<br/><i>SKILL.md</i>"]
     end
 
     %% ── Department Agents ──
-    subgraph DEPTS["六科 Department Agents"]
+    subgraph DEPTS["DEPARTMENT AGENTS  六科"]
         direction LR
-        Shiyi["🍚 食医科<br/>Diet<br/><i>shiyi.md</i>"]
-        Daoyin["🏃 导引科<br/>Exercise<br/><i>daoyin.md</i>"]
-        Zhenmai["📊 诊脉科<br/>Metrics<br/><i>zhenmai.md</i>"]
-        Yanfang["🔬 验方科<br/>Labs<br/><i>yanfang.md</i>"]
-        Bencao["🌿 本草科<br/>Supplements<br/><i>bencao.md</i>"]
-        Shixiao["📈 试效科<br/>Trial Monitor<br/><i>shixiao.md</i>"]
+        Shiyi["<b>食医科</b><br/>Diet<br/><i>shiyi.md</i>"]
+        Daoyin["<b>导引科</b><br/>Exercise<br/><i>daoyin.md</i>"]
+        Zhenmai["<b>诊脉科</b><br/>Metrics<br/><i>zhenmai.md</i>"]
+        Yanfang["<b>验方科</b><br/>Labs<br/><i>yanfang.md</i>"]
+        Bencao["<b>本草科</b><br/>Supplements<br/><i>bencao.md</i>"]
+        Shixiao["<b>试效科</b><br/>Trial Monitor<br/><i>shixiao.md</i>"]
     end
 
     %% ── Trial Pipeline ──
-    subgraph TRIAL["⚗️ Trial Design Pipeline"]
+    subgraph TRIAL["TRIAL DESIGN PIPELINE"]
         direction LR
-        Yuanpan["院判<br/>Trial Design<br/><i>yuanpan.md</i>"]
-        Yizheng["医正<br/>Review Gate<br/><i>yizheng.md</i>"]
+        Yuanpan["<b>院判</b><br/>Trial Design<br/><i>yuanpan.md</i>"]
+        Yizheng["<b>医正</b><br/>Review Gate<br/><i>yizheng.md</i>"]
         Yuanpan -->|"proposal"| Yizheng
-        Yizheng -->|"✅ approve"| Approved(["Trial Approved"])
-        Yizheng -->|"❌ reject + feedback"| Yuanpan
+        Yizheng -->|"approve"| Approved(["Trial Approved"])
+        Yizheng -->|"reject + feedback"| Yuanpan
     end
 
     %% ── Reports ──
-    Baogao["📋 报告科<br/>Reports<br/><i>baogao.md</i>"]
+    Baogao["<b>报告科</b><br/>Reports<br/><i>baogao.md</i>"]
 
     %% ── Modeling Engine ──
-    subgraph ENGINE["⚙️ Modeling Engine"]
+    subgraph ENGINE["MODELING ENGINE"]
         direction LR
-        EngineMain["engine.py<br/><i>Trend & anomaly<br/>detection</i>"]
-        Patterns["patterns.py<br/><i>Cross-module<br/>correlation</i>"]
-        Causal["causal.py<br/><i>Causal inference<br/>& hypothesis</i>"]
+        EngineMain["<b>engine.py</b><br/><i>Trend & anomaly<br/>detection</i>"]
+        Patterns["<b>patterns.py</b><br/><i>Cross-module<br/>correlation</i>"]
+        Causal["<b>causal.py</b><br/><i>Causal inference<br/>& hypothesis</i>"]
     end
 
     %% ── Infrastructure ──
-    DB[("🗄 SQLite<br/>taiyiyuan.db")]
-    Dashboard["📊 Dashboard<br/><i>localhost:8420</i>"]
+    DB[("SQLite<br/><b>taiyiyuan.db</b>")]
+    Dashboard["<b>Dashboard</b><br/><i>localhost:8420</i>"]
 
-    subgraph APIS["External APIs"]
+    subgraph APIS["EXTERNAL APIs"]
         direction LR
         USDA["USDA<br/>FoodData Central"]
         PubMed["PubMed"]
         BioRxiv["bioRxiv"]
     end
 
-    %% ── Connections: User ↔ Orchestrator ──
+    %% ── Connections: User <-> Orchestrator ──
     User <-->|"natural language"| Yuyi
 
-    %% ── Connections: Orchestrator → Agents ──
+    %% ── Connections: Orchestrator -> Agents ──
     Yuyi -->|"dispatch"| Shiyi
     Yuyi -->|"dispatch"| Daoyin
     Yuyi -->|"dispatch"| Zhenmai
@@ -65,7 +84,7 @@ graph TB
     Yuyi -->|"dispatch"| Yuanpan
     Yuyi -->|"dispatch"| Baogao
 
-    %% ── Connections: Agents → DB ──
+    %% ── Connections: Agents -> DB ──
     Shiyi <-->|"read/write"| DB
     Daoyin <-->|"read/write"| DB
     Zhenmai <-->|"read/write"| DB
@@ -86,8 +105,8 @@ graph TB
     Shiyi -.->|"nutrition lookup"| USDA
     Yuanpan -.->|"literature search"| PubMed
     Yuanpan -.->|"preprint search"| BioRxiv
-    Yizheng -.->|"independent verification"| PubMed
-    Yizheng -.->|"independent verification"| BioRxiv
+    Yizheng -.->|"verification"| PubMed
+    Yizheng -.->|"verification"| BioRxiv
 
     %% ── Dashboard ──
     DB -->|"read-only"| Dashboard
@@ -96,14 +115,14 @@ graph TB
     Approved -->|"activate"| Shixiao
 
     %% ── Styles ──
-    classDef userStyle fill:#1a1a2e,stroke:#e94560,stroke-width:2px,color:#eee
-    classDef orchStyle fill:#16213e,stroke:#0f3460,stroke-width:2px,color:#eee
-    classDef deptStyle fill:#1b4332,stroke:#40916c,stroke-width:2px,color:#eee
-    classDef trialStyle fill:#4a2c0a,stroke:#e09f3e,stroke-width:2px,color:#eee
-    classDef engineStyle fill:#2d1b4e,stroke:#9b5de5,stroke-width:2px,color:#eee
-    classDef infraStyle fill:#2b2b2b,stroke:#777,stroke-width:2px,color:#ccc
-    classDef reportStyle fill:#16213e,stroke:#0f3460,stroke-width:2px,color:#eee
-    classDef approvedStyle fill:#1b4332,stroke:#52b788,stroke-width:2px,color:#eee
+    classDef userStyle fill:#FFFFFF,stroke:#C41E3A,stroke-width:2px,color:#333333,rx:8,ry:8
+    classDef orchStyle fill:#FFF8E7,stroke:#DAA520,stroke-width:3px,color:#333333,rx:8,ry:8
+    classDef deptStyle fill:#FFFFFF,stroke:#2E8B8B,stroke-width:2px,color:#333333,rx:8,ry:8
+    classDef trialStyle fill:#FFFFFF,stroke:#DAA520,stroke-width:2px,color:#333333,rx:8,ry:8
+    classDef engineStyle fill:#FFFFFF,stroke:#8B7355,stroke-width:2px,color:#333333,rx:8,ry:8
+    classDef infraStyle fill:#F5F5F5,stroke:#999999,stroke-width:2px,color:#555555,rx:8,ry:8
+    classDef reportStyle fill:#FFFFFF,stroke:#C41E3A,stroke-width:2px,color:#333333,rx:8,ry:8
+    classDef approvedStyle fill:#F0FFF0,stroke:#2E8B57,stroke-width:2px,color:#333333,rx:8,ry:8
 
     class User userStyle
     class Yuyi orchStyle
@@ -114,8 +133,8 @@ graph TB
     class Baogao reportStyle
     class Approved approvedStyle
 
-    style ORCH fill:#0d1b2a,stroke:#0f3460,stroke-width:3px,color:#eee
-    style DEPTS fill:#0a1f12,stroke:#40916c,stroke-width:3px,color:#eee
-    style TRIAL fill:#2a1a00,stroke:#e09f3e,stroke-width:3px,color:#eee
-    style ENGINE fill:#1a0f2e,stroke:#9b5de5,stroke-width:3px,color:#eee
-    style APIS fill:#1a1a1a,stroke:#777,stroke-width:2px,color:#ccc
+    style ORCH fill:#FFF8E7,stroke:#DAA520,stroke-width:3px,color:#333333
+    style DEPTS fill:#F0FAFA,stroke:#2E8B8B,stroke-width:2px,color:#333333
+    style TRIAL fill:#FFFBF0,stroke:#DAA520,stroke-width:2px,color:#333333
+    style ENGINE fill:#FAF5F0,stroke:#8B7355,stroke-width:2px,color:#333333
+    style APIS fill:#F5F5F5,stroke:#999999,stroke-width:1px,color:#555555

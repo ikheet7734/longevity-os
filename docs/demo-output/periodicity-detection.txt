@@ -1,0 +1,4 @@
+{
+  "day_of_week": null,
+  "monthly": null
+}

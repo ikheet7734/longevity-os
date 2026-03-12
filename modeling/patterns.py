@@ -147,15 +147,18 @@ class PatternDetector:
             'calcium_mg', 'iron_mg', 'magnesium_mg', 'zinc_mg', 'potassium_mg', 'sodium_mg',
         ]
         for col in micro_cols:
-            df = self._query_df(
-                f"SELECT DATE(de.timestamp) AS dt, SUM(di.{col}) AS value "
-                f"FROM diet_ingredients di JOIN diet_entries de ON di.entry_id = de.id "
-                f"WHERE DATE(de.timestamp) >= ? GROUP BY dt ORDER BY dt",
-                (cutoff,),
-            )
-            if not df.empty and df['value'].notna().sum() >= 5:
-                df['dt'] = pd.to_datetime(df['dt']).dt.date
-                series[f'diet.{col}'] = df.set_index('dt')['value'].astype(float)
+            try:
+                df = self._query_df(
+                    f"SELECT DATE(de.timestamp) AS dt, SUM(di.{col}) AS value "
+                    f"FROM diet_ingredients di JOIN diet_entries de ON di.entry_id = de.id "
+                    f"WHERE DATE(de.timestamp) >= ? GROUP BY dt ORDER BY dt",
+                    (cutoff,),
+                )
+                if not df.empty and df['value'].notna().sum() >= 5:
+                    df['dt'] = pd.to_datetime(df['dt']).dt.date
+                    series[f'diet.{col}'] = df.set_index('dt')['value'].astype(float)
+            except Exception:
+                pass  # Skip if column not found
 
         # --- Exercise: daily aggregates ---
         ex_metrics = {
@@ -595,8 +598,11 @@ class PatternDetector:
             # Check baseline data availability for outcome
             from engine import ModelingEngine
             eng = ModelingEngine(db=self.db)
-            outcome_series = eng._get_metric_series(outcome_metric, days=90).dropna()
-            baseline_days = len(outcome_series)
+            try:
+                outcome_series = eng._get_metric_series(outcome_metric, days=90).dropna()
+                baseline_days = len(outcome_series)
+            except Exception:
+                baseline_days = 0
 
             actionable = baseline_days >= 30
 

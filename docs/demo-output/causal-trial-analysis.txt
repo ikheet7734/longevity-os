@@ -1,0 +1,271 @@
+{
+  "trial_id": 1,
+  "trial_name": "Protein-Sleep Quality Trial",
+  "design": "ABA",
+  "phases": [
+    {
+      "name": "baseline",
+      "mean": 6.9843,
+      "sd": 0.7849,
+      "n": 14,
+      "values": [
+        6.79,
+        8.72,
+        5.72,
+        7.26,
+        7.76,
+        7.11,
+        5.9,
+        7.34,
+        7.14,
+        6.39,
+        6.31,
+        7.67,
+        6.74,
+        6.93
+      ],
+      "dates": [
+        "2026-02-01",
+        "2026-02-02",
+        "2026-02-03",
+        "2026-02-04",
+        "2026-02-05",
+        "2026-02-06",
+        "2026-02-07",
+        "2026-02-08",
+        "2026-02-09",
+        "2026-02-10",
+        "2026-02-11",
+        "2026-02-12",
+        "2026-02-13",
+        "2026-02-14"
+      ],
+      "avg_compliance": 0.9279
+    },
+    {
+      "name": "intervention",
+      "mean": 7.64,
+      "sd": 0.5943,
+      "n": 14,
+      "values": [
+        8.13,
+        8.17,
+        8.02,
+        7.43,
+        8.21,
+        6.62,
+        7.08,
+        6.59,
+        8.14,
+        8.06,
+        8.22,
+        7.41,
+        7.12,
+        7.76
+      ],
+      "dates": [
+        "2026-02-15",
+        "2026-02-16",
+        "2026-02-17",
+        "2026-02-18",
+        "2026-02-19",
+        "2026-02-20",
+        "2026-02-21",
+        "2026-02-22",
+        "2026-02-23",
+        "2026-02-24",
+        "2026-02-25",
+        "2026-02-26",
+        "2026-02-27",
+        "2026-02-28"
+      ],
+      "avg_compliance": 0.8814
+    }
+  ],
+  "comparison": {
+    "test_used": "Mann-Whitney U",
+    "statistic": 148.5,
+    "p_value": 0.021579,
+    "effect_size_d": 0.9419,
+    "ci_95": [
+      0.1611,
+      1.7227
+    ],
+    "baseline_mean": 6.9843,
+    "intervention_mean": 7.64,
+    "difference": 0.6557,
+    "normality": {
+      "baseline_normal": true,
+      "intervention_normal": false
+    }
+  },
+  "its_results": {
+    "level_change": {
+      "estimate": 0.8364,
+      "se": 0.506,
+      "p_value": 0.110859,
+      "ci_95": [
+        -0.2058,
+        1.8787
+      ]
+    },
+    "slope_change": {
+      "estimate": -0.065467,
+      "se": 0.060341,
+      "p_value": 0.288293,
+      "ci_95": [
+        -0.189741,
+        0.058807
+      ]
+    },
+    "pre_trend": {
+      "slope": 0.058681,
+      "intercept": 5.1829
+    },
+    "post_trend": {
+      "slope": -0.006786,
+      "intercept": 6.0193
+    },
+    "model_fit": {
+      "r_squared": 0.5067,
+      "adj_r_squared": 0.4475,
+      "aic": 63.29,
+      "bic": 68.75
+    },
+    "n_pre": 14,
+    "n_post": 15,
+    "intervention_date": "2026-02-15"
+  },
+  "bsts_results": {
+    "error": "only 0-dimensional arrays can be converted to Python scalars"
+  },
+  "compliance": {
+    "overall": 0.9046,
+    "by_phase": [
+      {
+        "phase": "baseline",
+        "avg_compliance": 0.9279,
+        "n": 14
+      },
+      {
+        "phase": "intervention",
+        "avg_compliance": 0.8814,
+        "n": 14
+      }
+    ]
+  },
+  "confounders": [
+    {
+      "variable": "blood_pressure_dia",
+      "changed": false,
+      "p_value": 0.416306,
+      "before_mean": 82.5833,
+      "during_mean": 81.6667,
+      "before_n": 12,
+      "during_n": 15,
+      "details": "blood_pressure_dia did not change (before: 82.58, during: 81.67, p=0.4163)"
+    },
+    {
+      "variable": "blood_pressure_sys",
+      "changed": false,
+      "p_value": 0.462364,
+      "before_mean": 127.1667,
+      "during_mean": 125.8,
+      "before_n": 12,
+      "during_n": 15,
+      "details": "blood_pressure_sys did not change (before: 127.17, during: 125.80, p=0.4624)"
+    },
+    {
+      "variable": "body_fat",
+      "changed": false,
+      "p_value": 0.057143,
+      "before_mean": 18.6725,
+      "during_mean": 18.05,
+      "before_n": 4,
+      "during_n": 4,
+      "details": "body_fat did not change (before: 18.67, during: 18.05, p=0.0571)"
+    },
+    {
+      "variable": "fasting_glucose",
+      "changed": true,
+      "p_value": 0.010007,
+      "before_mean": 97.8333,
+      "during_mean": 93.0,
+      "before_n": 6,
+      "during_n": 6,
+      "details": "fasting_glucose changed significantly (before: 97.83, during: 93.00, p=0.0100)"
+    },
+    {
+      "variable": "hrv",
+      "changed": true,
+      "p_value": 0.00074,
+      "before_mean": 34.8889,
+      "during_mean": 40.6429,
+      "before_n": 27,
+      "during_n": 28,
+      "details": "hrv changed significantly (before: 34.89, during: 40.64, p=0.0007)"
+    },
+    {
+      "variable": "resting_hr",
+      "changed": true,
+      "p_value": 0.002193,
+      "before_mean": 67.6296,
+      "during_mean": 64.7143,
+      "before_n": 27,
+      "during_n": 28,
+      "details": "resting_hr changed significantly (before: 67.63, during: 64.71, p=0.0022)"
+    },
+    {
+      "variable": "sleep_duration",
+      "changed": true,
+      "p_value": 0.036507,
+      "before_mean": 6.4481,
+      "during_mean": 6.8286,
+      "before_n": 27,
+      "during_n": 28,
+      "details": "sleep_duration changed significantly (before: 6.45, during: 6.83, p=0.0365)"
+    },
+    {
+      "variable": "weight",
+      "changed": true,
+      "p_value": 2e-06,
+      "before_mean": 75.1656,
+      "during_mean": 74.3161,
+      "before_n": 27,
+      "during_n": 28,
+      "details": "weight changed significantly (before: 75.17, during: 74.32, p=0.0000)"
+    },
+    {
+      "variable": "daily_calories",
+      "changed": true,
+      "p_value": 0.0,
+      "before_mean": 1713.7593,
+      "during_mean": 2268.3107,
+      "before_n": 27,
+      "during_n": 28,
+      "details": "daily_calories changed significantly (before: 1713.76, during: 2268.31, p=0.0000)"
+    },
+    {
+      "variable": "exercise_minutes",
+      "changed": true,
+      "p_value": 0.001073,
+      "before_mean": 37.5571,
+      "during_mean": 69.9944,
+      "before_n": 7,
+      "during_n": 18,
+      "details": "exercise_minutes changed significantly (before: 37.56, during: 69.99, p=0.0011)"
+    }
+  ],
+  "conclusion": {
+    "effect_detected": true,
+    "effect_size_interpretation": "large",
+    "confidence": "low",
+    "recommendation": "extend",
+    "plain_summary": "High-protein dinner (30-40g protein) vs normal dinner (15-20g protein) was associated with a increased sleep_quality (intervention: 7.64 vs baseline: 6.98, d=0.94, p=0.0216).",
+    "caveats": [
+      "Potential confounders changed during trial: fasting_glucose, hrv, resting_hr, sleep_duration, weight, daily_calories, exercise_minutes"
+    ]
+  },
+  "insufficient_data": false,
+  "insufficient_data_reason": null
+}

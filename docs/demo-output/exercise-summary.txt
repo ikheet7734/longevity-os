@@ -1,0 +1,62 @@
+{
+  "period_days": 30,
+  "total_sessions": 49,
+  "total_minutes": 2436.8,
+  "by_type": {
+    "flexibility": {
+      "sessions": 3,
+      "total_minutes": 117.0,
+      "avg_hr": 86.0
+    },
+    "running": {
+      "sessions": 14,
+      "total_minutes": 478.8,
+      "total_distance_km": 85.97,
+      "avg_hr": 153.0
+    },
+    "walking": {
+      "sessions": 3,
+      "total_minutes": 110.0,
+      "total_distance_km": 10.41,
+      "avg_hr": 93.0
+    },
+    "weightlifting": {
+      "sessions": 29,
+      "total_minutes": 1731.0,
+      "avg_hr": 123.0
+    }
+  },
+  "total_volume_load": 236984.3,
+  "muscle_group_balance": {
+    "Barbell Curl": 8251.2,
+    "Barbell Row": 24540.8,
+    "Barbell Squat": 19517.6,
+    "Bench Press": 25908.0,
+    "Calf Raises": 17256.0,
+    "Deadlift": 27318.4,
+    "Face Pulls": 7524.0,
+    "Forward Fold": 0.0,
+    "Incline Dumbbell Press": 8286.0,
+    "Lat Pulldown": 16989.0,
+    "Lateral Raises": 4999.5,
+    "Leg Press": 37810.8,
+    "Overhead Press": 12727.8,
+    "Pigeon Pose": 0.0,
+    "Romanian Deadlift": 13788.0,
+    "Running": 0.0,
+    "Sun Salutations": 0.0,
+    "Tricep Pushdowns": 8028.0,
+    "Walking Lunges": 4039.2
+  },
+  "avg_rpe": 6.8,
+  "weekly_trend": {
+    "W7": 5,
+    "W8": 7,
+    "W9": 7,
+    "W10": 7,
+    "W11": 7,
+    "W12": 6,
+    "W13": 8,
+    "W14": 2
+  }
+}

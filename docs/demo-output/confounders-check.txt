@@ -1,0 +1,102 @@
+[
+  {
+    "variable": "blood_pressure_dia",
+    "changed": false,
+    "p_value": 0.416306,
+    "before_mean": 82.5833,
+    "during_mean": 81.6667,
+    "before_n": 12,
+    "during_n": 15,
+    "details": "blood_pressure_dia did not change (before: 82.58, during: 81.67, p=0.4163)"
+  },
+  {
+    "variable": "blood_pressure_sys",
+    "changed": false,
+    "p_value": 0.462364,
+    "before_mean": 127.1667,
+    "during_mean": 125.8,
+    "before_n": 12,
+    "during_n": 15,
+    "details": "blood_pressure_sys did not change (before: 127.17, during: 125.80, p=0.4624)"
+  },
+  {
+    "variable": "body_fat",
+    "changed": false,
+    "p_value": 0.057143,
+    "before_mean": 18.6725,
+    "during_mean": 18.05,
+    "before_n": 4,
+    "during_n": 4,
+    "details": "body_fat did not change (before: 18.67, during: 18.05, p=0.0571)"
+  },
+  {
+    "variable": "fasting_glucose",
+    "changed": true,
+    "p_value": 0.010007,
+    "before_mean": 97.8333,
+    "during_mean": 93.0,
+    "before_n": 6,
+    "during_n": 6,
+    "details": "fasting_glucose changed significantly (before: 97.83, during: 93.00, p=0.0100)"
+  },
+  {
+    "variable": "hrv",
+    "changed": true,
+    "p_value": 0.00074,
+    "before_mean": 34.8889,
+    "during_mean": 40.6429,
+    "before_n": 27,
+    "during_n": 28,
+    "details": "hrv changed significantly (before: 34.89, during: 40.64, p=0.0007)"
+  },
+  {
+    "variable": "resting_hr",
+    "changed": true,
+    "p_value": 0.002193,
+    "before_mean": 67.6296,
+    "during_mean": 64.7143,
+    "before_n": 27,
+    "during_n": 28,
+    "details": "resting_hr changed significantly (before: 67.63, during: 64.71, p=0.0022)"
+  },
+  {
+    "variable": "sleep_duration",
+    "changed": true,
+    "p_value": 0.036507,
+    "before_mean": 6.4481,
+    "during_mean": 6.8286,
+    "before_n": 27,
+    "during_n": 28,
+    "details": "sleep_duration changed significantly (before: 6.45, during: 6.83, p=0.0365)"
+  },
+  {
+    "variable": "weight",
+    "changed": true,
+    "p_value": 2e-06,
+    "before_mean": 75.1656,
+    "during_mean": 74.3161,
+    "before_n": 27,
+    "during_n": 28,
+    "details": "weight changed significantly (before: 75.17, during: 74.32, p=0.0000)"
+  },
+  {
+    "variable": "daily_calories",
+    "changed": true,
+    "p_value": 0.0,
+    "before_mean": 1713.7593,
+    "during_mean": 2268.3107,
+    "before_n": 27,
+    "during_n": 28,
+    "details": "daily_calories changed significantly (before: 1713.76, during: 2268.31, p=0.0000)"
+  },
+  {
+    "variable": "exercise_minutes",
+    "changed": true,
+    "p_value": 0.001073,
+    "before_mean": 37.5571,
+    "during_mean": 69.9944,
+    "before_n": 7,
+    "during_n": 18,
+    "details": "exercise_minutes changed significantly (before: 37.56, during: 69.99, p=0.0011)"
+  }
+]
