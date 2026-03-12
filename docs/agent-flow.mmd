@@ -1,0 +1,73 @@
+%%{init: {'theme': 'dark', 'themeVariables': { 'fontSize': '14px' }}}%%
+flowchart LR
+    %% ── Input ──
+    Input["👤 User Input<br/><i>'Propose an experiment<br/>for my sleep'</i>"]
+
+    %% ── Classification ──
+    Classify{"御医 classifies<br/>intent & domain"}
+
+    %% ── Dispatch paths ──
+    subgraph DISPATCH["Agent Dispatch"]
+        direction TB
+        Simple["Single Agent<br/><i>e.g. log meal → 食医科</i>"]
+        Multi["Multi-Agent<br/><i>e.g. report → 报告科<br/>+ all departments</i>"]
+        Trial["Trial Pipeline<br/><i>pattern → trial design</i>"]
+    end
+
+    %% ── Trial Pipeline Detail ──
+    subgraph PIPELINE["Trial Design Pipeline"]
+        direction TB
+        P1["📈 试效科 detects pattern<br/><i>modeling engine</i>"]
+        P2["院判 designs trial<br/><i>literature + stats</i>"]
+        P3{"医正 reviews"}
+        P4["✅ Approved Protocol"]
+        P5["❌ Revise"]
+        P1 --> P2
+        P2 --> P3
+        P3 -->|"pass"| P4
+        P3 -->|"fail"| P5
+        P5 -->|"feedback"| P2
+    end
+
+    %% ── Result Collection ──
+    Collect["御医 collects<br/>& synthesizes results"]
+
+    %% ── Response ──
+    Response["📋 Formatted Response<br/>to User"]
+
+    %% ── Flow ──
+    Input --> Classify
+    Classify -->|"log / query"| Simple
+    Classify -->|"report / summary"| Multi
+    Classify -->|"experiment / trial"| Trial
+
+    Simple --> Collect
+    Multi --> Collect
+    Trial --> PIPELINE
+    P4 --> Collect
+    Collect --> Response
+
+    %% ── Styles ──
+    classDef userStyle fill:#1a1a2e,stroke:#e94560,stroke-width:2px,color:#eee
+    classDef orchStyle fill:#16213e,stroke:#0f3460,stroke-width:2px,color:#eee
+    classDef deptStyle fill:#1b4332,stroke:#40916c,stroke-width:2px,color:#eee
+    classDef trialStyle fill:#4a2c0a,stroke:#e09f3e,stroke-width:2px,color:#eee
+    classDef pipeStyle fill:#2a1a00,stroke:#e09f3e,stroke-width:2px,color:#eee
+    classDef resultStyle fill:#16213e,stroke:#0f3460,stroke-width:2px,color:#eee
+    classDef approvedStyle fill:#1b4332,stroke:#52b788,stroke-width:2px,color:#eee
+    classDef rejectStyle fill:#4a1a1a,stroke:#e94560,stroke-width:2px,color:#eee
+    classDef decisionStyle fill:#16213e,stroke:#0f3460,stroke-width:3px,color:#eee
+
+    class Input,Response userStyle
+    class Classify decisionStyle
+    class Simple,Multi deptStyle
+    class Trial trialStyle
+    class P1 deptStyle
+    class P2 trialStyle
+    class P3 decisionStyle
+    class P4 approvedStyle
+    class P5 rejectStyle
+    class Collect,Response resultStyle
+
+    style DISPATCH fill:#0a1f12,stroke:#40916c,stroke-width:2px,color:#eee
+    style PIPELINE fill:#2a1a00,stroke:#e09f3e,stroke-width:2px,color:#eee

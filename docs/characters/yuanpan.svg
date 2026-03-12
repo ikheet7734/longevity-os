@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 院判 (Trial Design / Scholar) -->
+  <!-- Background aura -->
+  <g id="aura">
+    <circle cx="100" cy="105" r="85" fill="#008B8B" opacity="0.08"/>
+    <circle cx="100" cy="105" r="70" fill="#20B2AA" opacity="0.06"/>
+  </g>
+
+  <!-- Body -->
+  <g id="body">
+    <!-- Robe base -->
+    <path d="M62,112 Q58,135 54,168 L68,172 Q82,152 100,150 Q118,152 132,172 L146,168 Q142,135 138,112 Z" fill="#008B8B" stroke="#006666" stroke-width="2"/>
+    <!-- Inner robe panel -->
+    <path d="M86,112 L84,150 Q100,147 116,150 L114,112 Z" fill="#20B2AA" stroke="#1A9090" stroke-width="1"/>
+    <!-- Collar left -->
+    <path d="M80,96 L72,116 L92,114 Z" fill="#20B2AA" stroke="#1A9090" stroke-width="1.5"/>
+    <!-- Collar right -->
+    <path d="M120,96 L128,116 L108,114 Z" fill="#20B2AA" stroke="#1A9090" stroke-width="1.5"/>
+    <!-- Belt -->
+    <rect x="70" y="130" width="60" height="5" rx="2.5" fill="#B0E0E6" stroke="#87CEEB" stroke-width="1"/>
+    <!-- Left sleeve -->
+    <path d="M62,112 Q46,124 36,140 Q38,145 44,143 Q52,132 66,124 Z" fill="#008B8B" stroke="#006666" stroke-width="2"/>
+    <path d="M36,140 Q34,143 38,145 L44,143 Z" fill="#20B2AA" stroke="#1A9090" stroke-width="1"/>
+    <!-- Right sleeve -->
+    <path d="M138,112 Q154,124 164,140 Q162,145 156,143 Q148,132 134,124 Z" fill="#008B8B" stroke="#006666" stroke-width="2"/>
+    <path d="M164,140 Q166,143 162,145 L156,143 Z" fill="#20B2AA" stroke="#1A9090" stroke-width="1"/>
+    <!-- Wave pattern on robe -->
+    <path d="M66,145 Q78,142 90,144 Q100,146 110,144 Q122,142 134,145" fill="none" stroke="#20B2AA" stroke-width="0.8" opacity="0.5"/>
+    <path d="M62,158 Q78,155 94,157 Q106,159 118,157 Q134,155 142,158" fill="none" stroke="#20B2AA" stroke-width="0.8" opacity="0.5"/>
+    <!-- Feet -->
+    <ellipse cx="84" cy="172" rx="11" ry="5" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+    <ellipse cx="116" cy="172" rx="11" ry="5" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+  </g>
+
+  <!-- Writing brush (right hand) -->
+  <g id="brush">
+    <line x1="158" y1="105" x2="165" y2="85" stroke="#5C3317" stroke-width="3" stroke-linecap="round"/>
+    <path d="M165,85 Q166,80 164,76 Q163,74 165,76 Q167,80 166,85" fill="#3D2B1F" stroke="#2C1810" stroke-width="0.5"/>
+    <!-- Brush tip -->
+    <path d="M164,76 L165,72 L166,76 Z" fill="#1A1A1A"/>
+  </g>
+
+  <!-- Scroll (left hand) -->
+  <g id="scroll">
+    <rect x="25" y="120" width="22" height="30" rx="2" fill="#FFF8DC" stroke="#D4A574" stroke-width="1.5" transform="rotate(-10, 36, 135)"/>
+    <line x1="30" y1="128" x2="43" y2="126" stroke="#8B7355" stroke-width="0.8" opacity="0.6"/>
+    <line x1="30" y1="132" x2="43" y2="130" stroke="#8B7355" stroke-width="0.8" opacity="0.6"/>
+    <line x1="30" y1="136" x2="43" y2="134" stroke="#8B7355" stroke-width="0.8" opacity="0.6"/>
+    <line x1="30" y1="140" x2="40" y2="138" stroke="#8B7355" stroke-width="0.8" opacity="0.6"/>
+    <!-- Scroll rollers -->
+    <rect x="24" y="118" width="24" height="4" rx="2" fill="#D4A574" stroke="#B8860B" stroke-width="1" transform="rotate(-10, 36, 120)"/>
+    <rect x="24" y="150" width="24" height="4" rx="2" fill="#D4A574" stroke="#B8860B" stroke-width="1" transform="rotate(-10, 36, 152)"/>
+  </g>
+
+  <!-- Floating scrolls -->
+  <g id="floating-scrolls" opacity="0.5">
+    <rect x="145" y="60" width="14" height="20" rx="2" fill="#FFF8DC" stroke="#D4A574" stroke-width="1" transform="rotate(15, 152, 70)"/>
+    <rect x="155" y="55" width="12" height="18" rx="2" fill="#FFF8DC" stroke="#D4A574" stroke-width="1" transform="rotate(-8, 161, 64)"/>
+    <!-- Formula symbols -->
+    <text x="148" y="72" font-size="7" fill="#008B8B" font-family="serif" transform="rotate(15, 152, 70)">n=</text>
+    <text x="158" y="67" font-size="6" fill="#008B8B" font-family="serif" transform="rotate(-8, 161, 64)">p&lt;</text>
+  </g>
+
+  <!-- Head -->
+  <g id="head">
+    <!-- Neck -->
+    <rect x="92" y="88" width="16" height="10" rx="3" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+    <!-- Face -->
+    <ellipse cx="100" cy="72" rx="27" ry="28" fill="#F5D0A9" stroke="#D4A574" stroke-width="2"/>
+    <!-- Ears -->
+    <ellipse cx="73" cy="74" rx="5" ry="7" fill="#F5D0A9" stroke="#D4A574" stroke-width="1.5"/>
+    <ellipse cx="127" cy="74" rx="5" ry="7" fill="#F5D0A9" stroke="#D4A574" stroke-width="1.5"/>
+
+    <!-- Scholar hat (方巾) -->
+    <g id="hat">
+      <path d="M72,58 Q74,40 100,36 Q126,40 128,58 Z" fill="#1A1A2E" stroke="#0D0D1A" stroke-width="2"/>
+      <rect x="75" y="55" width="50" height="4" rx="1" fill="#333344" stroke="#222233" stroke-width="1"/>
+      <!-- Hat ornament -->
+      <rect x="96" y="36" width="8" height="8" rx="1" fill="#20B2AA" stroke="#008B8B" stroke-width="1" transform="rotate(45, 100, 40)"/>
+    </g>
+
+    <!-- Hair wisps -->
+    <path d="M74,60 Q70,68 73,74" fill="none" stroke="#2C1810" stroke-width="1.5"/>
+    <path d="M126,60 Q130,68 127,74" fill="none" stroke="#2C1810" stroke-width="1.5"/>
+
+    <!-- Round spectacles -->
+    <g id="spectacles">
+      <circle cx="88" cy="70" r="9" fill="none" stroke="#B8860B" stroke-width="1.5"/>
+      <circle cx="112" cy="70" r="9" fill="none" stroke="#B8860B" stroke-width="1.5"/>
+      <line x1="97" y1="70" x2="103" y2="70" stroke="#B8860B" stroke-width="1.5"/>
+      <line x1="79" y1="70" x2="74" y2="68" stroke="#B8860B" stroke-width="1"/>
+      <line x1="121" y1="70" x2="126" y2="68" stroke="#B8860B" stroke-width="1"/>
+      <!-- Lens shine -->
+      <path d="M83,66 Q85,64 87,66" fill="none" stroke="white" stroke-width="0.8" opacity="0.5"/>
+      <path d="M107,66 Q109,64 111,66" fill="none" stroke="white" stroke-width="0.8" opacity="0.5"/>
+    </g>
+
+    <!-- Eyebrows -->
+    <path d="M82,62 Q87,59 94,61" fill="none" stroke="#3D2B1F" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M106,61 Q113,59 118,62" fill="none" stroke="#3D2B1F" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Eyes (behind glasses) -->
+    <ellipse cx="88" cy="71" rx="4" ry="5" fill="white" stroke="#3D2B1F" stroke-width="1"/>
+    <ellipse cx="88" cy="72" rx="3" ry="3.5" fill="#3D2B1F"/>
+    <circle cx="87" cy="70" r="1.5" fill="white" opacity="0.8"/>
+    <ellipse cx="112" cy="71" rx="4" ry="5" fill="white" stroke="#3D2B1F" stroke-width="1"/>
+    <ellipse cx="112" cy="72" rx="3" ry="3.5" fill="#3D2B1F"/>
+    <circle cx="111" cy="70" r="1.5" fill="white" opacity="0.8"/>
+
+    <!-- Nose -->
+    <path d="M98,77 Q100,80 102,77" fill="none" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Thoughtful pursed lips -->
+    <path d="M94,85 Q97,86 100,86 Q103,86 106,85" fill="none" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Slight thinking dimple -->
+    <path d="M93,84 L94,85" fill="none" stroke="#C4956A" stroke-width="1" opacity="0.5"/>
+
+    <!-- Cheek blush -->
+    <ellipse cx="80" cy="80" rx="4" ry="3" fill="#FFB6C1" opacity="0.3"/>
+    <ellipse cx="120" cy="80" rx="4" ry="3" fill="#FFB6C1" opacity="0.3"/>
+  </g>
+
+  <!-- Hands -->
+  <g id="hands">
+    <circle cx="40" cy="143" r="5" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+    <circle cx="160" cy="143" r="5" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+  </g>
+</svg>

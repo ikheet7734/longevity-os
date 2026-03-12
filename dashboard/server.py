@@ -107,6 +107,8 @@ class TaiYiYuanHandler(BaseHTTPRequestHandler):
                 self._json_error(503, str(e))
             except Exception as e:
                 self._json_error(500, f"Internal error: {e}")
+        elif path.startswith("/docs/"):
+            self._serve_static(path)
         else:
             self._json_error(404, f"Not found: {self.path}")
 
@@ -135,6 +137,36 @@ class TaiYiYuanHandler(BaseHTTPRequestHandler):
 
     def _json_error(self, status, message):
         self._send_json({"error": message}, status)
+
+    def _serve_static(self, path):
+        """Serve static files from project root (docs/, etc.)."""
+        project_root = Path(__file__).parent.parent
+        file_path = project_root / path.lstrip("/")
+        if not file_path.exists() or not file_path.is_file():
+            self._json_error(404, f"Not found: {path}")
+            return
+        # Prevent directory traversal
+        try:
+            file_path.resolve().relative_to(project_root.resolve())
+        except ValueError:
+            self._json_error(403, "Forbidden")
+            return
+        content_types = {
+            ".svg": "image/svg+xml",
+            ".png": "image/png",
+            ".jpg": "image/jpeg",
+            ".css": "text/css",
+            ".js": "application/javascript",
+        }
+        ct = content_types.get(file_path.suffix, "application/octet-stream")
+        body = file_path.read_bytes()
+        self.send_response(200)
+        self.send_header("Content-Type", ct)
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "max-age=3600")
+        self._cors_headers()
+        self.end_headers()
+        self.wfile.write(body)
 
     def _serve_dashboard(self, _params):
         if not DASHBOARD_HTML.exists():

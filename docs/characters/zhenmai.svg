@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 诊脉科 (Pulse & Metrics) -->
+  <!-- Background aura -->
+  <g id="aura">
+    <circle cx="100" cy="105" r="85" fill="#6B8E6B" opacity="0.08"/>
+    <circle cx="100" cy="105" r="70" fill="#87CEAB" opacity="0.06"/>
+  </g>
+
+  <!-- Body -->
+  <g id="body">
+    <!-- Robe base -->
+    <path d="M62,112 Q58,138 54,168 L68,172 Q82,154 100,152 Q118,154 132,172 L146,168 Q142,138 138,112 Z" fill="#6B8E6B" stroke="#557755" stroke-width="2"/>
+    <!-- Inner panel -->
+    <path d="M86,112 L84,152 Q100,149 116,152 L114,112 Z" fill="#87CEAB" stroke="#70B090" stroke-width="1"/>
+    <!-- Collar left -->
+    <path d="M80,96 L72,116 L92,114 Z" fill="#87CEAB" stroke="#70B090" stroke-width="1.5"/>
+    <!-- Collar right -->
+    <path d="M120,96 L128,116 L108,114 Z" fill="#87CEAB" stroke="#70B090" stroke-width="1.5"/>
+    <!-- Subtle cloud pattern on robe -->
+    <path d="M72,140 Q78,136 84,140 Q78,144 72,140 Z" fill="none" stroke="#87CEAB" stroke-width="0.8" opacity="0.4"/>
+    <path d="M116,150 Q122,146 128,150 Q122,154 116,150 Z" fill="none" stroke="#87CEAB" stroke-width="0.8" opacity="0.4"/>
+    <!-- Belt -->
+    <rect x="70" y="130" width="60" height="5" rx="2.5" fill="#A8C8A8" stroke="#87CEAB" stroke-width="1"/>
+    <circle cx="100" cy="132.5" r="3" fill="#87CEAB" stroke="#6B8E6B" stroke-width="1"/>
+    <!-- Left arm (extended for pulse-taking) -->
+    <path d="M62,112 Q44,116 30,124 Q28,130 34,130 Q44,126 62,120 Z" fill="#6B8E6B" stroke="#557755" stroke-width="2"/>
+    <path d="M30,124 Q26,127 28,130 L34,130 Z" fill="#87CEAB" stroke="#70B090" stroke-width="1"/>
+    <!-- Right sleeve (relaxed) -->
+    <path d="M138,112 Q152,122 160,136 Q158,142 152,139 Q148,130 136,122 Z" fill="#6B8E6B" stroke="#557755" stroke-width="2"/>
+    <path d="M160,136 Q162,140 158,142 L152,139 Z" fill="#87CEAB" stroke="#70B090" stroke-width="1"/>
+    <!-- Feet -->
+    <ellipse cx="84" cy="172" rx="11" ry="5" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+    <ellipse cx="116" cy="172" rx="11" ry="5" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+  </g>
+
+  <!-- Pulse-taking hand (left, extended with three fingers) -->
+  <g id="pulse-hand">
+    <path d="M22,120 L20,126 Q20,132 26,132 L34,130 Q36,128 34,124 Z" fill="#F5D0A9" stroke="#D4A574" stroke-width="1.5"/>
+    <!-- Three diagnostic fingers extended -->
+    <line x1="22" y1="120" x2="18" y2="114" stroke="#F5D0A9" stroke-width="4" stroke-linecap="round"/>
+    <line x1="26" y1="119" x2="22" y2="112" stroke="#F5D0A9" stroke-width="4" stroke-linecap="round"/>
+    <line x1="30" y1="120" x2="28" y2="113" stroke="#F5D0A9" stroke-width="4" stroke-linecap="round"/>
+    <!-- Finger tips (clean outline) -->
+    <circle cx="18" cy="113" r="2.5" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+    <circle cx="22" cy="111" r="2.5" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+    <circle cx="28" cy="112" r="2.5" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+    <!-- Pulse wave emanating from fingers -->
+    <path d="M12,108 Q10,104 14,100" fill="none" stroke="#87CEAB" stroke-width="1" opacity="0.5"/>
+    <path d="M8,110 Q5,104 10,98" fill="none" stroke="#87CEAB" stroke-width="1" opacity="0.3"/>
+  </g>
+
+  <!-- Small abacus (right hand) -->
+  <g id="abacus">
+    <rect x="150" y="120" width="24" height="20" rx="2" fill="#8B5E3C" stroke="#6B4226" stroke-width="1.5"/>
+    <!-- Abacus rods -->
+    <line x1="156" y1="122" x2="156" y2="138" stroke="#6B4226" stroke-width="1"/>
+    <line x1="162" y1="122" x2="162" y2="138" stroke="#6B4226" stroke-width="1"/>
+    <line x1="168" y1="122" x2="168" y2="138" stroke="#6B4226" stroke-width="1"/>
+    <!-- Divider -->
+    <line x1="152" y1="130" x2="172" y2="130" stroke="#6B4226" stroke-width="1"/>
+    <!-- Beads -->
+    <circle cx="156" cy="126" r="2" fill="#87CEAB" stroke="#6B8E6B" stroke-width="0.5"/>
+    <circle cx="162" cy="127" r="2" fill="#87CEAB" stroke="#6B8E6B" stroke-width="0.5"/>
+    <circle cx="168" cy="126" r="2" fill="#87CEAB" stroke="#6B8E6B" stroke-width="0.5"/>
+    <circle cx="156" cy="133" r="2" fill="#87CEAB" stroke="#6B8E6B" stroke-width="0.5"/>
+    <circle cx="156" cy="137" r="2" fill="#87CEAB" stroke="#6B8E6B" stroke-width="0.5"/>
+    <circle cx="162" cy="134" r="2" fill="#87CEAB" stroke="#6B8E6B" stroke-width="0.5"/>
+    <circle cx="168" cy="133" r="2" fill="#87CEAB" stroke="#6B8E6B" stroke-width="0.5"/>
+    <circle cx="168" cy="137" r="2" fill="#87CEAB" stroke="#6B8E6B" stroke-width="0.5"/>
+    <!-- Right hand holding -->
+    <circle cx="158" cy="142" r="5" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+  </g>
+
+  <!-- Head -->
+  <g id="head">
+    <!-- Neck -->
+    <rect x="92" y="88" width="16" height="10" rx="3" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+    <!-- Face -->
+    <ellipse cx="100" cy="70" rx="27" ry="28" fill="#F5D0A9" stroke="#D4A574" stroke-width="2"/>
+    <!-- Ears -->
+    <ellipse cx="73" cy="72" rx="5" ry="7" fill="#F5D0A9" stroke="#D4A574" stroke-width="1.5"/>
+    <ellipse cx="127" cy="72" rx="5" ry="7" fill="#F5D0A9" stroke="#D4A574" stroke-width="1.5"/>
+
+    <!-- Hair (neat, traditional) -->
+    <g id="hair">
+      <path d="M74,56 Q76,38 100,34 Q124,38 126,56" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+      <!-- Neat top knot -->
+      <ellipse cx="100" cy="32" rx="8" ry="6" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+      <!-- Simple jade pin -->
+      <line x1="92" y1="32" x2="108" y2="32" stroke="#87CEAB" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- Calm, perceptive eyebrows -->
+    <path d="M82,61 Q88,58 94,61" fill="none" stroke="#3D2B1F" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M106,61 Q112,58 118,61" fill="none" stroke="#3D2B1F" stroke-width="1.8" stroke-linecap="round"/>
+
+    <!-- Calm, perceptive eyes (slightly half-lidded, concentrating) -->
+    <g id="eyes">
+      <ellipse cx="88" cy="68" rx="5.5" ry="5" fill="white" stroke="#3D2B1F" stroke-width="1.5"/>
+      <ellipse cx="88" cy="69" rx="3.5" ry="4" fill="#3D2B1F"/>
+      <circle cx="87" cy="67" r="1.5" fill="white" opacity="0.8"/>
+      <!-- Slight lid -->
+      <path d="M82,66 Q88,63 94,66" fill="#F5D0A9" stroke="none"/>
+      <ellipse cx="112" cy="68" rx="5.5" ry="5" fill="white" stroke="#3D2B1F" stroke-width="1.5"/>
+      <ellipse cx="112" cy="69" rx="3.5" ry="4" fill="#3D2B1F"/>
+      <circle cx="111" cy="67" r="1.5" fill="white" opacity="0.8"/>
+      <path d="M106,66 Q112,63 118,66" fill="#F5D0A9" stroke="none"/>
+    </g>
+
+    <!-- Nose -->
+    <path d="M98,75 Q100,78 102,75" fill="none" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Calm, gentle smile -->
+    <path d="M93,82 Q97,85 100,85 Q103,85 107,82" fill="none" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Subtle blush -->
+    <ellipse cx="80" cy="78" rx="4" ry="3" fill="#FFB6C1" opacity="0.25"/>
+    <ellipse cx="120" cy="78" rx="4" ry="3" fill="#FFB6C1" opacity="0.25"/>
+  </g>
+
+  <!-- Pulse wave visualization -->
+  <g id="pulse-wave" opacity="0.4">
+    <path d="M30,90 L35,90 L38,82 L41,98 L44,82 L47,98 L50,90 L55,90" fill="none" stroke="#6B8E6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

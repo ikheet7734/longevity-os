@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 本草科 (Supplements / Materia Medica / Herbalist) -->
+  <!-- Background aura -->
+  <g id="aura">
+    <circle cx="100" cy="105" r="85" fill="#8B5E3C" opacity="0.08"/>
+    <circle cx="100" cy="105" r="70" fill="#A0785A" opacity="0.06"/>
+  </g>
+
+  <!-- Floating leaves and herbs -->
+  <g id="floating-herbs" opacity="0.5">
+    <!-- Leaf 1 -->
+    <path d="M35,60 Q40,52 45,60 Q40,58 35,60 Z" fill="#4CAF50" stroke="#388E3C" stroke-width="0.8"/>
+    <line x1="40" y1="54" x2="40" y2="60" stroke="#388E3C" stroke-width="0.5"/>
+    <!-- Leaf 2 -->
+    <path d="M155,55 Q162,48 165,58 Q160,54 155,55 Z" fill="#66BB6A" stroke="#43A047" stroke-width="0.8"/>
+    <!-- Leaf 3 -->
+    <path d="M28,90 Q34,84 38,92 Q33,88 28,90 Z" fill="#81C784" stroke="#66BB6A" stroke-width="0.8"/>
+    <!-- Small flower -->
+    <circle cx="160" cy="82" r="3" fill="#FFB6C1" stroke="#FF8FAB" stroke-width="0.5"/>
+    <circle cx="160" cy="82" r="1" fill="#FFD700"/>
+    <!-- Ginseng root floating -->
+    <path d="M170,100 Q172,106 168,112 Q170,108 174,112 Q172,106 170,100 Z" fill="#D4A574" stroke="#B8860B" stroke-width="0.8"/>
+    <!-- Small berry -->
+    <circle cx="42" cy="100" r="2.5" fill="#E74C3C" stroke="#C0392B" stroke-width="0.5"/>
+    <circle cx="41" cy="99" r="0.8" fill="white" opacity="0.4"/>
+  </g>
+
+  <!-- Body -->
+  <g id="body">
+    <!-- Robe base -->
+    <path d="M62,112 Q58,138 54,168 L68,172 Q82,154 100,152 Q118,154 132,172 L146,168 Q142,138 138,112 Z" fill="#8B5E3C" stroke="#6B4226" stroke-width="2"/>
+    <!-- Inner panel -->
+    <path d="M86,112 L84,152 Q100,149 116,152 L114,112 Z" fill="#A0785A" stroke="#8B6848" stroke-width="1"/>
+    <!-- Collar left -->
+    <path d="M80,96 L72,116 L92,114 Z" fill="#A0785A" stroke="#8B6848" stroke-width="1.5"/>
+    <!-- Collar right -->
+    <path d="M120,96 L128,116 L108,114 Z" fill="#A0785A" stroke="#8B6848" stroke-width="1.5"/>
+    <!-- Leaf embroidery on robe -->
+    <path d="M75,145 Q80,140 85,145 Q80,143 75,145 Z" fill="#6B8E6B" opacity="0.4"/>
+    <path d="M115,150 Q120,145 125,150 Q120,148 115,150 Z" fill="#6B8E6B" opacity="0.4"/>
+    <!-- Belt -->
+    <rect x="70" y="130" width="60" height="5" rx="2.5" fill="#6B8E6B" stroke="#557755" stroke-width="1"/>
+    <!-- Jade pendant on belt -->
+    <circle cx="100" cy="138" r="3" fill="#7EC8A0" stroke="#5BA880" stroke-width="0.8"/>
+    <path d="M100,141 L100,145" stroke="#6B8E6B" stroke-width="0.8"/>
+    <!-- Left sleeve -->
+    <path d="M62,112 Q46,122 38,136 Q40,142 46,139 Q52,130 66,122 Z" fill="#8B5E3C" stroke="#6B4226" stroke-width="2"/>
+    <path d="M38,136 Q36,140 40,142 L46,139 Z" fill="#A0785A" stroke="#8B6848" stroke-width="1"/>
+    <!-- Right sleeve -->
+    <path d="M138,112 Q154,122 162,136 Q160,142 154,139 Q148,130 136,122 Z" fill="#8B5E3C" stroke="#6B4226" stroke-width="2"/>
+    <path d="M162,136 Q164,140 160,142 L154,139 Z" fill="#A0785A" stroke="#8B6848" stroke-width="1"/>
+    <!-- Feet -->
+    <ellipse cx="84" cy="172" rx="11" ry="5" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+    <ellipse cx="116" cy="172" rx="11" ry="5" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+  </g>
+
+  <!-- Herb basket (left arm) -->
+  <g id="basket">
+    <!-- Basket body -->
+    <path d="M26,122 Q22,130 24,142 Q30,148 44,148 Q56,148 58,142 Q60,130 56,122 Z" fill="#D4A574" stroke="#B8860B" stroke-width="1.5"/>
+    <!-- Weave pattern -->
+    <path d="M28,128 Q42,126 56,128" fill="none" stroke="#B8860B" stroke-width="0.8" opacity="0.5"/>
+    <path d="M26,134 Q42,132 58,134" fill="none" stroke="#B8860B" stroke-width="0.8" opacity="0.5"/>
+    <path d="M25,140 Q42,138 57,140" fill="none" stroke="#B8860B" stroke-width="0.8" opacity="0.5"/>
+    <line x1="34" y1="122" x2="32" y2="148" stroke="#B8860B" stroke-width="0.8" opacity="0.5"/>
+    <line x1="48" y1="122" x2="50" y2="148" stroke="#B8860B" stroke-width="0.8" opacity="0.5"/>
+    <!-- Handle -->
+    <path d="M30,122 Q42,108 54,122" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <!-- Herbs spilling out -->
+    <path d="M30,120 Q34,114 38,120 Q34,118 30,120 Z" fill="#4CAF50" stroke="#388E3C" stroke-width="0.8"/>
+    <path d="M40,118 Q44,110 48,118 Q44,116 40,118 Z" fill="#66BB6A" stroke="#43A047" stroke-width="0.8"/>
+    <path d="M48,120 Q52,112 54,120 Q52,118 48,120 Z" fill="#81C784" stroke="#66BB6A" stroke-width="0.8"/>
+    <!-- Mushroom -->
+    <ellipse cx="36" cy="118" rx="4" ry="2" fill="#D2691E" stroke="#A0522D" stroke-width="0.5"/>
+    <rect x="35" y="118" width="2" height="4" fill="#F5DEB3" stroke="none"/>
+    <!-- Red berry cluster -->
+    <circle cx="50" cy="116" r="2" fill="#E74C3C" stroke="#C0392B" stroke-width="0.5"/>
+    <circle cx="53" cy="117" r="1.5" fill="#E74C3C" stroke="#C0392B" stroke-width="0.5"/>
+    <!-- Left hand -->
+    <circle cx="42" cy="140" r="5" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+  </g>
+
+  <!-- Book under right arm (本草纲目 style) -->
+  <g id="book">
+    <rect x="148" y="118" width="18" height="24" rx="2" fill="#8B4513" stroke="#6B3410" stroke-width="1.5"/>
+    <!-- Book binding -->
+    <line x1="148" y1="120" x2="148" y2="140" stroke="#6B3410" stroke-width="2"/>
+    <!-- Book pages -->
+    <rect x="150" y="120" width="14" height="20" rx="1" fill="#FFF8DC" stroke="#D4A574" stroke-width="0.5"/>
+    <!-- Title on cover -->
+    <line x1="153" y1="124" x2="161" y2="124" stroke="#6B3410" stroke-width="1" opacity="0.6"/>
+    <line x1="153" y1="128" x2="161" y2="128" stroke="#6B3410" stroke-width="1" opacity="0.6"/>
+    <line x1="153" y1="132" x2="159" y2="132" stroke="#6B3410" stroke-width="1" opacity="0.6"/>
+    <!-- Right hand holding book -->
+    <circle cx="158" cy="140" r="5" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+  </g>
+
+  <!-- Head -->
+  <g id="head">
+    <!-- Neck -->
+    <rect x="92" y="88" width="16" height="10" rx="3" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+    <!-- Face -->
+    <ellipse cx="100" cy="70" rx="27" ry="28" fill="#F5D0A9" stroke="#D4A574" stroke-width="2"/>
+    <!-- Ears -->
+    <ellipse cx="73" cy="72" rx="5" ry="7" fill="#F5D0A9" stroke="#D4A574" stroke-width="1.5"/>
+    <ellipse cx="127" cy="72" rx="5" ry="7" fill="#F5D0A9" stroke="#D4A574" stroke-width="1.5"/>
+
+    <!-- Hair (soft, natural looking) -->
+    <g id="hair">
+      <path d="M74,56 Q76,38 100,34 Q124,38 126,56" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+      <!-- Soft bun with flower -->
+      <ellipse cx="100" cy="32" rx="9" ry="7" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+      <!-- Small flower in hair -->
+      <circle cx="112" cy="36" r="4" fill="#FFB6C1" stroke="#FF8FAB" stroke-width="0.8"/>
+      <circle cx="112" cy="36" r="1.5" fill="#FFD700"/>
+      <!-- Leaf on flower -->
+      <path d="M116,38 Q120,36 118,40 Q118,38 116,38 Z" fill="#4CAF50"/>
+    </g>
+
+    <!-- Gentle eyebrows -->
+    <path d="M82,61 Q88,58 94,62" fill="none" stroke="#3D2B1F" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M106,62 Q112,58 118,61" fill="none" stroke="#3D2B1F" stroke-width="1.8" stroke-linecap="round"/>
+
+    <!-- Kind, gentle eyes -->
+    <g id="eyes">
+      <ellipse cx="88" cy="68" rx="5.5" ry="6" fill="white" stroke="#3D2B1F" stroke-width="1.5"/>
+      <ellipse cx="88" cy="69" rx="3.5" ry="4.5" fill="#5C4033"/>
+      <circle cx="87" cy="67" r="1.8" fill="white" opacity="0.8"/>
+      <ellipse cx="112" cy="68" rx="5.5" ry="6" fill="white" stroke="#3D2B1F" stroke-width="1.5"/>
+      <ellipse cx="112" cy="69" rx="3.5" ry="4.5" fill="#5C4033"/>
+      <circle cx="111" cy="67" r="1.8" fill="white" opacity="0.8"/>
+    </g>
+
+    <!-- Nose -->
+    <path d="M98,76 Q100,79 102,76" fill="none" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Warm, nurturing smile -->
+    <path d="M90,83 Q95,88 100,88 Q105,88 110,83" fill="none" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Warm blush -->
+    <ellipse cx="80" cy="79" rx="5" ry="3" fill="#FFB6C1" opacity="0.35"/>
+    <ellipse cx="120" cy="79" rx="5" ry="3" fill="#FFB6C1" opacity="0.35"/>
+  </g>
+</svg>

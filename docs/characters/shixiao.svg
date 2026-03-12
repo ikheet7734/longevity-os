@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 试效科 (Trial Monitoring / Observer) -->
+  <!-- Background aura -->
+  <g id="aura">
+    <circle cx="100" cy="105" r="85" fill="#DAA520" opacity="0.08"/>
+    <circle cx="100" cy="105" r="70" fill="#F0C040" opacity="0.06"/>
+  </g>
+
+  <!-- Floating charts/graphs -->
+  <g id="floating-charts" opacity="0.45">
+    <!-- Small bar chart -->
+    <rect x="148" y="62" width="22" height="18" rx="2" fill="white" stroke="#DAA520" stroke-width="1"/>
+    <rect x="152" y="72" width="3" height="6" fill="#DAA520"/>
+    <rect x="157" y="68" width="3" height="10" fill="#F0C040"/>
+    <rect x="162" y="65" width="3" height="13" fill="#DAA520"/>
+    <!-- Small line chart -->
+    <rect x="150" y="88" width="20" height="14" rx="2" fill="white" stroke="#DAA520" stroke-width="1"/>
+    <polyline points="153,98 157,93 161,96 165,90" fill="none" stroke="#DAA520" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Checkmark -->
+    <circle cx="38" cy="68" r="7" fill="white" stroke="#DAA520" stroke-width="1.5"/>
+    <path d="M34,68 L37,71 L43,64" fill="none" stroke="#2ECC71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Body -->
+  <g id="body">
+    <!-- Robe base -->
+    <path d="M62,112 Q58,138 54,168 L68,172 Q82,154 100,152 Q118,154 132,172 L146,168 Q142,138 138,112 Z" fill="#DAA520" stroke="#B8860B" stroke-width="2"/>
+    <!-- Inner panel -->
+    <path d="M86,112 L84,152 Q100,149 116,152 L114,112 Z" fill="#F0C040" stroke="#DAA520" stroke-width="1"/>
+    <!-- Collar left -->
+    <path d="M80,96 L72,116 L92,114 Z" fill="#F0C040" stroke="#DAA520" stroke-width="1.5"/>
+    <!-- Collar right -->
+    <path d="M120,96 L128,116 L108,114 Z" fill="#F0C040" stroke="#DAA520" stroke-width="1.5"/>
+    <!-- Belt -->
+    <rect x="70" y="130" width="60" height="5" rx="2.5" fill="#FFD700" stroke="#DAA520" stroke-width="1"/>
+    <!-- Eye symbol on belt (vigilance) -->
+    <ellipse cx="100" cy="132.5" rx="5" ry="2.5" fill="none" stroke="#8B6914" stroke-width="1"/>
+    <circle cx="100" cy="132.5" r="1.5" fill="#8B6914"/>
+    <!-- Left sleeve -->
+    <path d="M62,112 Q46,122 38,136 Q40,142 46,139 Q52,130 66,122 Z" fill="#DAA520" stroke="#B8860B" stroke-width="2"/>
+    <path d="M38,136 Q36,140 40,142 L46,139 Z" fill="#F0C040" stroke="#DAA520" stroke-width="1"/>
+    <!-- Right sleeve -->
+    <path d="M138,112 Q154,122 162,136 Q160,142 154,139 Q148,130 136,122 Z" fill="#DAA520" stroke="#B8860B" stroke-width="2"/>
+    <path d="M162,136 Q164,140 160,142 L154,139 Z" fill="#F0C040" stroke="#DAA520" stroke-width="1"/>
+    <!-- Diamond pattern on robe -->
+    <path d="M80,148 L84,144 L88,148 L84,152 Z" fill="none" stroke="#F0C040" stroke-width="0.8" opacity="0.4"/>
+    <path d="M112,148 L116,144 L120,148 L116,152 Z" fill="none" stroke="#F0C040" stroke-width="0.8" opacity="0.4"/>
+    <!-- Feet -->
+    <ellipse cx="84" cy="172" rx="11" ry="5" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+    <ellipse cx="116" cy="172" rx="11" ry="5" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+  </g>
+
+  <!-- Clipboard/tablet (left hand) -->
+  <g id="clipboard">
+    <rect x="24" y="112" width="24" height="32" rx="2" fill="#FFF8DC" stroke="#D4A574" stroke-width="1.5"/>
+    <!-- Clip at top -->
+    <rect x="30" y="108" width="12" height="6" rx="2" fill="#B8860B" stroke="#8B6914" stroke-width="1"/>
+    <!-- Checklist items -->
+    <rect x="28" y="118" width="4" height="4" rx="0.5" fill="none" stroke="#DAA520" stroke-width="1"/>
+    <path d="M29,120 L30,121 L32,119" fill="none" stroke="#2ECC71" stroke-width="1" stroke-linecap="round"/>
+    <line x1="34" y1="120" x2="44" y2="120" stroke="#8B7355" stroke-width="1"/>
+    <rect x="28" y="125" width="4" height="4" rx="0.5" fill="none" stroke="#DAA520" stroke-width="1"/>
+    <path d="M29,127 L30,128 L32,126" fill="none" stroke="#2ECC71" stroke-width="1" stroke-linecap="round"/>
+    <line x1="34" y1="127" x2="44" y2="127" stroke="#8B7355" stroke-width="1"/>
+    <rect x="28" y="132" width="4" height="4" rx="0.5" fill="none" stroke="#DAA520" stroke-width="1"/>
+    <line x1="34" y1="134" x2="42" y2="134" stroke="#8B7355" stroke-width="1"/>
+    <rect x="28" y="139" width="4" height="4" rx="0.5" fill="none" stroke="#DAA520" stroke-width="1"/>
+    <line x1="34" y1="141" x2="40" y2="141" stroke="#8B7355" stroke-width="1" opacity="0.5"/>
+    <!-- Left hand -->
+    <circle cx="40" cy="142" r="5" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+  </g>
+
+  <!-- Hourglass (right side) -->
+  <g id="hourglass">
+    <!-- Frame -->
+    <rect x="156" y="120" width="16" height="3" rx="1" fill="#B8860B" stroke="#8B6914" stroke-width="1"/>
+    <rect x="156" y="146" width="16" height="3" rx="1" fill="#B8860B" stroke="#8B6914" stroke-width="1"/>
+    <!-- Glass -->
+    <path d="M159,123 Q159,132 164,135 Q169,132 169,123 Z" fill="#FFF8DC" stroke="#DAA520" stroke-width="1" opacity="0.7"/>
+    <path d="M159,146 Q159,138 164,135 Q169,138 169,146 Z" fill="#FFF8DC" stroke="#DAA520" stroke-width="1" opacity="0.7"/>
+    <!-- Sand top -->
+    <path d="M161,126 Q164,130 167,126 Z" fill="#F0C040" opacity="0.6"/>
+    <!-- Sand falling -->
+    <line x1="164" y1="132" x2="164" y2="138" stroke="#F0C040" stroke-width="1" opacity="0.5"/>
+    <!-- Sand bottom -->
+    <path d="M161,145 Q164,141 167,145 Z" fill="#F0C040" opacity="0.7"/>
+    <!-- Right hand -->
+    <circle cx="160" cy="142" r="5" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+  </g>
+
+  <!-- Head -->
+  <g id="head">
+    <!-- Neck -->
+    <rect x="92" y="88" width="16" height="10" rx="3" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+    <!-- Face -->
+    <ellipse cx="100" cy="70" rx="27" ry="28" fill="#F5D0A9" stroke="#D4A574" stroke-width="2"/>
+    <!-- Ears -->
+    <ellipse cx="73" cy="72" rx="5" ry="7" fill="#F5D0A9" stroke="#D4A574" stroke-width="1.5"/>
+    <ellipse cx="127" cy="72" rx="5" ry="7" fill="#F5D0A9" stroke="#D4A574" stroke-width="1.5"/>
+
+    <!-- Hair -->
+    <g id="hair">
+      <path d="M74,56 Q76,38 100,34 Q124,38 126,56" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+      <!-- Hat with amber jewel -->
+      <path d="M76,50 Q78,36 100,32 Q122,36 124,50" fill="#1A1A2E" stroke="#0D0D1A" stroke-width="1.5"/>
+      <rect x="76" y="48" width="48" height="4" rx="1.5" fill="#222240" stroke="#1A1A30" stroke-width="1"/>
+      <!-- Amber stone -->
+      <circle cx="100" cy="40" r="4" fill="#F0C040" stroke="#DAA520" stroke-width="1"/>
+      <circle cx="99" cy="39" r="1.5" fill="white" opacity="0.4"/>
+    </g>
+
+    <!-- Alert, attentive eyebrows (slightly raised) -->
+    <path d="M82,60 Q88,56 94,60" fill="none" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+    <path d="M106,60 Q112,56 118,60" fill="none" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Alert, watchful eyes -->
+    <g id="eyes">
+      <ellipse cx="88" cy="68" rx="6" ry="6.5" fill="white" stroke="#3D2B1F" stroke-width="1.5"/>
+      <ellipse cx="89" cy="68" rx="4" ry="5" fill="#3D2B1F"/>
+      <circle cx="87" cy="66" r="2" fill="white" opacity="0.9"/>
+      <ellipse cx="112" cy="68" rx="6" ry="6.5" fill="white" stroke="#3D2B1F" stroke-width="1.5"/>
+      <ellipse cx="113" cy="68" rx="4" ry="5" fill="#3D2B1F"/>
+      <circle cx="111" cy="66" r="2" fill="white" opacity="0.9"/>
+      <!-- Slight gleam (alert) -->
+      <circle cx="91" cy="70" r="0.8" fill="white" opacity="0.5"/>
+      <circle cx="115" cy="70" r="0.8" fill="white" opacity="0.5"/>
+    </g>
+
+    <!-- Nose -->
+    <path d="M98,76 Q100,79 102,76" fill="none" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Alert, monitoring expression (slight knowing smile) -->
+    <path d="M92,83 Q96,86 100,86 Q104,86 108,83" fill="none" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Cheek blush -->
+    <ellipse cx="80" cy="79" rx="4" ry="3" fill="#FFB6C1" opacity="0.3"/>
+    <ellipse cx="120" cy="79" rx="4" ry="3" fill="#FFB6C1" opacity="0.3"/>
+  </g>
+</svg>

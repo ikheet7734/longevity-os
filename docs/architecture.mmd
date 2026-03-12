@@ -1,0 +1,121 @@
+%%{init: {'theme': 'dark', 'themeVariables': { 'fontSize': '14px' }}}%%
+graph TB
+    %% ── User ──
+    User["👤 User<br/><i>Voice / Text via Claude Code</i>"]
+
+    %% ── Orchestrator ──
+    subgraph ORCH["🏛 御医 Orchestrator"]
+        direction TB
+        Yuyi["御医<br/>Imperial Physician<br/><i>SKILL.md</i>"]
+    end
+
+    %% ── Department Agents ──
+    subgraph DEPTS["六科 Department Agents"]
+        direction LR
+        Shiyi["🍚 食医科<br/>Diet<br/><i>shiyi.md</i>"]
+        Daoyin["🏃 导引科<br/>Exercise<br/><i>daoyin.md</i>"]
+        Zhenmai["📊 诊脉科<br/>Metrics<br/><i>zhenmai.md</i>"]
+        Yanfang["🔬 验方科<br/>Labs<br/><i>yanfang.md</i>"]
+        Bencao["🌿 本草科<br/>Supplements<br/><i>bencao.md</i>"]
+        Shixiao["📈 试效科<br/>Trial Monitor<br/><i>shixiao.md</i>"]
+    end
+
+    %% ── Trial Pipeline ──
+    subgraph TRIAL["⚗️ Trial Design Pipeline"]
+        direction LR
+        Yuanpan["院判<br/>Trial Design<br/><i>yuanpan.md</i>"]
+        Yizheng["医正<br/>Review Gate<br/><i>yizheng.md</i>"]
+        Yuanpan -->|"proposal"| Yizheng
+        Yizheng -->|"✅ approve"| Approved(["Trial Approved"])
+        Yizheng -->|"❌ reject + feedback"| Yuanpan
+    end
+
+    %% ── Reports ──
+    Baogao["📋 报告科<br/>Reports<br/><i>baogao.md</i>"]
+
+    %% ── Modeling Engine ──
+    subgraph ENGINE["⚙️ Modeling Engine"]
+        direction LR
+        EngineMain["engine.py<br/><i>Trend & anomaly<br/>detection</i>"]
+        Patterns["patterns.py<br/><i>Cross-module<br/>correlation</i>"]
+        Causal["causal.py<br/><i>Causal inference<br/>& hypothesis</i>"]
+    end
+
+    %% ── Infrastructure ──
+    DB[("🗄 SQLite<br/>taiyiyuan.db")]
+    Dashboard["📊 Dashboard<br/><i>localhost:8420</i>"]
+
+    subgraph APIS["External APIs"]
+        direction LR
+        USDA["USDA<br/>FoodData Central"]
+        PubMed["PubMed"]
+        BioRxiv["bioRxiv"]
+    end
+
+    %% ── Connections: User ↔ Orchestrator ──
+    User <-->|"natural language"| Yuyi
+
+    %% ── Connections: Orchestrator → Agents ──
+    Yuyi -->|"dispatch"| Shiyi
+    Yuyi -->|"dispatch"| Daoyin
+    Yuyi -->|"dispatch"| Zhenmai
+    Yuyi -->|"dispatch"| Yanfang
+    Yuyi -->|"dispatch"| Bencao
+    Yuyi -->|"dispatch"| Shixiao
+    Yuyi -->|"dispatch"| Yuanpan
+    Yuyi -->|"dispatch"| Baogao
+
+    %% ── Connections: Agents → DB ──
+    Shiyi <-->|"read/write"| DB
+    Daoyin <-->|"read/write"| DB
+    Zhenmai <-->|"read/write"| DB
+    Yanfang <-->|"read/write"| DB
+    Bencao <-->|"read/write"| DB
+    Shixiao <-->|"read/write"| DB
+    Yuanpan <-->|"read"| DB
+    Yizheng <-->|"read"| DB
+    Baogao <-->|"read"| DB
+
+    %% ── Connections: Modeling Engine ──
+    ENGINE <-->|"analysis"| DB
+    Baogao -->|"invoke"| ENGINE
+    Yuanpan -->|"invoke"| ENGINE
+    Shixiao -->|"invoke"| ENGINE
+
+    %% ── Connections: External APIs ──
+    Shiyi -.->|"nutrition lookup"| USDA
+    Yuanpan -.->|"literature search"| PubMed
+    Yuanpan -.->|"preprint search"| BioRxiv
+    Yizheng -.->|"independent verification"| PubMed
+    Yizheng -.->|"independent verification"| BioRxiv
+
+    %% ── Dashboard ──
+    DB -->|"read-only"| Dashboard
+
+    %% ── Trial Pipeline Result ──
+    Approved -->|"activate"| Shixiao
+
+    %% ── Styles ──
+    classDef userStyle fill:#1a1a2e,stroke:#e94560,stroke-width:2px,color:#eee
+    classDef orchStyle fill:#16213e,stroke:#0f3460,stroke-width:2px,color:#eee
+    classDef deptStyle fill:#1b4332,stroke:#40916c,stroke-width:2px,color:#eee
+    classDef trialStyle fill:#4a2c0a,stroke:#e09f3e,stroke-width:2px,color:#eee
+    classDef engineStyle fill:#2d1b4e,stroke:#9b5de5,stroke-width:2px,color:#eee
+    classDef infraStyle fill:#2b2b2b,stroke:#777,stroke-width:2px,color:#ccc
+    classDef reportStyle fill:#16213e,stroke:#0f3460,stroke-width:2px,color:#eee
+    classDef approvedStyle fill:#1b4332,stroke:#52b788,stroke-width:2px,color:#eee
+
+    class User userStyle
+    class Yuyi orchStyle
+    class Shiyi,Daoyin,Zhenmai,Yanfang,Bencao,Shixiao deptStyle
+    class Yuanpan,Yizheng trialStyle
+    class EngineMain,Patterns,Causal engineStyle
+    class DB,Dashboard,USDA,PubMed,BioRxiv infraStyle
+    class Baogao reportStyle
+    class Approved approvedStyle
+
+    style ORCH fill:#0d1b2a,stroke:#0f3460,stroke-width:3px,color:#eee
+    style DEPTS fill:#0a1f12,stroke:#40916c,stroke-width:3px,color:#eee
+    style TRIAL fill:#2a1a00,stroke:#e09f3e,stroke-width:3px,color:#eee
+    style ENGINE fill:#1a0f2e,stroke:#9b5de5,stroke-width:3px,color:#eee
+    style APIS fill:#1a1a1a,stroke:#777,stroke-width:2px,color:#ccc

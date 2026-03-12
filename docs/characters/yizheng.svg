@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 医正 (Review Gate / Inspector) -->
+  <!-- Background aura -->
+  <g id="aura">
+    <circle cx="100" cy="105" r="85" fill="#4B0082" opacity="0.08"/>
+    <circle cx="100" cy="105" r="70" fill="#7B68EE" opacity="0.06"/>
+  </g>
+
+  <!-- Body -->
+  <g id="body">
+    <!-- Robe base -->
+    <path d="M60,112 Q56,138 52,168 L66,172 Q80,154 100,152 Q120,154 134,172 L148,168 Q144,138 140,112 Z" fill="#4B0082" stroke="#360060" stroke-width="2"/>
+    <!-- Inner panel -->
+    <path d="M86,112 L84,152 Q100,149 116,152 L114,112 Z" fill="#6A0DAD" stroke="#5A0C93" stroke-width="1"/>
+    <!-- Collar left -->
+    <path d="M80,96 L72,116 L92,114 Z" fill="#7B68EE" stroke="#6A5ACE" stroke-width="1.5"/>
+    <!-- Collar right -->
+    <path d="M120,96 L128,116 L108,114 Z" fill="#7B68EE" stroke="#6A5ACE" stroke-width="1.5"/>
+    <!-- Belt -->
+    <rect x="68" y="130" width="64" height="6" rx="3" fill="#9370DB" stroke="#7B68EE" stroke-width="1"/>
+    <rect x="94" y="129" width="12" height="8" rx="2" fill="#FFD700" stroke="#DAA520" stroke-width="1"/>
+    <!-- Left sleeve (arm raised in stop gesture) -->
+    <path d="M60,112 Q42,108 32,100 Q30,104 34,108 Q42,116 60,118 Z" fill="#4B0082" stroke="#360060" stroke-width="2"/>
+    <path d="M32,100 Q28,102 30,106 L36,108 Z" fill="#7B68EE" stroke="#6A5ACE" stroke-width="1"/>
+    <!-- Right sleeve (holding seal) -->
+    <path d="M140,112 Q155,124 162,140 Q160,145 154,142 Q148,132 136,124 Z" fill="#4B0082" stroke="#360060" stroke-width="2"/>
+    <path d="M162,140 Q164,143 160,145 L154,142 Z" fill="#7B68EE" stroke="#6A5ACE" stroke-width="1"/>
+    <!-- Geometric pattern on robe -->
+    <rect x="78" y="142" width="6" height="6" fill="none" stroke="#7B68EE" stroke-width="0.8" opacity="0.4" transform="rotate(45,81,145)"/>
+    <rect x="96" y="156" width="6" height="6" fill="none" stroke="#7B68EE" stroke-width="0.8" opacity="0.4" transform="rotate(45,99,159)"/>
+    <rect x="114" y="142" width="6" height="6" fill="none" stroke="#7B68EE" stroke-width="0.8" opacity="0.4" transform="rotate(45,117,145)"/>
+    <!-- Feet -->
+    <ellipse cx="82" cy="172" rx="11" ry="5" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+    <ellipse cx="118" cy="172" rx="11" ry="5" fill="#2C1810" stroke="#1A0F09" stroke-width="1.5"/>
+  </g>
+
+  <!-- Stop hand (left, raised) -->
+  <g id="stop-hand">
+    <path d="M26,96 L22,82 Q22,78 26,78 L30,78 Q34,78 34,82 L32,90 L36,82 Q36,78 40,80 Q42,82 40,88 L36,96 Z" fill="#F5D0A9" stroke="#D4A574" stroke-width="1.5"/>
+  </g>
+
+  <!-- Large red seal/stamp (right hand) -->
+  <g id="seal">
+    <rect x="148" y="118" width="24" height="24" rx="2" fill="#CC0000" stroke="#990000" stroke-width="2"/>
+    <!-- Seal face carving -->
+    <rect x="152" y="122" width="16" height="16" rx="1" fill="#990000" stroke="#770000" stroke-width="1"/>
+    <!-- Seal characters (stylized) -->
+    <line x1="155" y1="126" x2="165" y2="126" stroke="#CC3333" stroke-width="1.5"/>
+    <line x1="160" y1="124" x2="160" y2="136" stroke="#CC3333" stroke-width="1.5"/>
+    <line x1="155" y1="132" x2="165" y2="132" stroke="#CC3333" stroke-width="1.5"/>
+    <!-- Handle -->
+    <rect x="156" y="112" width="12" height="8" rx="2" fill="#8B0000" stroke="#660000" stroke-width="1.5"/>
+    <!-- Holding hand -->
+    <circle cx="160" cy="143" r="5" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+  </g>
+
+  <!-- Head -->
+  <g id="head">
+    <!-- Neck -->
+    <rect x="92" y="88" width="16" height="10" rx="3" fill="#F5D0A9" stroke="#D4A574" stroke-width="1"/>
+    <!-- Face -->
+    <ellipse cx="100" cy="72" rx="27" ry="28" fill="#F5D0A9" stroke="#D4A574" stroke-width="2"/>
+    <!-- Ears -->
+    <ellipse cx="73" cy="74" rx="5" ry="7" fill="#F5D0A9" stroke="#D4A574" stroke-width="1.5"/>
+    <ellipse cx="127" cy="74" rx="5" ry="7" fill="#F5D0A9" stroke="#D4A574" stroke-width="1.5"/>
+
+    <!-- Official hat -->
+    <g id="hat">
+      <path d="M72,58 Q74,38 100,34 Q126,38 128,58 Z" fill="#1A1A2E" stroke="#0D0D1A" stroke-width="2"/>
+      <rect x="70" y="55" width="60" height="5" rx="2" fill="#222240" stroke="#1A1A30" stroke-width="1"/>
+      <!-- Hat wings (shorter, more stern) -->
+      <path d="M70,54 Q60,50 52,54 Q52,57 54,58 Q62,56 70,58" fill="#1A1A2E" stroke="#0D0D1A" stroke-width="1.5"/>
+      <path d="M130,54 Q140,50 148,54 Q148,57 146,58 Q138,56 130,58" fill="#1A1A2E" stroke="#0D0D1A" stroke-width="1.5"/>
+      <!-- Purple gem -->
+      <circle cx="100" cy="44" r="4" fill="#7B68EE" stroke="#4B0082" stroke-width="1"/>
+      <circle cx="99" cy="43" r="1.5" fill="white" opacity="0.4"/>
+    </g>
+
+    <!-- Stern eyebrows (angled down) -->
+    <path d="M80,62 Q86,58 94,62" fill="none" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M106,62 Q114,58 120,62" fill="none" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Keen, narrowed eyes -->
+    <g id="eyes">
+      <ellipse cx="87" cy="70" rx="6" ry="5" fill="white" stroke="#3D2B1F" stroke-width="1.5"/>
+      <ellipse cx="87" cy="70" rx="3.5" ry="4" fill="#3D2B1F"/>
+      <circle cx="86" cy="69" r="1.5" fill="white" opacity="0.8"/>
+      <!-- Narrowed bottom -->
+      <path d="M81,73 Q87,76 93,73" fill="#F5D0A9" stroke="none"/>
+      <ellipse cx="113" cy="70" rx="6" ry="5" fill="white" stroke="#3D2B1F" stroke-width="1.5"/>
+      <ellipse cx="113" cy="70" rx="3.5" ry="4" fill="#3D2B1F"/>
+      <circle cx="112" cy="69" r="1.5" fill="white" opacity="0.8"/>
+      <path d="M107,73 Q113,76 119,73" fill="#F5D0A9" stroke="none"/>
+    </g>
+
+    <!-- Nose -->
+    <path d="M98,77 Q100,80 102,77" fill="none" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Stern, flat mouth -->
+    <line x1="92" y1="85" x2="108" y2="85" stroke="#C4956A" stroke-width="2" stroke-linecap="round"/>
+    <!-- Slight downturn -->
+    <path d="M92,85 Q91,86 90,85" fill="none" stroke="#C4956A" stroke-width="1"/>
+    <path d="M108,85 Q109,86 110,85" fill="none" stroke="#C4956A" stroke-width="1"/>
+
+    <!-- Minimal blush (serious character) -->
+    <ellipse cx="80" cy="80" rx="4" ry="2.5" fill="#FFB6C1" opacity="0.2"/>
+    <ellipse cx="120" cy="80" rx="4" ry="2.5" fill="#FFB6C1" opacity="0.2"/>
+  </g>
+
+  <!-- Magnifying glass effect near eyes -->
+  <g id="inspection" opacity="0.3">
+    <circle cx="140" cy="60" r="10" fill="none" stroke="#7B68EE" stroke-width="1.5"/>
+    <line x1="147" y1="67" x2="153" y2="73" stroke="#7B68EE" stroke-width="2"/>
+    <circle cx="140" cy="60" r="7" fill="#7B68EE" opacity="0.05"/>
+  </g>
+</svg>
