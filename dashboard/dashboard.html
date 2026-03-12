@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Longevity OS 太医院</title>
+<!--
+  Chart.js is loaded from CDN with integrity hash.
+  For a fully offline setup, download chart.js v4.4.7 to this directory
+  and change the src to "./chart.umd.min.js".
+  CDN is used here because a single-file HTML cannot vendor JS inline
+  without bloating to 200KB+.
+-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"
+        integrity="sha384-UxLMriNzfMGOJDjUEr1YDdNMv3GIGY2f+q36GiATm5i25uFSvig8CEok/YVbYOxA"
+        crossorigin="anonymous"
+        onerror="document.getElementById('cdn-warning').style.display='block'"></script>
+<style>
+  :root {
+    --bg: #1a1a2e;
+    --card: #16213e;
+    --card-hover: #1a2745;
+    --primary: #0f3460;
+    --accent: #e94560;
+    --positive: #53d769;
+    --warning: #f5a623;
+    --text: #e0e0e0;
+    --text-dim: #8892a4;
+    --text-bright: #ffffff;
+    --border: #2a3a5c;
+    --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.3);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, var(--primary), var(--card));
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .header-title {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .header-title h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-bright);
+    letter-spacing: 0.5px;
+  }
+  .header-title .cn {
+    font-size: 36px;
+    color: var(--accent);
+    font-weight: 300;
+  }
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-controls input[type="date"] {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-size: 14px;
+  }
+  .header-controls input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.7);
+  }
+  .btn {
+    background: var(--primary);
+    color: var(--text-bright);
+    border: 1px solid var(--border);
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font);
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+  .btn:hover { background: #124a8a; }
+  .btn-accent { background: var(--accent); border-color: var(--accent); }
+  .btn-accent:hover { background: #d63050; }
+
+  /* Main grid */
+  .main {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.15s;
+  }
+  .card:hover { transform: translateY(-2px); }
+  .card h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+  .card .value {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-bright);
+    line-height: 1.2;
+  }
+  .card .meta {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .trend-up { color: var(--positive); }
+  .trend-down { color: var(--accent); }
+  .trend-flat { color: var(--text-dim); }
+
+  /* Span helpers */
+  .span-2 { grid-column: span 2; }
+  .span-3 { grid-column: span 3; }
+  .span-4 { grid-column: span 4; }
+
+  /* Chart containers */
+  .chart-wrap {
+    position: relative;
+    width: 100%;
+    min-height: 260px;
+  }
+  .chart-wrap canvas {
+    width: 100% !important;
+  }
+
+  /* Tables */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .data-table th {
+    text-align: left;
+    color: var(--text-dim);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .data-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(42,58,92,0.4);
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(15,52,96,0.2); }
+
+  /* Status badges */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .badge-active { background: rgba(83,215,105,0.15); color: var(--positive); }
+  .badge-completed { background: rgba(15,52,96,0.3); color: var(--text-dim); }
+  .badge-proposed { background: rgba(245,166,35,0.15); color: var(--warning); }
+
+  /* Progress bars */
+  .progress-bar {
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+    height: 10px;
+    overflow: hidden;
+    margin-top: 6px;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--primary), var(--positive));
+    transition: width 0.5s ease;
+  }
+
+  /* Insight items */
+  .insight-item {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--border);
+  }
+  .insight-item:last-child { margin-bottom: 0; }
+  .insight-correlation { border-left-color: #7c4dff; background: rgba(124,77,255,0.05); }
+  .insight-trend { border-left-color: #2196f3; background: rgba(33,150,243,0.05); }
+  .insight-anomaly { border-left-color: var(--accent); background: rgba(233,69,96,0.05); }
+  .insight-pattern { border-left-color: var(--positive); background: rgba(83,215,105,0.05); }
+  .insight-item .insight-type {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .insight-item .insight-text { font-size: 14px; }
+  .insight-item .insight-meta { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+
+  /* Metric selector */
+  .metric-selector {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .metric-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 4px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: var(--font);
+    transition: all 0.15s;
+  }
+  .metric-btn.active, .metric-btn:hover {
+    background: var(--primary);
+    color: var(--text-bright);
+    border-color: var(--primary);
+  }
+
+  /* Biomarker selector */
+  .biomarker-selector {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* Empty state */
+  .empty-state {
+    color: var(--text-dim);
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 15px;
+  }
+  .empty-state .empty-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+    opacity: 0.4;
+  }
+
+  /* CDN warning */
+  #cdn-warning {
+    display: none;
+    background: var(--accent);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* Refresh indicator */
+  .refresh-indicator {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-align: right;
+    padding: 4px 24px 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 1100px) {
+    .main { grid-template-columns: repeat(2, 1fr); }
+    .span-3, .span-4 { grid-column: span 2; }
+  }
+  @media (max-width: 640px) {
+    .main { grid-template-columns: 1fr; padding: 12px; }
+    .span-2, .span-3, .span-4 { grid-column: span 1; }
+    .header { padding: 16px; }
+    .header-title h1 { font-size: 20px; }
+    .header-title .cn { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cdn-warning">Chart.js failed to load from CDN. Charts will not render. Check your internet connection or provide a local chart.umd.min.js file.</div>
+
+<header class="header">
+  <div class="header-title">
+    <h1>Longevity OS</h1>
+    <span class="cn">太医院</span>
+  </div>
+  <div class="header-controls">
+    <label style="font-size:13px;color:var(--text-dim)">From</label>
+    <input type="date" id="date-start">
+    <label style="font-size:13px;color:var(--text-dim)">To</label>
+    <input type="date" id="date-end">
+    <button class="btn" onclick="refreshAll()">Refresh</button>
+  </div>
+</header>
+
+<div class="refresh-indicator" id="refresh-status">Last updated: --</div>
+
+<main class="main">
+  <!-- Daily Summary Cards -->
+  <div class="card" id="card-calories">
+    <h3>Calories</h3>
+    <div class="value" id="val-calories">--</div>
+    <div class="meta">
+      <span id="avg-calories">7d avg: --</span>
+      <span id="trend-calories" class="trend-flat">--</span>
+    </div>
+  </div>
+  <div class="card" id="card-protein">
+    <h3>Protein (g)</h3>
+    <div class="value" id="val-protein">--</div>
+    <div class="meta">
+      <span id="avg-protein">7d avg: --</span>
+      <span id="trend-protein" class="trend-flat">--</span>
+    </div>
+  </div>
+  <div class="card" id="card-exercise">
+    <h3>Exercise (min)</h3>
+    <div class="value" id="val-exercise">--</div>
+    <div class="meta">
+      <span id="avg-exercise">7d avg: --</span>
+      <span id="trend-exercise" class="trend-flat">--</span>
+    </div>
+  </div>
+  <div class="card" id="card-sleep">
+    <h3>Sleep (hrs)</h3>
+    <div class="value" id="val-sleep">--</div>
+    <div class="meta">
+      <span id="avg-sleep">7d avg: --</span>
+      <span id="trend-sleep" class="trend-flat">--</span>
+    </div>
+  </div>
+
+  <!-- Nutrition Chart -->
+  <div class="card span-2">
+    <h3>Nutrition — Daily Macros (14d)</h3>
+    <div class="chart-wrap"><canvas id="chart-nutrition"></canvas></div>
+  </div>
+
+  <!-- Body Metrics Chart -->
+  <div class="card span-2">
+    <h3>Body Metrics (30d)</h3>
+    <div class="metric-selector" id="metric-selector">
+      <button class="metric-btn active" data-metric="weight">Weight</button>
+      <button class="metric-btn" data-metric="resting_hr">HR</button>
+      <button class="metric-btn" data-metric="hrv">HRV</button>
+      <button class="metric-btn" data-metric="sleep_hours">Sleep</button>
+      <button class="metric-btn" data-metric="blood_pressure_sys">BP Sys</button>
+    </div>
+    <div class="chart-wrap"><canvas id="chart-metrics"></canvas></div>
+  </div>
+
+  <!-- Exercise Log -->
+  <div class="card span-2">
+    <h3>Recent Workouts</h3>
+    <div id="exercise-table-wrap">
+      <div class="empty-state"><div class="empty-icon">&#127939;</div>No workouts logged yet</div>
+    </div>
+  </div>
+
+  <!-- Supplement Stack -->
+  <div class="card span-2">
+    <h3>Supplement Stack</h3>
+    <div id="supplement-table-wrap">
+      <div class="empty-state"><div class="empty-icon">&#128138;</div>No supplements tracked yet</div>
+    </div>
+  </div>
+
+  <!-- Active Trials -->
+  <div class="card span-2">
+    <h3>Active Trials</h3>
+    <div id="trials-wrap">
+      <div class="empty-state"><div class="empty-icon">&#128300;</div>No active trials</div>
+    </div>
+  </div>
+
+  <!-- Insights Panel -->
+  <div class="card span-2">
+    <h3>Recent Insights (7d)</h3>
+    <div id="insights-wrap">
+      <div class="empty-state"><div class="empty-icon">&#128161;</div>No insights yet — log more data to unlock patterns</div>
+    </div>
+  </div>
+
+  <!-- Biomarker Trends -->
+  <div class="card span-4">
+    <h3>Biomarker Trends</h3>
+    <div class="biomarker-selector" id="biomarker-selector"></div>
+    <div class="chart-wrap"><canvas id="chart-biomarkers"></canvas></div>
+    <div id="biomarker-empty" class="empty-state" style="display:none">
+      <div class="empty-icon">&#129656;</div>No biomarker data yet — log blood work to see trends
+    </div>
+  </div>
+</main>
+
+<script>
+// ============================================================================
+// Configuration
+// ============================================================================
+const API_BASE = window.location.origin;
+const REFRESH_INTERVAL_MS = 60000;
+const CHART_COLORS = {
+  protein: '#53d769',
+  carbs: '#f5a623',
+  fat: '#e94560',
+  line: '#4fc3f7',
+  lineSecondary: '#7c4dff',
+  refRange: 'rgba(83,215,105,0.08)',
+  grid: 'rgba(255,255,255,0.06)',
+  tick: '#8892a4'
+};
+
+let nutritionChart = null;
+let metricsChart = null;
+let biomarkerChart = null;
+let currentMetric = 'weight';
+let currentBiomarker = null;
+let autoRefreshTimer = null;
+
+// ============================================================================
+// Helpers
+// ============================================================================
+function today() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function daysAgo(n) {
+  const d = new Date();
+  d.setDate(d.getDate() - n);
+  return d.toISOString().slice(0, 10);
+}
+
+function formatDate(iso) {
+  const d = new Date(iso + 'T00:00:00');
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function formatTimestamp(iso) {
+  try {
+    const d = new Date(iso);
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' +
+           d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  } catch { return iso; }
+}
+
+function trendArrow(current, avg) {
+  if (current == null || avg == null) return { text: '--', cls: 'trend-flat' };
+  const delta = ((current - avg) / Math.max(avg, 0.01)) * 100;
+  if (delta > 3) return { text: `+${delta.toFixed(0)}%`, cls: 'trend-up' };
+  if (delta < -3) return { text: `${delta.toFixed(0)}%`, cls: 'trend-down' };
+  return { text: '~0%', cls: 'trend-flat' };
+}
+
+async function apiFetch(endpoint, params = {}) {
+  const url = new URL(API_BASE + endpoint);
+  Object.entries(params).forEach(([k, v]) => { if (v != null) url.searchParams.set(k, v); });
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
+
+function chartDefaults() {
+  if (typeof Chart === 'undefined') return;
+  Chart.defaults.color = CHART_COLORS.tick;
+  Chart.defaults.borderColor = CHART_COLORS.grid;
+  Chart.defaults.font.family = getComputedStyle(document.body).getPropertyValue('--font');
+}
+
+// ============================================================================
+// Date range
+// ============================================================================
+function initDateRange() {
+  const startEl = document.getElementById('date-start');
+  const endEl = document.getElementById('date-end');
+  endEl.value = today();
+  startEl.value = daysAgo(14);
+  startEl.addEventListener('change', refreshAll);
+  endEl.addEventListener('change', refreshAll);
+}
+
+function getDateRange() {
+  return {
+    start: document.getElementById('date-start').value || daysAgo(14),
+    end: document.getElementById('date-end').value || today()
+  };
+}
+
+// ============================================================================
+// Daily Summary Cards
+// ============================================================================
+async function loadDailySummary() {
+  const data = await apiFetch('/api/daily-summary', { date: today() });
+  if (!data) return;
+
+  const fields = [
+    { key: 'calories', val: data.calories, avg: data.calories_7d_avg, fmt: v => Math.round(v) },
+    { key: 'protein', val: data.protein_g, avg: data.protein_7d_avg, fmt: v => v?.toFixed(0) },
+    { key: 'exercise', val: data.exercise_minutes, avg: data.exercise_7d_avg, fmt: v => Math.round(v) },
+    { key: 'sleep', val: data.sleep_hours, avg: data.sleep_7d_avg, fmt: v => v?.toFixed(1) }
+  ];
+
+  fields.forEach(f => {
+    document.getElementById(`val-${f.key}`).textContent = f.val != null ? f.fmt(f.val) : '--';
+    document.getElementById(`avg-${f.key}`).textContent = f.avg != null ? `7d avg: ${f.fmt(f.avg)}` : '7d avg: --';
+    const t = trendArrow(f.val, f.avg);
+    const trendEl = document.getElementById(`trend-${f.key}`);
+    trendEl.textContent = t.text;
+    trendEl.className = t.cls;
+  });
+}
+
+// ============================================================================
+// Nutrition Chart
+// ============================================================================
+async function loadNutrition() {
+  if (typeof Chart === 'undefined') return;
+  const range = getDateRange();
+  const data = await apiFetch('/api/nutrition', { start: range.start, end: range.end });
+  const canvas = document.getElementById('chart-nutrition');
+
+  if (!data || data.length === 0) {
+    if (nutritionChart) { nutritionChart.destroy(); nutritionChart = null; }
+    canvas.parentElement.innerHTML = '<div class="empty-state"><div class="empty-icon">&#127858;</div>No nutrition data for this period</div>';
+    return;
+  }
+
+  const labels = data.map(d => formatDate(d.date));
+  const protein = data.map(d => d.protein_g || 0);
+  const carbs = data.map(d => d.carbs_g || 0);
+  const fat = data.map(d => d.fat_g || 0);
+
+  if (nutritionChart) nutritionChart.destroy();
+  nutritionChart = new Chart(canvas, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Protein', data: protein, backgroundColor: CHART_COLORS.protein, borderRadius: 3 },
+        { label: 'Carbs', data: carbs, backgroundColor: CHART_COLORS.carbs, borderRadius: 3 },
+        { label: 'Fat', data: fat, backgroundColor: CHART_COLORS.fat, borderRadius: 3 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'top', labels: { boxWidth: 12, padding: 16 } } },
+      scales: {
+        x: { stacked: true, grid: { display: false } },
+        y: { stacked: true, title: { display: true, text: 'grams' } }
+      }
+    }
+  });
+}
+
+// ============================================================================
+// Body Metrics Chart
+// ============================================================================
+async function loadMetrics(metric) {
+  if (typeof Chart === 'undefined') return;
+  currentMetric = metric || currentMetric;
+  const data = await apiFetch('/api/metrics', { type: currentMetric, start: daysAgo(30), end: today() });
+  const canvas = document.getElementById('chart-metrics');
+
+  // Update selector buttons
+  document.querySelectorAll('#metric-selector .metric-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.metric === currentMetric);
+  });
+
+  if (!data || data.length === 0) {
+    if (metricsChart) { metricsChart.destroy(); metricsChart = null; }
+    return;
+  }
+
+  const labels = data.map(d => formatDate(d.timestamp?.slice(0, 10) || d.timestamp));
+  const values = data.map(d => d.value);
+  const unit = data[0]?.unit || '';
+
+  if (metricsChart) metricsChart.destroy();
+  metricsChart = new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: `${currentMetric.replace(/_/g, ' ')} (${unit})`,
+        data: values,
+        borderColor: CHART_COLORS.line,
+        backgroundColor: 'rgba(79,195,247,0.08)',
+        fill: true,
+        tension: 0.35,
+        pointRadius: 3,
+        pointHoverRadius: 6,
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false } },
+        y: { title: { display: true, text: unit } }
+      }
+    }
+  });
+}
+
+// ============================================================================
+// Exercise Log
+// ============================================================================
+async function loadExercises() {
+  const range = getDateRange();
+  const data = await apiFetch('/api/exercises', { start: range.start, end: range.end });
+  const wrap = document.getElementById('exercise-table-wrap');
+
+  if (!data || data.length === 0) {
+    wrap.innerHTML = '<div class="empty-state"><div class="empty-icon">&#127939;</div>No workouts logged for this period</div>';
+    return;
+  }
+
+  let html = `<table class="data-table">
+    <thead><tr><th>Date</th><th>Activity</th><th>Duration</th><th>Details</th></tr></thead><tbody>`;
+  data.forEach(e => {
+    const dur = e.duration_minutes ? `${Math.round(e.duration_minutes)} min` : '--';
+    const details = [
+      e.distance_km ? `${e.distance_km} km` : '',
+      e.avg_hr ? `HR ${Math.round(e.avg_hr)}` : '',
+      e.rpe ? `RPE ${e.rpe}` : ''
+    ].filter(Boolean).join(' | ') || (e.notes || '--');
+    html += `<tr>
+      <td>${formatTimestamp(e.timestamp)}</td>
+      <td>${e.activity_type}</td>
+      <td>${dur}</td>
+      <td>${details}</td>
+    </tr>`;
+  });
+  html += '</tbody></table>';
+  wrap.innerHTML = html;
+}
+
+// ============================================================================
+// Supplements
+// ============================================================================
+async function loadSupplements() {
+  const data = await apiFetch('/api/supplements');
+  const wrap = document.getElementById('supplement-table-wrap');
+
+  if (!data || data.length === 0) {
+    wrap.innerHTML = '<div class="empty-state"><div class="empty-icon">&#128138;</div>No supplements tracked yet</div>';
+    return;
+  }
+
+  let html = `<table class="data-table">
+    <thead><tr><th>Supplement</th><th>Dosage</th><th>Frequency</th><th>Timing</th><th>Since</th></tr></thead><tbody>`;
+  data.forEach(s => {
+    html += `<tr>
+      <td>${s.name || s.compound_name}</td>
+      <td>${s.dosage}${s.dosage_unit ? ' ' + s.dosage_unit : ''}</td>
+      <td>${s.frequency}</td>
+      <td>${s.timing || '--'}</td>
+      <td>${s.start_date ? formatDate(s.start_date) : '--'}</td>
+    </tr>`;
+  });
+  html += '</tbody></table>';
+  wrap.innerHTML = html;
+}
+
+// ============================================================================
+// Trials
+// ============================================================================
+async function loadTrials() {
+  const data = await apiFetch('/api/trials');
+  const wrap = document.getElementById('trials-wrap');
+
+  if (!data || data.length === 0) {
+    wrap.innerHTML = '<div class="empty-state"><div class="empty-icon">&#128300;</div>No active trials</div>';
+    return;
+  }
+
+  let html = '';
+  data.forEach(t => {
+    const statusCls = t.status === 'active' ? 'badge-active' :
+                      t.status === 'completed' ? 'badge-completed' : 'badge-proposed';
+    const pct = t.progress_pct != null ? t.progress_pct : 0;
+    html += `<div style="margin-bottom:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+        <strong>${t.name}</strong>
+        <span class="badge ${statusCls}">${t.status}</span>
+      </div>
+      <div style="font-size:13px;color:var(--text-dim);margin-bottom:4px">
+        ${t.hypothesis || ''} ${t.phase ? '| Phase: ' + t.phase : ''}
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+      <div style="font-size:12px;color:var(--text-dim);margin-top:4px;text-align:right">${pct}% complete</div>
+    </div>`;
+  });
+  wrap.innerHTML = html;
+}
+
+// ============================================================================
+// Insights
+// ============================================================================
+async function loadInsights() {
+  const data = await apiFetch('/api/insights', { days: 7 });
+  const wrap = document.getElementById('insights-wrap');
+
+  if (!data || data.length === 0) {
+    wrap.innerHTML = '<div class="empty-state"><div class="empty-icon">&#128161;</div>No insights yet — log more data to unlock patterns</div>';
+    return;
+  }
+
+  let html = '';
+  data.forEach(i => {
+    const typeCls = `insight-${i.type || i.insight_type || 'pattern'}`;
+    const typeLabel = (i.type || i.insight_type || 'insight').toUpperCase();
+    const conf = i.confidence != null ? `${Math.round(i.confidence * 100)}% confidence` :
+                 i.confidence_level ? i.confidence_level : '';
+    html += `<div class="insight-item ${typeCls}">
+      <div class="insight-type">${typeLabel}</div>
+      <div class="insight-text">${i.description}</div>
+      <div class="insight-meta">${formatTimestamp(i.timestamp)} ${conf ? '| ' + conf : ''}</div>
+    </div>`;
+  });
+  wrap.innerHTML = html;
+}
+
+// ============================================================================
+// Biomarkers
+// ============================================================================
+const COMMON_BIOMARKERS = ['HbA1c', 'LDL', 'HDL', 'CRP', 'Glucose', 'Triglycerides', 'TSH', 'Vitamin D'];
+
+async function initBiomarkerSelector() {
+  const wrap = document.getElementById('biomarker-selector');
+  COMMON_BIOMARKERS.forEach((name, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'metric-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = name;
+    btn.dataset.marker = name;
+    btn.addEventListener('click', () => loadBiomarker(name));
+    wrap.appendChild(btn);
+  });
+  currentBiomarker = COMMON_BIOMARKERS[0];
+}
+
+async function loadBiomarker(marker) {
+  if (typeof Chart === 'undefined') return;
+  currentBiomarker = marker || currentBiomarker;
+  const data = await apiFetch('/api/biomarkers', { marker: currentBiomarker, start: daysAgo(365), end: today() });
+  const canvas = document.getElementById('chart-biomarkers');
+  const emptyEl = document.getElementById('biomarker-empty');
+
+  document.querySelectorAll('#biomarker-selector .metric-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.marker === currentBiomarker);
+  });
+
+  if (!data || data.length === 0) {
+    if (biomarkerChart) { biomarkerChart.destroy(); biomarkerChart = null; }
+    canvas.style.display = 'none';
+    emptyEl.style.display = 'block';
+    return;
+  }
+
+  canvas.style.display = 'block';
+  emptyEl.style.display = 'none';
+
+  const labels = data.map(d => formatDate(d.timestamp?.slice(0, 10) || d.timestamp));
+  const values = data.map(d => d.value);
+  const unit = data[0]?.unit || '';
+  const refLow = data[0]?.ref_low ?? data[0]?.reference_low;
+  const refHigh = data[0]?.ref_high ?? data[0]?.reference_high;
+
+  const datasets = [{
+    label: `${currentBiomarker} (${unit})`,
+    data: values,
+    borderColor: CHART_COLORS.lineSecondary,
+    backgroundColor: 'rgba(124,77,255,0.1)',
+    fill: false,
+    tension: 0.3,
+    pointRadius: 5,
+    pointHoverRadius: 8,
+    borderWidth: 2.5
+  }];
+
+  // Add reference range as a shaded band
+  if (refLow != null && refHigh != null) {
+    datasets.push({
+      label: 'Reference Range',
+      data: values.map(() => refHigh),
+      borderColor: 'transparent',
+      backgroundColor: CHART_COLORS.refRange,
+      fill: { target: '+1', above: CHART_COLORS.refRange },
+      pointRadius: 0,
+      borderWidth: 0
+    });
+    datasets.push({
+      label: '_ref_low',
+      data: values.map(() => refLow),
+      borderColor: 'rgba(83,215,105,0.2)',
+      borderDash: [4, 4],
+      backgroundColor: 'transparent',
+      fill: false,
+      pointRadius: 0,
+      borderWidth: 1
+    });
+    datasets.push({
+      label: '_ref_high',
+      data: values.map(() => refHigh),
+      borderColor: 'rgba(83,215,105,0.2)',
+      borderDash: [4, 4],
+      backgroundColor: 'transparent',
+      fill: false,
+      pointRadius: 0,
+      borderWidth: 1
+    });
+  }
+
+  if (biomarkerChart) biomarkerChart.destroy();
+  biomarkerChart = new Chart(canvas, {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          labels: { filter: item => !item.text.startsWith('_') }
+        }
+      },
+      scales: {
+        x: { grid: { display: false } },
+        y: { title: { display: true, text: unit } }
+      }
+    }
+  });
+}
+
+// ============================================================================
+// Metric selector event delegation
+// ============================================================================
+document.getElementById('metric-selector').addEventListener('click', e => {
+  if (e.target.classList.contains('metric-btn')) {
+    loadMetrics(e.target.dataset.metric);
+  }
+});
+
+// ============================================================================
+// Refresh all
+// ============================================================================
+async function refreshAll() {
+  await Promise.all([
+    loadDailySummary(),
+    loadNutrition(),
+    loadMetrics(),
+    loadExercises(),
+    loadSupplements(),
+    loadTrials(),
+    loadInsights(),
+    loadBiomarker()
+  ]);
+  document.getElementById('refresh-status').textContent =
+    'Last updated: ' + new Date().toLocaleTimeString();
+}
+
+// ============================================================================
+// Init
+// ============================================================================
+document.addEventListener('DOMContentLoaded', () => {
+  chartDefaults();
+  initDateRange();
+  initBiomarkerSelector();
+  refreshAll();
+
+  // Auto-refresh every 60 seconds
+  autoRefreshTimer = setInterval(refreshAll, REFRESH_INTERVAL_MS);
+});
+</script>
+</body>
+</html>

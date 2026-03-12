@@ -1,0 +1,28 @@
+# Database
+data/taiyiyuan.db
+data/taiyiyuan.db-wal
+data/taiyiyuan.db-shm
+data/backups/
+data/exports/
+
+# Photos (potentially large, personal)
+photos/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Environment / secrets
+.env
+*.key
